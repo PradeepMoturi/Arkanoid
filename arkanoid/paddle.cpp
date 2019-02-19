@@ -13,10 +13,12 @@ Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
 
     setRect(0,0,paddle_width,paddle_height);
     QBrush brush;
-
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::blue);
     setBrush(brush);
+    setPos(game->width()/2-this->width()/2,game->height()-30);
+    setFlag(QGraphicsItem::ItemIsFocusable);
+    setFocus();
 };
 
 void Paddle::keyPressEvent(QKeyEvent *event)

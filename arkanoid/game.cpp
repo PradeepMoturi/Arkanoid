@@ -5,32 +5,31 @@
 #include <QThread>
 #include <QObject>
 #include <QDebug>
+#include <QTimer>
 
 Game::Game(QWidget *parent):QGraphicsView (parent)
 {
-    scene=new QGraphicsScene(0,0,800,800);
+    scene=new QGraphicsScene(0,0,700,700);
     setScene(scene);
+    setFixedSize(700, 700);
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 };
 
 void Game::start()
 {   
     Paddle *paddle = new Paddle();
-    paddle->setPos(this->width()/2-paddle->width()/2,this->height()-30);
     scene->addItem(paddle);
 
-    paddle->setFlag(QGraphicsItem::ItemIsFocusable);
-    paddle->setFocus();
-
-    QThread *thread=new QThread();
     Ball *ball=new Ball();
-    ball->setPos(this->width()/2-ball->radius()/2,this->height()-30-ball->radius());
     scene->addItem(ball);
-    ball->moveToThread(thread);
-    connect(thread,SIGNAL(started()),ball,SLOT(move()));
-    thread->start();
 
-    for(int i=0;i<1000;i++)
-    {
-        qDebug()<<"main "<<i<<"\n";
-    }
+    QThread *thread=new QThread;
+    QTimer *timer=new QTimer(0);
+    timer->setInterval(5);
+    timer->moveToThread(thread);
+    connect(timer,SIGNAL(timeout()),ball,SLOT(move()));
+    connect(thread,SIGNAL(started()),timer,SLOT(start()));
+    thread->start();
+    connect(ball,SIGNAL(endgame()),timer,SLOT(stop()));
 }

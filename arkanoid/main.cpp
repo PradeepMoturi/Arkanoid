@@ -2,6 +2,7 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include "game.h"
+#include "ball.h"
 
 Game *game;
 
