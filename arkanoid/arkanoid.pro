@@ -25,10 +25,17 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+    ball.cpp \
+    game.cpp \
+    paddle.cpp \
+    ballworker.cpp
 
 HEADERS += \
-    myrect.h
+    ball.h \
+    game.h \
+    paddle.h \
+    ballworker.h
 
 FORMS += \
         mainwindow.ui
