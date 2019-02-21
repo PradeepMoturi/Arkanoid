@@ -3,8 +3,10 @@
 #include <QGraphicsScene>
 #include "game.h"
 #include "ball.h"
+#include "paddle.h"
 
 Game *game;
+Paddle *paddle;
 
 int main(int argc, char *argv[])
 {

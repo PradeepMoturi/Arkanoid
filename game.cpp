@@ -1,11 +1,13 @@
 #include "game.h"
 #include "ball.h"
 #include "paddle.h"
-#include "ballworker.h"
 #include <QThread>
 #include <QObject>
 #include <QDebug>
 #include <QTimer>
+#include <QApplication>
+
+extern Paddle* paddle;
 
 Game::Game(QWidget *parent):QGraphicsView (parent)
 {
@@ -18,14 +20,15 @@ Game::Game(QWidget *parent):QGraphicsView (parent)
 
 void Game::start()
 {   
-    Paddle *paddle = new Paddle();
+    paddle = new Paddle();
     scene->addItem(paddle);
+    QApplication::setKeyboardInputInterval(5);
 
     Ball *ball=new Ball();
     scene->addItem(ball);
 
     QThread *thread=new QThread;
-    QTimer *timer=new QTimer(0);
+    QTimer *timer=new QTimer(nullptr);
     timer->setInterval(5);
     timer->moveToThread(thread);
     connect(timer,SIGNAL(timeout()),ball,SLOT(move()));
