@@ -25,12 +25,12 @@ void Paddle::keyPressEvent(QKeyEvent *event)
 {
     if(event->key()==Qt::Key_Left)
     {
-        this->move_paddle(-30);
+        this->move_paddle(-20);
     }
 
     else if(event->key()==Qt::Key_Right)
     {
-        this->move_paddle(30);
+        this->move_paddle(20);
     }
 
     else if(event->key()==Qt::Key_Q)

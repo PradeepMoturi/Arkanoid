@@ -13,11 +13,12 @@ public:
     Ball(QGraphicsItem *parent=NULL);
     double radius();
     void play();
+    int wall_collision();
+    int paddle_collision();
 signals:
     void endgame();
 public slots:
     void move();
-    void wall_collision();
 private:
     double ball_radius;
     double x_velocity;
