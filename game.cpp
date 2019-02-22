@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QTimer>
 #include <QApplication>
+#include "backgroundmusic.h"
 
 extern Paddle* paddle;
 
@@ -16,10 +17,12 @@ Game::Game(QWidget *parent):QGraphicsView (parent)
     setFixedSize(700, 700);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    music = new BackgroundMusic();
 };
 
 void Game::start()
 {   
+    music->start();
     paddle = new Paddle();
     scene->addItem(paddle);
     QApplication::setKeyboardInputInterval(5);
@@ -35,4 +38,9 @@ void Game::start()
     connect(thread,SIGNAL(started()),timer,SLOT(start()));
     thread->start();
     connect(ball,SIGNAL(endgame()),timer,SLOT(stop()));
+}
+Game::~Game()
+{
+    music->exit();
+    delete music;
 }
