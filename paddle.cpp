@@ -3,11 +3,12 @@
 #include <QBrush>
 #include <QDebug>
 #include <QKeyEvent>
-
+#include <iostream>
 extern Game* game;
 
 Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
 {
+    std::cout<<"Working";
     paddle_width=100;
     paddle_height=20;
 
@@ -19,24 +20,27 @@ Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
     setPos(game->width()/2-this->width()/2,game->height()-30);
     setFlag(QGraphicsItem::ItemIsFocusable);
     setFocus();
+    startTimer(1000/60);
 };
 
 void Paddle::keyPressEvent(QKeyEvent *event)
 {
-    if(event->key()==Qt::Key_Left)
+    keys[event->key()] = true;
+}
+void Paddle::keyReleaseEvent(QKeyEvent *event)
+{
+    keys[event->key()] =false;
+}
+void Paddle::timerEvent(QTimerEvent *)
+{
+    if(keys[Qt::Key_Left]==true)
     {
-        this->move_paddle(-20);
+          move_paddle(-5);
     }
 
-    else if(event->key()==Qt::Key_Right)
+    if(keys[Qt::Key_Right]==true)
     {
-        this->move_paddle(20);
-    }
-
-    else if(event->key()==Qt::Key_Q)
-    {
-        qDebug()<<"Quit key was pressed";
-        emit stop_game();
+          move_paddle(5);
     }
 }
 
