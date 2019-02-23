@@ -5,10 +5,10 @@
 #include "ball.h"
 #include "paddle.h"
 #include "start_menu.h"
-
+#include "start_menu.h"
 Game *game;
 Paddle *paddle;
-startMenu *smenu;
+start_menu *smenu;
 
 int main(int argc, char *argv[])
 {
@@ -18,9 +18,7 @@ int main(int argc, char *argv[])
 
     //start menu will be started here
 
-    smenu=new startMenu();
-
-    smenu->configure();
+    smenu=new start_menu();
 
     smenu->show();
 

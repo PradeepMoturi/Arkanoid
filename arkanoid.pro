@@ -38,7 +38,7 @@ HEADERS += \
     start_menu.h
 
 FORMS += \
-        mainwindow.ui
+    start_menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

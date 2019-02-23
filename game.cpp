@@ -2,6 +2,7 @@
 #include "ball.h"
 #include "paddle.h"
 #include "start_menu.h"
+#include "start_menu.h"
 #include <QThread>
 #include <QObject>
 #include <QDebug>
@@ -9,7 +10,7 @@
 #include <QApplication>
 
 extern Paddle* paddle;
-extern startMenu *smenu;
+extern start_menu *smenu;
 
 Game::Game(QWidget *parent):QGraphicsView (parent)
 {
@@ -21,7 +22,7 @@ Game::Game(QWidget *parent):QGraphicsView (parent)
 };
 
 void Game::start()
-{   
+{
     //deleting the previous menu derived from the QGraphicsScene
 
     //menu depending . can be start or end menu ??
@@ -40,6 +41,7 @@ void Game::start()
 
     show();
 
+    smenu=new start_menu();
     QThread *thread=new QThread;
     QTimer *timer=new QTimer(nullptr);
     timer->setInterval(5);
@@ -48,5 +50,7 @@ void Game::start()
     connect(thread,SIGNAL(started()),timer,SLOT(start()));
     thread->start();
     connect(ball,SIGNAL(endgame()),timer,SLOT(stop()));
-    connect(ball,SIGNAL(endgame()),qApp,SLOT(quit()));
+    connect(ball,SIGNAL(endgame()),smenu,SLOT(show()));
+    connect(ball,SIGNAL(endgame()),this,SLOT(hide()));
+    connect(ball,SIGNAL(endgame()),scene,SLOT(clear()));
 }

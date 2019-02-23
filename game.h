@@ -8,6 +8,7 @@ Q_OBJECT
 public:
     Game(QWidget *parent=nullptr);
     QGraphicsScene *scene;
+    //void keyPressEvent(QKeyEvent *event);
 public slots:
     void start();
 };
