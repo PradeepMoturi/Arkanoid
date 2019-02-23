@@ -10,7 +10,7 @@
 class Ball:public QObject,public QGraphicsEllipseItem{
 Q_OBJECT
 public:
-    Ball(QGraphicsItem *parent=NULL);
+    Ball(QGraphicsItem *parent=nullptr);
     double radius();
     void play();
     int wall_collision();

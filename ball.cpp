@@ -38,7 +38,6 @@ void Ball::move()
 int Ball::wall_collision()
 {
     double screenW = game->width();
-    double screenH = game->height();
 
     // left edge
     if (mapToScene(rect().topLeft()).x() <= 0){

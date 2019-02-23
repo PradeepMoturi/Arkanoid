@@ -4,9 +4,11 @@
 #include <QGraphicsView>
 
 class Game:public QGraphicsView{
+Q_OBJECT
 public:
-    Game(QWidget *parent=NULL);
+    Game(QWidget *parent=nullptr);
     QGraphicsScene *scene;
+public slots:
     void start();
 };
 
