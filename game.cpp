@@ -26,6 +26,8 @@ void Game::start()
 
     Ball *ball=new Ball();
     scene->addItem(ball);
+    QObject::connect(ball,SIGNAL(reachedBottom(qreal,qreal, double)),paddle,SLOT(CollisionChecker(qreal,qreal,double)));
+    QObject::connect(paddle,SIGNAL(ballCollision(int,bool, bool)),ball,SLOT(PaddleCollisionDetected(int, bool, bool)));
 
     QThread *thread=new QThread;
     QTimer *timer=new QTimer(nullptr);

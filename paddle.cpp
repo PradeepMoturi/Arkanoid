@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QKeyEvent>
 #include <iostream>
+#include <QtGlobal>
 extern Game* game;
 
 Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
@@ -11,7 +12,7 @@ Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
     std::cout<<"Working";
     paddle_width=100;
     paddle_height=20;
-
+    //this->width() = 20;
     setRect(0,0,paddle_width,paddle_height);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
@@ -60,13 +61,48 @@ void Paddle::move_paddle(double dis)
 
     this->setPos(slide,y());
 }
+void Paddle::CollisionChecker(qreal x, qreal y, double radius)
+{
+    QGraphicsEllipseItem* copy = new QGraphicsEllipseItem();
+    copy->setRect(0,0,radius,radius);
+    copy->setPos(x,y);
 
-double Paddle::width()
+    QGraphicsRectItem* right = new QGraphicsRectItem();
+    right->setRect(0,0,1,this->height());
+    right->setPos(this->x()+this->width(),this->y());
+
+    QGraphicsRectItem* left = new QGraphicsRectItem();
+    left->setRect(0,0,1,this->height());
+    left->setPos(this->x(),this->y());
+
+
+    qDebug()<<this->x()+this->width()<<" "<<this->y()+this->height()<<" "<<this->x()+this->width()<<" "<<this->y();
+
+    bool chk = copy->collidesWithItem(this);
+    bool right_collision = right->collidesWithItem(this);
+    bool left_collision = left->collidesWithItem(this);
+    if(chk==true)
+    {
+        if(keys[Qt::Key_Left]==true)
+        {
+            emit ballCollision(-1,left_collision,right_collision);
+        }
+        else if(keys[Qt::Key_Right]==true)
+        {
+            emit ballCollision(1,left_collision,right_collision);
+        }
+        else
+        {
+            emit ballCollision(0,left_collision,right_collision);
+        }
+    }
+}
+qreal Paddle::width()
 {
     return paddle_width;
 }
 
-double Paddle::height()
+qreal Paddle::height()
 {
     return paddle_height;
 }

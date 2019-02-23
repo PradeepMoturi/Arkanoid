@@ -15,8 +15,11 @@ public:
     double height();
     double width();
     void timerEvent(QTimerEvent *);
+public slots:
+    void CollisionChecker(qreal x,qreal y, double radius);
 signals:
     void stop_game();
+    void ballCollision(int direction,bool left, bool right);
 private:
     double paddle_height;
     double paddle_width;
