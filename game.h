@@ -13,5 +13,4 @@ private:
     BackgroundMusic* music;
 };
 
-
 #endif // GAME_H

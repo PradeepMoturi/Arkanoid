@@ -1,6 +1,7 @@
 #include "game.h"
 #include "ball.h"
 #include "paddle.h"
+#include "brick.h"
 #include <QThread>
 #include <QObject>
 #include <QDebug>
@@ -29,6 +30,28 @@ void Game::start()
 
     Ball *ball=new Ball();
     scene->addItem(ball);
+
+//    Brick *brick=new Brick();
+//    scene->addItem(brick);
+
+    //create a grid of blocks of size m*n
+       //brick->setPos(100,100);
+    double sx=100;
+    double sy=100;
+    for(int i=0;i<10;i++)
+    {
+        for(int j=0;j<6;j++)
+        {
+            Brick *brick=new Brick();
+            brick->setPos(sx,sy);
+            scene->addItem(brick);
+            sx+=80;
+        }
+        sy+=20;
+        sx=100;
+    }
+
+    //Add the grid QObject to the scene
 
     QThread *thread=new QThread;
     QTimer *timer=new QTimer(nullptr);
