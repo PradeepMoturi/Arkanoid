@@ -15,6 +15,7 @@ public:
     void play();
     int wall_collision();
     int paddle_collision();
+    void brick_collision();
 signals:
     void endgame();
 public slots:

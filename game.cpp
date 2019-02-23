@@ -31,12 +31,27 @@ void Game::start()
     Ball *ball=new Ball();
     scene->addItem(ball);
 
-//    Brick *brick=new Brick();
-//    scene->addItem(brick);
-
     //create a grid of blocks of size m*n
-       //brick->setPos(100,100);
-    double sx=100;
+
+    createGrid();
+
+    //list of colliding items
+
+    //what should you do next?
+
+    QThread *thread=new QThread;
+    QTimer *timer=new QTimer(nullptr);
+    timer->setInterval(5);
+    timer->moveToThread(thread);
+    connect(timer,SIGNAL(timeout()),ball,SLOT(move()));
+    connect(thread,SIGNAL(started()),timer,SLOT(start()));
+    thread->start();
+    connect(ball,SIGNAL(endgame()),timer,SLOT(stop()));
+}
+
+void Game::createGrid()
+{
+    double sx=110;
     double sy=100;
     for(int i=0;i<10;i++)
     {
@@ -48,20 +63,10 @@ void Game::start()
             sx+=80;
         }
         sy+=20;
-        sx=100;
+        sx=110;
     }
-
-    //Add the grid QObject to the scene
-
-    QThread *thread=new QThread;
-    QTimer *timer=new QTimer(nullptr);
-    timer->setInterval(5);
-    timer->moveToThread(thread);
-    connect(timer,SIGNAL(timeout()),ball,SLOT(move()));
-    connect(thread,SIGNAL(started()),timer,SLOT(start()));
-    thread->start();
-    connect(ball,SIGNAL(endgame()),timer,SLOT(stop()));
 }
+
 Game::~Game()
 {
     music->exit();

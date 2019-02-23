@@ -9,6 +9,7 @@ public:
     ~Game();
     QGraphicsScene *scene;
     void start();
+    void createGrid();
 private:
     BackgroundMusic* music;
 };

@@ -1,6 +1,7 @@
 #include "ball.h"
 #include "game.h"
 #include "paddle.h"
+#include "brick.h"
 #include <QBrush>
 #include <QDebug>
 #include <QKeyEvent>
@@ -30,6 +31,7 @@ void Ball::move()
 {
      if(wall_collision()==1) //object is not deleted
      {
+        brick_collision();
         paddle_collision();
         setPos(x()+this->x_velocity,y()+this->y_velocity);
      }
@@ -97,4 +99,48 @@ int Ball::paddle_collision()
     }
 
     return 1;
+}
+
+
+void Ball::brick_collision()
+{
+    QList<QGraphicsItem*> cItems = collidingItems();
+
+    for (int i = 0, n = cItems.size(); i < n; ++i){
+            Brick* brick = dynamic_cast<Brick*>(cItems[i]);
+            // collides with brick
+            if (brick){
+                double yPad = 15;
+                double xPad = 15;
+                double ballx = pos().x();
+                double bally = pos().y();
+                double brickx = brick->pos().x();
+                double bricky = brick->pos().y();
+
+                // collides from bottom
+                if (bally > bricky + yPad && y_velocity < 0){
+                    y_velocity = -1 * y_velocity;
+                }
+
+                // collides from top
+                if (bricky > bally + yPad && y_velocity > 0 ){
+                    y_velocity = -1 * y_velocity;
+                }
+
+                // collides from right
+                if (ballx > brickx + xPad && x_velocity < 0){
+                    x_velocity = -1 * x_velocity;
+                }
+
+                // collides from left
+                if (brickx > ballx + xPad && x_velocity > 0){
+                    x_velocity = -1 * x_velocity;
+                }
+
+                // delete brick(s)
+                game->scene->removeItem(brick);
+                delete brick;
+            }
+        }
+
 }
