@@ -16,10 +16,14 @@ public:
     int wall_collision();
     int paddle_collision();
     void brick_collision();
+    double getCenterX();
 signals:
     void endgame();
+    //void reachedBottom(Ball b);
 public slots:
     void move();
+    void PaddleCollisionDetected(double paddle_x,bool corners);
+
 private:
     double ball_radius;
     double x_velocity;
