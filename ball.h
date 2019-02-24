@@ -15,13 +15,13 @@ public:
     void play();
     int wall_collision();
     int paddle_collision();
+    double getCenterX();
 signals:
     void endgame();
-    void reachedBottom(qreal x,qreal y, double radius);
     //void reachedBottom(Ball b);
 public slots:
     void move();
-    void PaddleCollisionDetected(int direction,bool left, bool right);
+    void PaddleCollisionDetected(double paddle_x,bool corners);
 
 private:
     double ball_radius;
