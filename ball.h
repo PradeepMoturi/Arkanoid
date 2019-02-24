@@ -19,10 +19,9 @@ public:
     double getCenterX();
 signals:
     void endgame();
-    //void reachedBottom(Ball b);
 public slots:
     void move();
-    void PaddleCollisionDetected(double paddle_x,bool corners);
+    void PaddleCollisionDetected(bool left_corner,bool right_corner);
 
 private:
     double ball_radius;

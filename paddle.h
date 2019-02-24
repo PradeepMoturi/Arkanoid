@@ -22,8 +22,9 @@ public:
     void CollisionChecker();//(qreal x,qreal y, double radius);
 signals:
     void stop_game();
-    void ballCollision(double position,bool corners);
+    void ballCollision(bool left_corner,bool right_corner);
 private:
+    int cnt = 0;
     bool foo = true;
     double paddle_height;
     double paddle_width;

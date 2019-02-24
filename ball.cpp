@@ -8,9 +8,8 @@
 #include <QTimer>
 #include <QMutexLocker>
 #include <QMutex>
-
+#include <QtMath>
 extern Game* game;
-extern Paddle* paddle;
 
 Ball::Ball(QGraphicsItem *parent):QGraphicsEllipseItem(parent){
     ball_radius=20;
@@ -38,29 +37,27 @@ void Ball::move()
         setPos(x()+this->x_velocity,y()+this->y_velocity);
      }
 }
-void Ball::PaddleCollisionDetected(double paddle_x,bool corners)
+void Ball::PaddleCollisionDetected(bool left_corner,bool right_corner)
 {
-       if(corners == true)
+       if(left_corner == false&&right_corner==false)
        {
-            this->x_velocity = -this->x_velocity;
+
+           this->y_velocity = -abs(this->y_velocity);
+       }
+       else if(left_corner==true)
+       {
+           this->x_velocity = -abs(this->x_velocity);
        }
        else
        {
-           this->y_velocity = -this->y_velocity;
 
-           //double ballx = getCenterX();
-           //double diff = ballx-paddle_x;
-
-           //this->x_velocity = ;
-
+           this->x_velocity = abs(this->x_velocity);
        }
-       qDebug()<<"Yes";
 
 }
 int Ball::wall_collision()
 {
     double screenW = game->width();
-    //double screenH = game->height();
 
     // left edge
     if (mapToScene(rect().topLeft()).x() <= 0){
@@ -88,44 +85,6 @@ int Ball::wall_collision()
 
     return 1;
 }
-
-//int Ball::paddle_collision()
-//{
-//    //if(mapToScene(rect().bottomRight()).x())
-//    //qDebug()<<mapToScene(rect().bottomRight()).y()<<" " <<game->height()-50;
-//    if(mapToScene(rect().bottomRight()).y() >= game->height()-30)
-//    {
-//        emit reachedBottom(mapToScene(rect().center()).x(),mapToScene(rect().center()).y(),radius());
-//    }
-//        //handle side paddle collisions
-
-////    if(mapToScene(rect().bottomRight()).x()>=paddle->x() && mapToScene(rect().bottomRight()).x()<paddle->x()+0.0001 && mapToScene(rect().bottomRight()).y()>paddle->y())
-////    {
-////        x_velocity=-(x_velocity);
-////        return 0;
-////    }
-
-////    else if(mapToScene(rect().bottomLeft()).x()<=paddle->x()+paddle->width() && mapToScene(rect().bottomLeft()).x()>paddle->x()+paddle->width()-0.0001 && mapToScene(rect().bottomLeft()).y()>paddle->y())
-////    {
-////        x_velocity=-(x_velocity);
-////        return 0;
-////    }
-
-////    //handle upper paddle side collsions
-
-////    else if(mapToScene(rect().bottomRight()).x()>paddle->x() && mapToScene(rect().bottomLeft()).x()<paddle->x()+paddle->width())
-////    {
-////        if (mapToScene(rect().bottomLeft()).y()>paddle->y()){
-////            y_velocity=-(y_velocity);
-//////            double ballX = mapToScene(rect().bottomRight()).x()+this->radius();
-//////            double paddleX = paddle->x()+paddle->width()/2;
-//////            double dvx = ballX - paddleX;
-////            return 0;
-////        }
-////    }
-
-//    return 1;
-//}
 
 double Ball::getCenterX(){
     return x() + rect().width()/2;
