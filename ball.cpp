@@ -138,8 +138,17 @@ void Ball::brick_collision()
                 }
 
                 // delete brick(s)
-                game->scene->removeItem(brick);
-                delete brick;
+                brick->hits=(brick->hits)-1;
+                if(brick->hits==1)
+                {
+                    brick->update();
+                }
+
+                if(brick->hits==0)
+                {
+                    game->scene->removeItem(brick);
+                    delete brick;
+                }
             }
         }
 

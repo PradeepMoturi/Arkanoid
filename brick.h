@@ -6,13 +6,15 @@
 #include <QPaintEvent>
 #include <QWidget>
 #include <QStyleOptionGraphicsItem>
+#include <QPainter>
 
 class Brick:public QGraphicsItem
 {
 public:
-    Brick(QGraphicsItem *parent=nullptr);
+    Brick(int cnt,QGraphicsItem *parent=nullptr);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    int hits;
 };
 
 #endif // GRID_H

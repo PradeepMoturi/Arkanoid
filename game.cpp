@@ -53,11 +53,16 @@ void Game::createGrid()
 {
     double sx=110;
     double sy=100;
-    for(int i=0;i<10;i++)
+    for(int i=0;i<8;i++)
     {
+        int hits=1;
+
         for(int j=0;j<6;j++)
         {
-            Brick *brick=new Brick();
+            if(i==0||i==7||j==0||j==5) hits=2;
+            else hits=1;
+
+            Brick *brick=new Brick(hits);
             brick->setPos(sx,sy);
             scene->addItem(brick);
             sx+=80;
