@@ -1,10 +1,13 @@
 #include "ball.h"
 #include "game.h"
 #include "paddle.h"
+#include "brick.h"
 #include <QBrush>
 #include <QDebug>
 #include <QKeyEvent>
 #include <QTimer>
+#include <QMutexLocker>
+#include <QMutex>
 
 extern Game* game;
 extern Paddle* paddle;
@@ -30,7 +33,8 @@ void Ball::move()
 {
      if(wall_collision()==1) //object is not deleted
      {
-        //paddle_collision();
+
+        brick_collision();
         setPos(x()+this->x_velocity,y()+this->y_velocity);
      }
 }
@@ -127,3 +131,54 @@ double Ball::getCenterX(){
     return x() + rect().width()/2;
 }
 
+void Ball::brick_collision()
+{
+    QMutex mutex;
+    QMutexLocker locker(&mutex);
+
+    QList<QGraphicsItem*> cItems = collidingItems();
+
+    for (int i = 0, n = cItems.size(); i < n; ++i){
+            Brick* brick = dynamic_cast<Brick*>(cItems[i]);
+            // collides with brick
+            if (brick){
+                double ballx = pos().x();
+                double bally = pos().y();
+                double brickx = brick->pos().x();
+                double bricky = brick->pos().y();
+
+                // collides from bottom
+                if (bally >= bricky + brick->getHeight() && y_velocity < 0){
+                    y_velocity = -1 * y_velocity;
+                }
+
+                // collides from top
+                if (bricky >= bally + rect().height() && y_velocity > 0 ){
+                    y_velocity = -1 * y_velocity;
+                }
+
+                // collides from right
+                if (ballx >= brickx + brick->getWidth() && x_velocity < 0){
+                    x_velocity = -1 * x_velocity;
+                }
+
+                // collides from left
+                if (brickx >= ballx + rect().width()  && x_velocity > 0){
+                    x_velocity = -1 * x_velocity;
+                }
+
+                brick->setHits(brick->getHits()-1);
+
+                if(brick->getHits()==1)
+                {
+                    brick->update();
+                }
+
+                else {
+                    game->scene->removeItem(brick);
+                    delete brick;
+                }
+            }
+        }
+
+}

@@ -30,13 +30,15 @@ SOURCES += \
     ball.cpp \
     game.cpp \
     paddle.cpp \
-    backgroundmusic.cpp
+    backgroundmusic.cpp \
+    brick.cpp
 
 HEADERS += \
     ball.h \
     game.h \
     paddle.h \
-    backgroundmusic.h
+    backgroundmusic.h \
+    brick.h
 
 FORMS += \
         mainwindow.ui
