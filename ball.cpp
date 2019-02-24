@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QKeyEvent>
 #include <QTimer>
+#include <QMutexLocker>
+#include <QMutex>
 
 extern Game* game;
 extern Paddle* paddle;
@@ -104,48 +106,48 @@ int Ball::paddle_collision()
 
 void Ball::brick_collision()
 {
+    QMutex mutex;
+    QMutexLocker locker(&mutex);
+
     QList<QGraphicsItem*> cItems = collidingItems();
 
     for (int i = 0, n = cItems.size(); i < n; ++i){
             Brick* brick = dynamic_cast<Brick*>(cItems[i]);
             // collides with brick
             if (brick){
-                double yPad = 15;
-                double xPad = 15;
                 double ballx = pos().x();
                 double bally = pos().y();
                 double brickx = brick->pos().x();
                 double bricky = brick->pos().y();
 
                 // collides from bottom
-                if (bally > bricky + yPad && y_velocity < 0){
+                if (bally >= bricky + brick->getHeight() && y_velocity < 0){
                     y_velocity = -1 * y_velocity;
                 }
 
                 // collides from top
-                if (bricky > bally + yPad && y_velocity > 0 ){
+                if (bricky >= bally + rect().height() && y_velocity > 0 ){
                     y_velocity = -1 * y_velocity;
                 }
 
                 // collides from right
-                if (ballx > brickx + xPad && x_velocity < 0){
+                if (ballx >= brickx + brick->getWidth() && x_velocity < 0){
                     x_velocity = -1 * x_velocity;
                 }
 
                 // collides from left
-                if (brickx > ballx + xPad && x_velocity > 0){
+                if (brickx >= ballx + rect().width()  && x_velocity > 0){
                     x_velocity = -1 * x_velocity;
                 }
 
-                // delete brick(s)
-                brick->hits=(brick->hits)-1;
-                if(brick->hits==1)
+                brick->setHits(brick->getHits()-1);
+
+                if(brick->getHits()==1)
                 {
                     brick->update();
                 }
 
-                if(brick->hits==0)
-                {
+                else {
                     game->scene->removeItem(brick);
                     delete brick;
                 }

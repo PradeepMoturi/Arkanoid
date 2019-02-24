@@ -5,6 +5,8 @@
 Brick::Brick(int cnt,QGraphicsItem* parent):QGraphicsItem(parent)
 {
     hits=cnt;
+    width=80;
+    height=20;
 }
 
 void Brick::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -17,5 +19,12 @@ void Brick::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWi
 
 QRectF Brick::boundingRect() const
 {
-    return QRectF(0,0,80,20);
+    return QRectF(0,0,width,height);
 }
+
+int Brick::getHits(){return hits;}
+int Brick::getHeight(){return height;}
+int Brick::getWidth(){return width;}
+void Brick::setHits(int temp){this->hits=temp;}
+void Brick::setHeight(int temp){this->height=temp;}
+void Brick::setWidth(int temp){this->width=temp;}

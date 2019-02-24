@@ -33,11 +33,7 @@ void Game::start()
 
     //create a grid of blocks of size m*n
 
-    createGrid();
-
-    //list of colliding items
-
-    //what should you do next?
+    createGrid(9,6);
 
     QThread *thread=new QThread;
     QTimer *timer=new QTimer(nullptr);
@@ -49,26 +45,34 @@ void Game::start()
     connect(ball,SIGNAL(endgame()),timer,SLOT(stop()));
 }
 
-void Game::createGrid()
+void Game::createGrid(int rows, int columns)
 {
-    double sx=110;
-    double sy=100;
-    for(int i=0;i<8;i++)
+   //create grid of size m and n
+    double start_x=110;
+    double start_y=150;
+    double temp_x;
+    double temp_y;
+    double bheight=20;
+    double bwidth=80;
+
+    for(int i=0;i<rows;i++)
     {
         int hits=1;
+        temp_x=start_x;
+        temp_y=start_y;
 
-        for(int j=0;j<6;j++)
+        for(int j=0;j<columns;j++)
         {
-            if(i==0||i==7||j==0||j==5) hits=2;
+            if(i==0||i==(rows-1)||j==0||j==(columns-1)) hits=2;
             else hits=1;
 
             Brick *brick=new Brick(hits);
-            brick->setPos(sx,sy);
+            brick->setPos(temp_x,temp_y);
             scene->addItem(brick);
-            sx+=80;
+            temp_x+=bwidth;
         }
-        sy+=20;
-        sx=110;
+
+        start_y+=bheight;
     }
 }
 

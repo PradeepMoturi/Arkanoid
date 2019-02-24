@@ -9,7 +9,7 @@ public:
     ~Game();
     QGraphicsScene *scene;
     void start();
-    void createGrid();
+    void createGrid(int rows,int columns);
 private:
     BackgroundMusic* music;
 };

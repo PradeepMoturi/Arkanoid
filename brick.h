@@ -14,7 +14,16 @@ public:
     Brick(int cnt,QGraphicsItem *parent=nullptr);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
+    int getHits();
+    int getHeight();
+    int getWidth();
+    void setHits(int x);
+    void setHeight(int x);
+    void setWidth(int x);
+private:
     int hits;
+    int height;
+    int width;
 };
 
 #endif // GRID_H
