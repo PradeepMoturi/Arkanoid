@@ -6,6 +6,8 @@
 #include <QDebug>
 #include <QTimer>
 #include <QApplication>
+
+#include <QGraphicsRectItem>
 #include "backgroundmusic.h"
 
 extern Paddle* paddle;
@@ -29,11 +31,13 @@ void Game::start()
 
     Ball *ball=new Ball();
     scene->addItem(ball);
+    //QObject::connect(ball,SIGNAL(reachedBottom(qreal,qreal, double)),paddle,SLOT(CollisionChecker()));
+    QObject::connect(paddle,SIGNAL(ballCollision(double,bool)),ball,SLOT(PaddleCollisionDetected(double,bool)));
 
     QThread *thread=new QThread;
     QTimer *timer=new QTimer(nullptr);
     timer->setInterval(5);
-    timer->moveToThread(thread);
+    //timer->moveToThread(thread);
     connect(timer,SIGNAL(timeout()),ball,SLOT(move()));
     connect(thread,SIGNAL(started()),timer,SLOT(start()));
     thread->start();
