@@ -1,5 +1,6 @@
 #include <QDebug>
 #include "ballthread.h"
+#include "brick.h"
 
 ballthread::ballthread(Ball* b,QGraphicsScene* ptr)
 {
@@ -20,7 +21,7 @@ void ballthread::timerEvent(QTimerEvent *)
 void ballthread::ball_move()
 {
     wall_collision();
-    //brick_collision();
+    brick_collision();
     ball->setPos(ball->x()+ball->x_velocity,ball->y()+ball->y_velocity);
 }
 
@@ -72,41 +73,40 @@ void ballthread::wall_collision()
     }
 }
 
-//void ballthread::brick_collision()
-//{
-//    QMutex mutex;
-//    QMutexLocker locker(&mutex);
+void ballthread::brick_collision()
+{
+    QList<QGraphicsItem*> cItems = ball->collidingItems();
 
-//    QList<QGraphicsItem*> cItems = collidingItems();
+    for (int i = 0, n = cItems.size(); i < n; ++i){
+            Brick* brick = dynamic_cast<Brick*>(cItems[i]);
+            // collides with brick
+            if (brick){
+                double ballx = ball->pos().x();
+                double bally = ball->pos().y();
+                double brickx = brick->pos().x();
+                double bricky = brick->pos().y();
 
-//    for (int i = 0, n = cItems.size(); i < n; ++i){
-//            Brick* brick = dynamic_cast<Brick*>(cItems[i]);
-//            // collides with brick
-//            if (brick){
-//                double ballx = pos().x();
-//                double bally = ball->pos().y();
-//                double brickx = brick->pos().x();
-//                double bricky = brick->pos().y();
+                // collides from bottom
+                if (bally >= bricky + brick->getHeight() && ball->y_velocity < 0){
+                    ball->y_velocity = -1 * ball->y_velocity;
+                }
 
-//                // collides from bottom
-//                if (bally >= bricky + brick->getHeight() && y_velocity < 0){
-//                    y_velocity = -1 * y_velocity;
-//                }
+                // collides from top
+                if (bricky >= bally + ball->rect().height() && ball->y_velocity > 0 ){
+                    ball->y_velocity = -1 * ball->y_velocity;
+                }
 
-//                // collides from top
-//                if (bricky >= bally + rect().height() && y_velocity > 0 ){
-//                    y_velocity = -1 * y_velocity;
-//                }
+                // collides from right
+                if (ballx >= brickx + brick->getWidth() && ball->x_velocity < 0){
+                    ball->x_velocity = -1 * ball->x_velocity;
+                }
 
-//                // collides from right
-//                if (ballx >= brickx + brick->getWidth() && x_velocity < 0){
-//                    x_velocity = -1 * x_velocity;
-//                }
+                // collides from left
+                if (brickx >= ballx + ball->rect().width()  && ball->x_velocity > 0){
+                    ball->x_velocity = -1 * ball->x_velocity;
+                }
 
-//                // collides from left
-//                if (brickx >= ballx + rect().width()  && x_velocity > 0){
-//                    x_velocity = -1 * x_velocity;
-//                }
+                emit destroy(brick);
 
 //                brick->setHits(brick->getHits()-1);
 
@@ -116,10 +116,10 @@ void ballthread::wall_collision()
 //                }
 
 //                else {
-//                    game->scene->removeItem(brick);
+//                    scene->removeItem(brick);
 //                    delete brick;
 //                }
-//            }
-//        }
+            }
+        }
 
-//}
+}

@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsScene>
 #include "ball.h"
+#include "brick.h"
 class ballthread : public QThread
 {
     Q_OBJECT
@@ -25,6 +26,7 @@ public slots:
     void PaddleCollisionDetected(bool left_corner,bool right_corner);
 signals:
     void endgame();
+    void destroy(Brick*);
 
 
 };

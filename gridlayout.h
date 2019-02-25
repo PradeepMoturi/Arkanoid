@@ -12,5 +12,6 @@ private:
     QGraphicsScene* scene;
     void Build_Grid(int rows, int columns);
 
+
 };
 #endif // GRIDLAYOUT_H

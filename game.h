@@ -21,6 +21,7 @@ public slots:
     void restart();
     void end();
     void pause();
+    void remove_brick(Brick *brick);
 signals:
     void start();
 private:

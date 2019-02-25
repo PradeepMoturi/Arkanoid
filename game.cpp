@@ -56,11 +56,26 @@ void Game::build()
     worker_list.push_back(worker1);
 
     QObject::connect(paddle,SIGNAL(ballCollision(bool,bool)),worker1,SLOT(PaddleCollisionDetected(bool,bool)));
-
+    connect(worker1,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
     //create a grid of blocks of size m*n
     grid = new gridlayout(9,6,scene);
     connect(worker1,SIGNAL(endgame()),this,SLOT(end()));
     this->show();
+}
+
+void Game::remove_brick(Brick *brick)
+{
+    brick->setHits(brick->getHits()-1);
+
+    if(brick->getHits()==1)
+    {
+        brick->update();
+    }
+
+    else {
+        scene->removeItem(brick);
+        delete brick;
+    }
 }
 
 void Game::pause()
