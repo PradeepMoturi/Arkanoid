@@ -42,6 +42,10 @@ void Paddle::timerEvent(QTimerEvent *)
     {
           move_paddle(10);
     }
+    if(keys[Qt::Key_Escape]==true)
+    {
+        emit stop();
+    }
     CollisionChecker();
 }
 void Paddle::move_paddle(double dis)

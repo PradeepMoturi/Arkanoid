@@ -16,12 +16,12 @@ public slots:
     void build();
     void restart();
     void end();
+    void pause();
 signals:
-    void stop();
     void start();
 private:
 //    QTimer *timer = nullptr;
-    void keyPressEvent(QKeyEvent *event);
+//    void keyPressEvent(QKeyEvent *event);
     void createGrid(int rows,int columns);
     BackgroundMusic* music;
 };

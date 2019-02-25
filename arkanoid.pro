@@ -32,7 +32,7 @@ SOURCES += \
     paddle.cpp \
     start_menu.cpp \
     pause_menu.cpp \
-    end_menu.cpp
+    end_menu.cpp \
     backgroundmusic.cpp \
     brick.cpp
 
@@ -42,7 +42,7 @@ HEADERS += \
     paddle.h \
     start_menu.h \
     pause_menu.h \
-    end_menu.h
+    end_menu.h \
     backgroundmusic.h \
     brick.h
 
@@ -57,5 +57,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    resources.qrc \
     res.qrc

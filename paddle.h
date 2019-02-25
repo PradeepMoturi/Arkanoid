@@ -21,6 +21,7 @@ public:
     void timerEvent(QTimerEvent *);
     void CollisionChecker();//(qreal x,qreal y, double radius);
 signals:
+    void stop();
     void stop_game();
     void ballCollision(bool left_corner,bool right_corner);
 private:
