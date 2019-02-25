@@ -34,7 +34,8 @@ SOURCES += \
     pause_menu.cpp \
     end_menu.cpp \
     backgroundmusic.cpp \
-    brick.cpp
+    brick.cpp \
+    gridlayout.cpp
 
 HEADERS += \
     ball.h \
@@ -44,7 +45,8 @@ HEADERS += \
     pause_menu.h \
     end_menu.h \
     backgroundmusic.h \
-    brick.h
+    brick.h \
+    gridlayout.h
 
 FORMS += \
     start_menu.ui \

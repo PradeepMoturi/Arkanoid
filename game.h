@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 #include <QTimer>
 #include "backgroundmusic.h"
+#include "gridlayout.h"
 
 class Game:public QGraphicsView{
 Q_OBJECT
@@ -12,6 +13,7 @@ public:
 //    Game(QWidget *parent=NULL);
     ~Game();
     QGraphicsScene *scene;
+
 public slots:
     void build();
     void restart();
@@ -20,6 +22,7 @@ public slots:
 signals:
     void start();
 private:
+    gridlayout* grid;
 //    QTimer *timer = nullptr;
 //    void keyPressEvent(QKeyEvent *event);
     void createGrid(int rows,int columns);
