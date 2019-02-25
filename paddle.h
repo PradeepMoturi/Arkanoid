@@ -9,7 +9,6 @@ class Paddle:public QObject,public QGraphicsRectItem
     Q_OBJECT
 public:
     Paddle(QGraphicsItem *parent=nullptr);
-    void keyPressEvent(QKeyEvent *event);
     void move_paddle(double x);
     double height();
     double width();

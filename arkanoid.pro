@@ -29,18 +29,27 @@ SOURCES += \
     ball.cpp \
     game.cpp \
     paddle.cpp \
-    start_menu.cpp
+    start_menu.cpp \
+    pause_menu.cpp \
+    end_menu.cpp
 
 HEADERS += \
     ball.h \
     game.h \
     paddle.h \
-    start_menu.h
+    start_menu.h \
+    pause_menu.h \
+    end_menu.h
 
 FORMS += \
-    start_menu.ui
+    start_menu.ui \
+    pause_menu.ui \
+    end_menu.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resources.qrc

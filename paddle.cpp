@@ -10,35 +10,14 @@ Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
 {
     paddle_width=100;
     paddle_height=20;
-
     setRect(0,0,paddle_width,paddle_height);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::blue);
     setBrush(brush);
     setPos(game->width()/2-this->width()/2,game->height()-30);
-    setFlag(QGraphicsItem::ItemIsFocusable);
-    setFocus();
 };
 
-void Paddle::keyPressEvent(QKeyEvent *event)
-{
-    if(event->key()==Qt::Key_Left)
-    {
-        this->move_paddle(-20);
-    }
-
-    else if(event->key()==Qt::Key_Right)
-    {
-        this->move_paddle(20);
-    }
-
-    else if(event->key()==Qt::Key_Q)
-    {
-        qDebug()<<"Quit key was pressed";
-        emit stop_game();
-    }
-}
 
 void Paddle::move_paddle(double dis)
 {

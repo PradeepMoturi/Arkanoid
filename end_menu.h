@@ -15,6 +15,11 @@ public:
     explicit end_menu(QWidget *parent = nullptr);
     ~end_menu();
 
+private slots:
+    void on_exit_clicked();
+
+    void on_replay_clicked();
+
 private:
     Ui::end_menu *ui;
 };
