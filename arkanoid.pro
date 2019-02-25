@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+            multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -32,6 +33,8 @@ SOURCES += \
     start_menu.cpp \
     pause_menu.cpp \
     end_menu.cpp
+    backgroundmusic.cpp \
+    brick.cpp
 
 HEADERS += \
     ball.h \
@@ -40,6 +43,8 @@ HEADERS += \
     start_menu.h \
     pause_menu.h \
     end_menu.h
+    backgroundmusic.h \
+    brick.h
 
 FORMS += \
     start_menu.ui \
@@ -52,4 +57,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    resources.qrc
+    resources.qrc \
+    res.qrc
