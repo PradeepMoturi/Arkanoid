@@ -21,7 +21,6 @@ extern Paddle* paddle;
 extern start_menu *smenu;
 extern Game *game;
 
-Ball *ball;
 
 Game::Game(QWidget *parent):QGraphicsView (parent)
 {
@@ -53,30 +52,14 @@ void Game::build()
     ballthread* worker1 = new ballthread(ball,scene);
     worker1->start();
 
+    ball_list.push_back(ball);
+    worker_list.push_back(worker1);
 
     QObject::connect(paddle,SIGNAL(ballCollision(bool,bool)),worker1,SLOT(PaddleCollisionDetected(bool,bool)));
 
     //create a grid of blocks of size m*n
-
     grid = new gridlayout(9,6,scene);
-  
-    QThread *thread=new QThread;
-    QTimer *timer=new QTimer(nullptr);
-
-    timer->setInterval(5);
-    timer->moveToThread(thread);
-
-    connect(thread,SIGNAL(started()),timer,SLOT(start()));
-    connect(timer,SIGNAL(timeout()),ball,SLOT(move()));
-
-    connect(ball,SIGNAL(endgame()),timer,SLOT(stop()));
-    connect(ball,SIGNAL(endgame()),this,SLOT(end()));
-
-    connect(paddle,SIGNAL(stop()),timer,SLOT(stop()));
-    connect(this,SIGNAL(start()),timer,SLOT(start()));
-
-    thread->start();
-
+    connect(worker1,SIGNAL(endgame()),this,SLOT(end()));
     this->show();
 }
 
@@ -85,15 +68,24 @@ void Game::pause()
     pause_menu *pmenu=new pause_menu();
     pmenu->show();
 }
-
 void Game::restart()
 {
+    qDebug()<<"Restart";
     scene->clear();
     this->build();
 }
 
 void Game::end()
 {
+    qApp->exit();
+    qDebug()<<"Disconnected";
+    //disconnect(paddle,SIGNAL(ballCollision(bool,bool)),worker_list[0],SLOT(PaddleCollisionDetected(bool,bool)));
+    //disconnect(worker_list[0],SIGNAL(endgame()),this,SLOT(end()));
+    //for(unsigned long i = 0 ; i< worker_list.size();i++)
+    //{
+     //   worker_list[i]->exit();
+    //}
+    //restart();
     end_menu *emenu = new end_menu();
     this->hide();
     emenu->show();

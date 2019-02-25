@@ -13,8 +13,6 @@ public:
     Ball(QGraphicsItem *parent=nullptr);
     double radius();
     double getCenterX();
-signals:
-    void endgame();
 
 
 public:

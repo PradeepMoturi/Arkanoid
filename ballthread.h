@@ -22,6 +22,9 @@ private:
     void timerEvent(QTimerEvent *);
 public slots:
     void PaddleCollisionDetected(bool left_corner,bool right_corner);
+signals:
+    void endgame();
+
 
 };
 #endif // BALLTHREAD_H

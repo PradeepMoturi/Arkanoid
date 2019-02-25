@@ -62,13 +62,14 @@ void ballthread::wall_collision()
     }
 
     //bottom edge
-    if (ball->mapToScene(ball->rect().topRight()).y()>screen_height)
+    if (ball->mapToScene(ball->rect().topRight()).y()> screen_height)
     {
+        //this->deleteLater();
         scene->removeItem(ball);
-        //emit(endgame());
-        //delete ball;
-        delete this;
+        qDebug()<<"Bottom Edge";
         qDebug()<<"Item deleted\n";
+        emit(endgame());
+        //this->exit();
         return;
     }
 }

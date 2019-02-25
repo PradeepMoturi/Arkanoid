@@ -1,4 +1,4 @@
-#include "paddle.h"
+    #include "paddle.h"
 #include "game.h"
 #include "ball.h"
 #include <QBrush>
