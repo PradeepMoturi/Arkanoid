@@ -44,7 +44,6 @@ void Paddle::timerEvent(QTimerEvent *)
     }
     CollisionChecker();
 }
-
 void Paddle::move_paddle(double dis)
 {
     double slide=x()+dis;
