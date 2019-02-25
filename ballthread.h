@@ -12,6 +12,7 @@ public:
     ~ballthread();
     Ball* ball;
 private:
+    int id;
     QGraphicsScene* scene;
     double screen_width;
     double screen_height;

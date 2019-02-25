@@ -77,18 +77,13 @@ void Game::restart()
 
 void Game::end()
 {
-    qApp->exit();
     qDebug()<<"Disconnected";
-    //disconnect(paddle,SIGNAL(ballCollision(bool,bool)),worker_list[0],SLOT(PaddleCollisionDetected(bool,bool)));
-    //disconnect(worker_list[0],SIGNAL(endgame()),this,SLOT(end()));
-    //for(unsigned long i = 0 ; i< worker_list.size();i++)
-    //{
-     //   worker_list[i]->exit();
-    //}
-    //restart();
     end_menu *emenu = new end_menu();
     this->hide();
     emenu->show();
+    worker_list[0]->exit();
+    worker_list.pop_back();
+
 }
 
 Game::~Game()

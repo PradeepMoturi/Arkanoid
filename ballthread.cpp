@@ -7,7 +7,7 @@ ballthread::ballthread(Ball* b,QGraphicsScene* ptr)
     ball = b;
     screen_width = scene->width();
     screen_height = scene->height();
-    startTimer(5);
+    id = startTimer(5);
 }
 ballthread ::~ballthread()
 {
@@ -64,12 +64,10 @@ void ballthread::wall_collision()
     //bottom edge
     if (ball->mapToScene(ball->rect().topRight()).y()> screen_height)
     {
-        //this->deleteLater();
-        scene->removeItem(ball);
+        killTimer(id);
         qDebug()<<"Bottom Edge";
         qDebug()<<"Item deleted\n";
         emit(endgame());
-        //this->exit();
         return;
     }
 }
