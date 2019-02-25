@@ -1,5 +1,5 @@
 #include "backgroundmusic.h"
-#include <iostream>
+
 BackgroundMusic::BackgroundMusic()
 {
     player = new QMediaPlayer();

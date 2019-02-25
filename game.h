@@ -22,6 +22,7 @@ public slots:
 signals:
     void start();
 private:
+    void setup_scene();
     gridlayout* grid;
 //    QTimer *timer = nullptr;
 //    void keyPressEvent(QKeyEvent *event);
