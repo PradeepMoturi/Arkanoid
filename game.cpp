@@ -69,7 +69,7 @@ void Game::build()
     connect(worker1,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
 
     //create a grid of blocks of size m*n
-    grid = new gridlayout(9,6,scene);
+    grid = new gridlayout(1,scene);
 
     connect(worker1,SIGNAL(endgame()),this,SLOT(end()));
 
