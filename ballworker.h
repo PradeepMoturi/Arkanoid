@@ -9,7 +9,7 @@ class ballworker : public QObject
 {
     Q_OBJECT
 public:
-    ballworker(Ball* b,QGraphicsScene* ptr);
+    ballworker(Ball* b, QGraphicsScene* ptr);
     ~ballworker();
     Ball* ball;
 private:
@@ -24,6 +24,7 @@ public slots:
     void ball_move();
     void PaddleCollisionDetected(bool left_corner,bool right_corner);
 signals:
+    void ballposupdater(double x, double y);
     void endgame();
     void destroy(Brick*);
 

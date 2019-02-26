@@ -48,7 +48,7 @@ void Game::build()
     paddle = new Paddle();
     scene->addItem(paddle);
 
-    ball=new Ball();
+    ball = new Ball();
     scene->addItem(ball);
 
 
@@ -64,7 +64,6 @@ void Game::build()
 
     ball_list.push_back(ball);
     worker_list.push_back(worker1);
-
     QObject::connect(paddle,SIGNAL(ballCollision(bool,bool)),worker1,SLOT(PaddleCollisionDetected(bool,bool)));
 
     connect(worker1,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
@@ -75,16 +74,23 @@ void Game::build()
     connect(worker1,SIGNAL(endgame()),this,SLOT(end()));
 
     QTimer* timer = new QTimer();
-    timer->start(10);
+    timer->start(5);
+
     connect(timer,SIGNAL(timeout()),worker1,SLOT(ball_move()));
+    connect(worker1,SIGNAL(ballposupdater(double, double)),this,SLOT(ballpositionupdater(double, double)));
 
 
 
     this->show();
 }
-
+void Game::ballpositionupdater(double x, double y)
+{
+    ball->setPos(x,y);
+    brick_collision();
+}
 void Game::remove_brick(Brick *brick)
 {
+
     brick->setHits(brick->getHits()-1);
 
     if(brick->getHits()==1)
@@ -126,4 +132,54 @@ Game::~Game()
 {
     music->exit();
     delete music;
+}
+void Game::brick_collision()
+{
+    QList<QGraphicsItem*> cItems = ball->collidingItems();
+
+    for (int i = 0, n = cItems.size(); i < n; ++i){
+            Brick* brick = dynamic_cast<Brick*>(cItems[i]);
+            // collides with brick
+            if (brick){
+                double ballx = ball->pos().x();
+                double bally = ball->pos().y();
+                double brickx = brick->pos().x();
+                double bricky = brick->pos().y();
+
+                // collides from bottom
+                if (bally >= bricky + brick->getHeight() && ball->y_velocity < 0){
+                    ball->y_velocity = -1 * ball->y_velocity;
+                }
+
+                // collides from top
+                if (bricky >= bally + ball->rect().height() && ball->y_velocity > 0 ){
+                    ball->y_velocity = -1 * ball->y_velocity;
+                }
+
+                // collides from right
+                if (ballx >= brickx + brick->getWidth() && ball->x_velocity < 0){
+                    ball->x_velocity = -1 * ball->x_velocity;
+                }
+
+                // collides from left
+                if (brickx >= ballx + ball->rect().width()  && ball->x_velocity > 0){
+                    ball->x_velocity = -1 * ball->x_velocity;
+                }
+
+          //      emit destroy(brick);
+
+                brick->setHits(brick->getHits()-1);
+
+                if(brick->getHits()==1)
+                {
+                    brick->update();
+                }
+
+                else {
+                    scene->removeItem(brick);
+                    delete brick;
+                }
+            }
+        }
+
 }

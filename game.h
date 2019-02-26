@@ -17,6 +17,7 @@ public:
     QGraphicsScene *scene;
 
 public slots:
+    void ballpositionupdater(double x, double y);
     void build();
     void restart();
     void end();
@@ -25,6 +26,7 @@ public slots:
 signals:
     void start();
 private:
+    void brick_collision();
     Ball* ball;
     std::vector <Ball*> ball_list;
     std::vector <ballworker*> worker_list;
