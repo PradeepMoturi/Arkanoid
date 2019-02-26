@@ -3,7 +3,7 @@
 
 #include <QGraphicsRectItem>
 #include <QObject>
-
+#include"powerup.h"
 class Paddle:public QObject,public QGraphicsRectItem
 {
     Q_OBJECT
@@ -21,6 +21,7 @@ public:
     void timerEvent(QTimerEvent *);
     void CollisionChecker();//(qreal x,qreal y, double radius);
 signals:
+    void multiballadd(Powerup*);
     void stop();
     void stop_game();
     void ballCollision(bool left_corner,bool right_corner);

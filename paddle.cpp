@@ -6,6 +6,7 @@
 #include <QKeyEvent>
 #include <iostream>
 #include <QtGlobal>
+#include "powerup.h"
 extern Game* game;
 
 Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
@@ -91,6 +92,16 @@ void Paddle::CollisionChecker()
                  emit ballCollision(true,false);
              }
          }
+        Powerup* power = dynamic_cast<Powerup*>(cItems[i]);
+        if(power)
+        {
+            if(power->powerup_id==1)
+            {
+                emit multiballadd(power);
+            }
+        }
+
+
      }
 }
 
