@@ -1,4 +1,5 @@
 #include "gridlayout.h"
+#include <QtMath>
 
 gridlayout::gridlayout(int rows, int columns, QGraphicsScene* ptr)
 {
@@ -25,13 +26,22 @@ void gridlayout::Build_Grid(int rows, int columns)
 
          for(int j=0;j<columns;j++)
          {
-             if(i==0||i==(rows-1)||j==0||j==(columns-1)) hits=2;
+             if(i==0||j==0||j==(columns-1)) hits=2;
              else hits=1;
 
-             Brick *brick=new Brick(hits);
-             brick->setPos(temp_x,temp_y);
+             if(i==rows-1)
+             {
+                 Brick *brick=new Brick(1,hits); //0123
+                 brick->setPos(temp_x,temp_y);
+                 scene->addItem(brick);
+             }
 
-             scene->addItem(brick);
+             else {
+                 Brick *brick=new Brick(0,hits); //0123
+                 brick->setPos(temp_x,temp_y);
+                 scene->addItem(brick);
+             }
+
              temp_x+=bwidth;
          }
 

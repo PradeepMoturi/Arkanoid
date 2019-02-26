@@ -1,4 +1,5 @@
 #include <QDebug>
+#include <QtMath>
 #include "ballworker.h"
 #include "brick.h"
 
@@ -67,8 +68,8 @@ void ballworker::wall_collision()
     //bottom edge
     if (ball->mapToScene(ball->rect().topRight()).y()> screen_height)
     {
-        qDebug()<<"Bottom Edge";
-        qDebug()<<"Item deleted\n";
+      //  qDebug()<<"Bottom Edge";
+       // qDebug()<<"Item deleted\n";
         emit(endgame());
         return;
     }

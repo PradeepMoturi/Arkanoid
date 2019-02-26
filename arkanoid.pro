@@ -36,7 +36,8 @@ SOURCES += \
     backgroundmusic.cpp \
     brick.cpp \
     gridlayout.cpp \
-    ballworker.cpp
+    ballworker.cpp \
+    powerup.cpp
 
 HEADERS += \
     ball.h \
@@ -48,7 +49,8 @@ HEADERS += \
     backgroundmusic.h \
     brick.h \
     gridlayout.h \
-    ballworker.h
+    ballworker.h \
+    powerup.h
 
 FORMS += \
     start_menu.ui \

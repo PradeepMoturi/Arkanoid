@@ -8,6 +8,7 @@
 #include "gridlayout.h"
 #include "ballworker.h"
 #include <vector>
+#include "powerup.h"
 class Game:public QGraphicsView{
 Q_OBJECT
 public:
@@ -23,6 +24,7 @@ public slots:
     void end();
     void pause();
     void remove_brick(Brick *brick);
+    void removepowerup(Powerup*);
 signals:
     void start();
 private:
@@ -30,9 +32,10 @@ private:
     Ball* ball;
     std::vector <Ball*> ball_list;
     std::vector <ballworker*> worker_list;
+    std::vector<Powerup*> power_list;
     void setup_scene();
     gridlayout* grid;
-//    QTimer *timer = nullptr;
+    QTimer *timer;
 //    void keyPressEvent(QKeyEvent *event);
     void createGrid(int rows,int columns);
     BackgroundMusic* music;
