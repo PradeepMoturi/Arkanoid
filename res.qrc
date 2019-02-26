@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>data/bgm.mp3</file>
+        <file>data/level1.txt</file>
     </qresource>
 </RCC>
-
