@@ -1,6 +1,8 @@
 #include "gridlayout.h"
+#include <QtMath>
 #include <QFile>
 #include <QTextStream>
+
 gridlayout::gridlayout(int level, QGraphicsScene* ptr)
 {
     scene = ptr;
@@ -10,6 +12,7 @@ gridlayout::gridlayout(int level, QGraphicsScene* ptr)
 
 void gridlayout::Build_Grid(int level)
 {
+
     QString file;
     if(level == 1)
     {
@@ -27,12 +30,13 @@ void gridlayout::Build_Grid(int level)
         {
             QString line = in.readLine();
             QStringList point = line.split(" ");
-            Brick *brick=new Brick(point[0].toInt());
-            brick->setPos(point[1].toDouble(),point[2].toDouble());
+            Brick *brick=new Brick(point[0].toInt(),point[1].toInt());
+            brick->setPos(point[2].toDouble(),point[3].toDouble());
             scene->addItem(brick);
         }
     myFile.close();
     }
+  
 //    //create grid of size m and n
 //     double start_x=110;
 //     double start_y=150;
