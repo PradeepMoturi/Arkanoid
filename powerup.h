@@ -10,10 +10,11 @@ class Powerup:public QObject,public QGraphicsRectItem
 public:
     Powerup(QGraphicsItem* parent = nullptr);
     void set(int id, double x, double y);
+    int powerup_id;
+
 private:
     double x_velocity;
     double y_velocity;
-    int powerup_id;
     double powerup_width;
     double powerup_height;
 signals:

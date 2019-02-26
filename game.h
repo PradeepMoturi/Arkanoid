@@ -18,13 +18,14 @@ public:
     QGraphicsScene *scene;
 
 public slots:
-    void ballpositionupdater(double x, double y);
+    void ballpositionupdater(Ball*b, double x, double y);
     void build();
     void restart();
     void end();
     void pause();
     void remove_brick(Brick *brick);
     void removepowerup(Powerup*);
+    void Multiply_ball(Powerup*);
 signals:
     void start();
 private:

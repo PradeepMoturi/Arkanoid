@@ -19,13 +19,14 @@ ballworker ::~ballworker()
 
 void ballworker::ball_move()
 {
+    //qDebug()<<"Y";
     wall_collision();
 
     //brick_collision();
 //
     //ball->setPos(ball->x()+ball->x_velocity,ball->y()+ball->y_velocity);
 
-    emit(ballposupdater(ball->x()+ball->x_velocity,ball->y()+ball->y_velocity));
+    emit(ballposupdater(ball,ball->x()+ball->x_velocity,ball->y()+ball->y_velocity));
 }
 
 void ballworker::PaddleCollisionDetected(bool left_corner,bool right_corner)

@@ -24,7 +24,7 @@ public slots:
     void ball_move();
     void PaddleCollisionDetected(bool left_corner,bool right_corner);
 signals:
-    void ballposupdater(double x, double y);
+    void ballposupdater(Ball*,double x, double y);
     void endgame();
     void destroy(Brick*);
 
