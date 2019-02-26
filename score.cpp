@@ -8,7 +8,7 @@ Score::Score(QGraphicsItem *parent) : QGraphicsTextItem (parent)
 
     // Displaying Score text on the Screen
     setPlainText(QString("Score : ") + QString::number(score));
-    setDefaultTextColor(Qt::red);
+    setDefaultTextColor(Qt::blue);
     setFont(QFont("times", 30));
 }
 

@@ -10,6 +10,7 @@ pause_menu::pause_menu(QWidget *parent) :
 {
     setFixedSize(350, 350);
     ui->setupUi(this);
+    ui->lcdNumber_2->display(game->score->getscore());
 }
 
 pause_menu::~pause_menu()
@@ -33,3 +34,4 @@ void pause_menu::on_replay_clicked()
     game->restart();
     this->deleteLater();
 }
+

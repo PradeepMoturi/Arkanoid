@@ -65,6 +65,7 @@ void Game::build()
     connect(ball,SIGNAL(endgame()),timer,SLOT(stop()));
     connect(ball,SIGNAL(endgame()),this,SLOT(end()));
     connect(paddle,SIGNAL(stop()),timer,SLOT(stop()));
+    connect(paddle,SIGNAL(stop()),this,SLOT(pause()));
     connect(this,SIGNAL(start()),timer,SLOT(start()));
     thread->start();
     this->show();
@@ -96,6 +97,7 @@ void Game::build()
 void Game::pause()
 {
     pause_menu *pmenu=new pause_menu();
+
     pmenu->show();
 }
 
