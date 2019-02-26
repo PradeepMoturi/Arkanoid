@@ -126,6 +126,7 @@ void Ball::brick_collision()
                     x_velocity = -1 * x_velocity;
                 }
 
+                game->score->increase();
                 brick->setHits(brick->getHits()-1);
 
                 if(brick->getHits()==1)

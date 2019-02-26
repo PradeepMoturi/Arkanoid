@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 #include <QTimer>
 #include "backgroundmusic.h"
+#include "score.h"
 
 class Game:public QGraphicsView{
 Q_OBJECT
@@ -12,6 +13,7 @@ public:
 //    Game(QWidget *parent=NULL);
     ~Game();
     QGraphicsScene *scene;
+    Score *score;
 public slots:
     void build();
     void restart();

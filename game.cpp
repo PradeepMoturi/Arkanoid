@@ -46,6 +46,10 @@ void Game::build()
     ball=new Ball();
     scene->addItem(ball);
 
+    // Adding Score to the Scene
+    score = new Score();
+    scene->addItem(score);
+
     QObject::connect(paddle,SIGNAL(ballCollision(bool,bool)),ball,SLOT(PaddleCollisionDetected(bool,bool)));
 
     //create a grid of blocks of size m*n
