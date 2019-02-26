@@ -1,16 +1,16 @@
-#ifndef BALLTHREAD_H
-#define BALLTHREAD_H
+#ifndef BALLWORKER_H
+#define BALLWORKER_H
 #include <QThread>
 #include <QObject>
 #include <QGraphicsScene>
 #include "ball.h"
 #include "brick.h"
-class ballthread : public QThread
+class ballworker : public QObject
 {
     Q_OBJECT
 public:
-    ballthread(Ball* b,QGraphicsScene* ptr);
-    ~ballthread();
+    ballworker(Ball* b,QGraphicsScene* ptr);
+    ~ballworker();
     Ball* ball;
 private:
     int id;
@@ -20,9 +20,8 @@ private:
     void wall_collision();
     int paddle_collision();
     void brick_collision();
-    void ball_move();
-    void timerEvent(QTimerEvent *);
 public slots:
+    void ball_move();
     void PaddleCollisionDetected(bool left_corner,bool right_corner);
 signals:
     void endgame();
@@ -30,4 +29,4 @@ signals:
 
 
 };
-#endif // BALLTHREAD_H
+#endif // BALLWORKER_H

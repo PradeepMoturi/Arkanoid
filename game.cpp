@@ -15,7 +15,7 @@
 #include "pause_menu.h"
 #include "end_menu.h"
 #include "brick.h"
-#include "ballthread.h"
+#include "ballworker.h"
 
 extern Paddle* paddle;
 extern start_menu *smenu;
@@ -41,6 +41,7 @@ void Game::setup_scene()
 }
 void Game::build()
 {
+    qDebug()<<QThread::currentThreadId();
     //deleting the previous menu derived from the QGraphicsScene
     //menu depending . can be start or end menu ??
     music->start();
@@ -49,17 +50,36 @@ void Game::build()
 
     ball=new Ball();
     scene->addItem(ball);
-    ballthread* worker1 = new ballthread(ball,scene);
-    worker1->start();
+
+
+    QThread* thread1 = new QThread();
+
+    ballworker* worker1 = new ballworker(ball,scene);
+
+    worker1->moveToThread(thread1);
+    thread1->start();
+
+
+
 
     ball_list.push_back(ball);
     worker_list.push_back(worker1);
 
     QObject::connect(paddle,SIGNAL(ballCollision(bool,bool)),worker1,SLOT(PaddleCollisionDetected(bool,bool)));
+
     connect(worker1,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+
     //create a grid of blocks of size m*n
     grid = new gridlayout(9,6,scene);
+
     connect(worker1,SIGNAL(endgame()),this,SLOT(end()));
+
+    QTimer* timer = new QTimer();
+    timer->start(10);
+    connect(timer,SIGNAL(timeout()),worker1,SLOT(ball_move()));
+
+
+
     this->show();
 }
 
@@ -93,10 +113,11 @@ void Game::restart()
 void Game::end()
 {
     qDebug()<<"Disconnected";
+    qApp->exit();
     end_menu *emenu = new end_menu();
     this->hide();
     emenu->show();
-    worker_list[0]->exit();
+    //worker_list[0]->exit();
     worker_list.pop_back();
 
 }
