@@ -14,7 +14,7 @@ public:
     Brick(int id,int cnt,QGraphicsItem *parent=nullptr);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    int getHits();
+    int getHits(){return hits;}
     int getHeight();
     int getWidth();
     void setHits(int x);

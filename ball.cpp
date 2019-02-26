@@ -33,5 +33,3 @@ double Ball::radius()
 double Ball::getCenterX(){
     return x() + rect().width()/2;
 }
-
-

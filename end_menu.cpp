@@ -10,6 +10,7 @@ end_menu::end_menu(QWidget *parent) :
 {
     setFixedSize(700, 700);
     ui->setupUi(this);
+    ui->curr_score->display(game->score->getscore());
 }
 
 end_menu::~end_menu()
@@ -27,3 +28,4 @@ void end_menu::on_replay_clicked()
     game->restart();
     this->deleteLater();
 }
+

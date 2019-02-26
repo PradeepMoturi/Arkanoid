@@ -8,6 +8,7 @@
 #include <QApplication>
 #include <QGraphicsRectItem>
 #include "backgroundmusic.h"
+#include <QImage>
 #include "game.h"
 #include "ball.h"
 #include "paddle.h"
@@ -35,6 +36,8 @@ void Game::setup_scene()
 {
     scene=new QGraphicsScene(0,0,700,700,this);
     setScene(scene);
+    /* https://www.pexels.com/photo/blue-universe-956981/ -> url of image -> Felix Mittermeier */
+    setBackgroundBrush(QBrush(QImage(":/Images/background_space.jpg")));
     setFixedSize(700, 700);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -51,6 +54,10 @@ void Game::build()
 
     ball = new Ball();
     scene->addItem(ball);
+
+    // Adding Score to the Scene
+    score = new Score();
+    scene->addItem(score);
 
 
     QThread* thread1 = new QThread();
@@ -106,6 +113,7 @@ void Game::remove_brick(Brick *brick)
 void Game::pause()
 {
     pause_menu *pmenu=new pause_menu();
+
     pmenu->show();
 }
 void Game::restart()
@@ -164,7 +172,7 @@ void Game::brick_collision()
                 if (brickx >= ballx + ball->rect().width()  && ball->x_velocity > 0){
                     ball->x_velocity = -1 * ball->x_velocity;
                 }
-
+                this->score->increase();
           //      emit destroy(brick);
 
                 brick->setHits(brick->getHits()-1);

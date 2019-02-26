@@ -4,11 +4,13 @@
 #include <QGraphicsView>
 #include <QTimer>
 #include "backgroundmusic.h"
+#include "score.h"
 #include "ball.h"
 #include "gridlayout.h"
 #include "ballworker.h"
 #include <vector>
 #include "powerup.h"
+
 class Game:public QGraphicsView{
 Q_OBJECT
 public:
@@ -16,6 +18,7 @@ public:
 //    Game(QWidget *parent=NULL);
     ~Game();
     QGraphicsScene *scene;
+    Score *score;
 
 public slots:
     void ballpositionupdater(Ball*b, double x, double y);

@@ -23,7 +23,7 @@ QRectF Brick::boundingRect() const
     return QRectF(0,0,width,height);
 }
 
-int Brick::getHits(){return hits;}
+
 int Brick::getHeight(){return height;}
 int Brick::getWidth(){return width;}
 void Brick::setHits(int temp){this->hits=temp;}

@@ -26,7 +26,13 @@ Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
 
 void Paddle::keyPressEvent(QKeyEvent *event)
 {
-    keys[event->key()] = true;
+    if(event->key()==Qt::Key_Escape)
+    {
+        emit stop();
+    }
+    else {
+        keys[event->key()] = true;
+    }
 }
 void Paddle::keyReleaseEvent(QKeyEvent *event)
 {
@@ -42,10 +48,6 @@ void Paddle::timerEvent(QTimerEvent *)
     if(keys[Qt::Key_Right]==true)
     {
           move_paddle(10);
-    }
-    if(keys[Qt::Key_Escape]==true)
-    {
-        emit stop();
     }
     CollisionChecker();
 }
