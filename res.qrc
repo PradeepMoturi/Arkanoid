@@ -1,6 +1,8 @@
 <RCC>
-    <qresource prefix="/">
+    <qresource prefix="/Sound">
         <file>data/bgm.mp3</file>
     </qresource>
+    <qresource prefix="/Images">
+        <file>background_space.jpg</file>
+    </qresource>
 </RCC>
-
