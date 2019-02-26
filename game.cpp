@@ -184,6 +184,7 @@ void Game::brick_collision()
                            qDebug()<<brick->x()<<" "<<brick->y();
                            power_list.push_back(power);
                            connect(timer,SIGNAL(timeout()),power,SLOT(powerup_move()));
+                           connect(power,SIGNAL(remove_connection(Powerup*)),this,SLOT(removepowerup(Powerup*)));
                     }
                     scene->removeItem(brick);
                     delete brick;
@@ -194,7 +195,7 @@ void Game::brick_collision()
 }
 void Game::removepowerup(Powerup* power)
 {
+    disconnect(timer,SIGNAL(timeout()),power,SLOT(powerup_move()));
     power_list.erase(std::remove(power_list.begin(),power_list.end(),power),power_list.end());
-
-    disconnect(timer,SIGNAL(timout()),power,SLOT(powerup_move()));
+    delete power;
 }

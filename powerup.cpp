@@ -32,7 +32,7 @@ void Powerup::powerup_move()
         qDebug()<<"Power up reached Bottom Edge";
         qDebug()<<"Item deleted\n";
         emit remove_connection(this);
-        delete this;
+        //delete this;
     }
 
 }
