@@ -33,7 +33,7 @@ public slots:
     void pause();
     void remove_brick(Brick *brick);
     void removepowerup(Powerup*);
-    void Multiply_ball(Powerup*);
+    void Multiply_ball();
 private:
     void brick_collision(Ball* b);
     Ball* ball;
