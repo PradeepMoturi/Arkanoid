@@ -203,7 +203,7 @@ void Game::brick_collision(Ball* nball)
                     if(brick->brick_id!=0)
                     {
                            Powerup* power = new Powerup();
-                           power->set(brick->brick_id,brick->x(),brick->y());
+                           power->set(brick->brick_id,brick->x()+(brick->getWidth()/2)-(power->getwidth()/2),brick->y()+brick->getHeight());
                            scene->addItem(power);
 
                            power_list.push_back(power);

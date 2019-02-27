@@ -29,3 +29,12 @@ void Powerup::powerup_move()
         emit remove_connection(this);
     }
 }
+double Powerup::getwidth()
+{
+    return powerup_width;
+}
+
+double Powerup::getheight()
+{
+    return powerup_height;
+}

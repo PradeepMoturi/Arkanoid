@@ -11,7 +11,8 @@ public:
     Powerup(QGraphicsItem* parent = nullptr);
     void set(int id, double x, double y);
     int powerup_id;
-
+    double getwidth();
+    double getheight();
 private:
     double x_velocity;
     double y_velocity;
