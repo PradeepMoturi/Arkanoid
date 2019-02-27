@@ -71,7 +71,6 @@ void Paddle::move_paddle(double dis)
 }
 void Paddle::CollisionChecker()
 {
-
     QList<QGraphicsItem*> cItems = collidingItems();
     for (int i = 0, n = cItems.size(); i < n; ++i)
     {
@@ -80,7 +79,6 @@ void Paddle::CollisionChecker()
          {
              if(object->getCenterX()>=this->leftCornerX()&&object->getCenterX()<=this->rightCornerX()&&object->y()+(object->rect().width()/2)<y())
              {
-             // collides with paddle
                 emit ballCollision(dynamic_cast<Ball*>(cItems[i]),false,false);
                 return;
              }

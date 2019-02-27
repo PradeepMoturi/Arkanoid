@@ -14,10 +14,10 @@ public:
     Brick(int id,int cnt,QGraphicsItem *parent=nullptr);
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget);
-    int getHits(){return hits;}
+    int getHits();
     int getHeight();
     int getWidth();
-    void setHits(int x);
+    void decHits();
     void setHeight(int x);
     void setWidth(int x);
     int brick_id;

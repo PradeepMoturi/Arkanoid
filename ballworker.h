@@ -25,7 +25,7 @@ public slots:
     void PaddleCollisionDetected(Ball* nball,bool left_corner,bool right_corner);
 signals:
     void ballposupdater(Ball* nball,double x, double y);
-    void endgame(QGraphicsScene* curr,Ball* nball);
+    void endgame(ballworker*,QGraphicsScene* curr,Ball* nball);
     void destroy(Brick* nbrick);
 };
 #endif // BALLWORKER_H

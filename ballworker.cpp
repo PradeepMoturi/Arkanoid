@@ -19,6 +19,7 @@ ballworker ::~ballworker()
 
 void ballworker::ball_move()
 {
+    //thread safe
     wall_collision();
 
     emit(ballposupdater(ball,ball->x()+ball->x_velocity,ball->y()+ball->y_velocity));
@@ -26,6 +27,8 @@ void ballworker::ball_move()
 
 void ballworker::PaddleCollisionDetected(Ball* nball,bool left_corner,bool right_corner)
 {
+    //thread safe
+
        if(left_corner == false&&right_corner==false)
        {
            nball->y_velocity = -abs(ball->y_velocity);
@@ -43,28 +46,30 @@ void ballworker::PaddleCollisionDetected(Ball* nball,bool left_corner,bool right
 void ballworker::wall_collision()
 {
 
+    //thread safe
+
     // left edge
     if (ball->mapToScene(ball->rect().topLeft()).x() <= 0)
     {
-        ball->x_velocity = -1 * ball->x_velocity;
+        ball->x_velocity =  abs(ball->x_velocity);
     }
 
     // right edge
     if (ball->mapToScene(ball->rect().topRight()).x() >= screen_width)
     {
-        ball->x_velocity = -1 * ball->x_velocity;
+        ball->x_velocity = -abs(ball->x_velocity);
     }
 
     // top edge
     if (ball->mapToScene(ball->rect().topLeft()).y()<= 0)
     {
-        ball->y_velocity = -1 * ball->y_velocity;
+        ball->y_velocity = abs(ball->y_velocity);
     }
 
     //bottom edge
     if (ball->mapToScene(ball->rect().topRight()).y()> screen_height)
     {
-        emit(endgame(scene,ball));
+        emit(endgame(this,scene,ball));
         return;
     }
 }
