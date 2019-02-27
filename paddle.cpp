@@ -30,7 +30,8 @@ void Paddle::keyPressEvent(QKeyEvent *event)
     {
         emit stop();
     }
-    else {
+    else
+    {
         keys[event->key()] = true;
     }
 }

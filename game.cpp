@@ -19,6 +19,7 @@
 #include "ballworker.h"
 #include "powerup.h"
 #include <algorithm>
+#include <math.h>
 
 extern Paddle* paddle;
 extern start_menu *smenu;
@@ -231,18 +232,24 @@ void Game::Multiply_ball(Powerup* power)
     {
         Ball* new_ball = new Ball();
         ballworker* worker = new ballworker(scene,new_ball);
+
         worker->moveToThread(thread);
 
         ball_list.push_back(new_ball);
         worker_list.push_back(worker);
 
         new_ball->setPos(ball_list[i]->x(),ball_list[i]->y());
+        double vel_x = ball_list[i]->x_velocity;
+        new_ball->x_velocity = -vel_x;
+        qDebug()<<std::cos(45)<<"hii";
         scene->addItem(new_ball);
 
         sideConnections(worker);
-    }
 
+    }
     thread->start();
+
+
 }
 
 void Game::start()
