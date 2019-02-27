@@ -1,9 +1,8 @@
 #include "powerup.h"
 #include <QBrush>
 #include <QDebug>
-Powerup::Powerup(QGraphicsScene* curr,QGraphicsItem *parent):QGraphicsRectItem (parent)
+Powerup::Powerup(QGraphicsItem *parent):QGraphicsRectItem (parent)
 {
-    scene=curr;
     x_velocity = 0;
     y_velocity = 1;
     powerup_width=50;
@@ -27,7 +26,6 @@ void Powerup::powerup_move()
     setPos(x(),y()+y_velocity);
     if (y()> temp)
     {
-        qDebug()<<"Item deleted\n";
-        emit remove_connection(scene,this);
+        emit remove_connection(this);
     }
 }

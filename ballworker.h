@@ -14,7 +14,6 @@ public:
     Ball* ball;
 private:
     int id;
-    QGraphicsScene* scene;
     double screen_width;
     double screen_height;
     void wall_collision();
@@ -25,7 +24,7 @@ public slots:
     void PaddleCollisionDetected(Ball* nball,bool left_corner,bool right_corner);
 signals:
     void ballposupdater(Ball* nball,double x, double y);
-    void endgame(ballworker*,QGraphicsScene* curr,Ball* nball);
+    void endgame(ballworker*,Ball* nball);
     void destroy(Brick* nbrick);
 };
 #endif // BALLWORKER_H

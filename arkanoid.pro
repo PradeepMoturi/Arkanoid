@@ -38,8 +38,7 @@ SOURCES += \
     score.cpp \
     gridlayout.cpp \
     ballworker.cpp \
-    powerup.cpp \
-    objectlocker.cpp
+    powerup.cpp
 
 HEADERS += \
     ball.h \
@@ -53,8 +52,7 @@ HEADERS += \
     score.h \
     gridlayout.h \
     ballworker.h \
-    powerup.h \
-    objectlocker.h
+    powerup.h
 
 FORMS += \
     start_menu.ui \

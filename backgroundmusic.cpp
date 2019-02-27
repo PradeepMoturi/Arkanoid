@@ -3,7 +3,7 @@
 BackgroundMusic::BackgroundMusic()
 {
     player = new QMediaPlayer();
-    player->setMedia(QUrl("qrc:/data/bgm.mp3"));
+    player->setMedia(QUrl("qrc:/Sound/data/bgm.mp3"));
 }
 void BackgroundMusic::run()
 {
@@ -16,7 +16,7 @@ void BackgroundMusic::exec()
     {
         if(player->state()==player->StoppedState)
         {
-//            player->play();
+            player->play();
         }
     }
 

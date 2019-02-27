@@ -15,11 +15,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
 
     game = new Game();
-
-    //start menu will be started here
-
     smenu = new start_menu();
-
     smenu->show();
 
     return a.exec();

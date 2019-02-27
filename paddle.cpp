@@ -9,9 +9,8 @@
 #include "powerup.h"
 extern Game* game;
 
-Paddle::Paddle(QGraphicsScene *curr,QGraphicsItem *parent):QGraphicsRectItem (parent)
+Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
 {
-    scene=curr;
     paddle_width=100;
     paddle_height=20;
     setRect(0,0,paddle_width,paddle_height);
@@ -97,7 +96,7 @@ void Paddle::CollisionChecker()
         {
             if(power->powerup_id==1)
             {
-                emit multiballadd(scene,power);
+                emit multiballadd(power);
             }
         }
      }

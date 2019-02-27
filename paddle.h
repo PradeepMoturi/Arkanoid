@@ -10,7 +10,7 @@ class Paddle:public QObject,public QGraphicsRectItem
 {
     Q_OBJECT
 public:
-    Paddle(QGraphicsScene* curr,QGraphicsItem *parent=nullptr);
+    Paddle(QGraphicsItem *parent=nullptr);
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent* event);
     void move_paddle(double x);
@@ -22,7 +22,7 @@ public:
     void timerEvent(QTimerEvent *);
     void CollisionChecker();
 signals:
-    void multiballadd(QGraphicsScene*,Powerup*);
+    void multiballadd(Powerup*);
     void stop();
     void stop_game();
     void ballCollision(Ball* ball,bool left_corner,bool right_corner);

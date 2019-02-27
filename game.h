@@ -7,8 +7,8 @@
 #include "score.h"
 #include "ball.h"
 #include "gridlayout.h"
+#include "powerup.h"
 #include "ballworker.h"
-#include "objectlocker.h"
 #include <vector>
 #include "powerup.h"
 
@@ -19,22 +19,25 @@ public:
     ~Game();
     QGraphicsScene *scene;
     Score *score;
+    void mainConnections(ballworker* worker);
+    void sideConnections(ballworker* worker);
+    void removeConnections(ballworker* worker);
+    void powerConnections(Powerup* power);
 
 public slots:
     void ballpositionupdater(Ball*b, double x, double y);
     void build();
     void start();
     void restart();
-    void end(ballworker*,QGraphicsScene*,Ball*);
+    void end(ballworker*,Ball*);
     void pause();
     void remove_brick(Brick *brick);
-    void removepowerup(QGraphicsScene*,Powerup*);
-    void Multiply_ball(QGraphicsScene*,Powerup*);
+    void removepowerup(Powerup*);
+    void Multiply_ball(Powerup*);
 private:
     void brick_collision(Ball* b);
-    ObjectLocker *locker;
     Ball* ball;
-    //std::vector <Ball*> ball_list;
+    std::vector <Ball*> ball_list;
     std::vector <ballworker*> worker_list;
     std::vector<Powerup*> power_list;
     void setup_scene();

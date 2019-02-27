@@ -8,7 +8,6 @@ end_menu::end_menu(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::end_menu)
 {
-    qDebug()<<"End menu created\n";
     setFixedSize(700, 700);
     ui->setupUi(this);
     ui->curr_score->display(game->score->getscore());

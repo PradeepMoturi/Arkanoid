@@ -14,7 +14,6 @@ start_menu::start_menu(QWidget *parent) :
     setFixedSize(700, 700);
     ui->setupUi(this);
     ui->mode->addItem("Power up");
-    ui->mode->addItem("No Powers");
     ui->lcdNumber->display(10);
 }
 

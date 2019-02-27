@@ -20,8 +20,6 @@ private slots:
 
     void on_replay_clicked();
 
-    //void on_curr_score_windowIconTextChanged(const QString &iconText);
-
 private:
     Ui::end_menu *ui;
 };
