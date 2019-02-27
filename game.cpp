@@ -90,7 +90,11 @@ void Game::mainConnections(ballworker *worker)
     connect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
     connect(paddle,SIGNAL(multiballadd(Powerup*)),this,SLOT(Multiply_ball(Powerup*)));
     connect(paddle,SIGNAL(multiballadd(Powerup*)),this,SLOT(removepowerup(Powerup*)));
+
     connect(paddle,SIGNAL(stop()),this,SLOT(pause()));
+
+    connect(this,SIGNAL(pausemusic()),music,SLOT(pausemusic()));
+    connect(this,SIGNAL(resumemusic()),music,SLOT(resumemusic()));
 }
 
 void Game::sideConnections(ballworker *worker)
@@ -244,11 +248,14 @@ void Game::Multiply_ball(Powerup* power)
 void Game::start()
 {
     timer->start(5);
+    emit(resumemusic());
 }
 
 void Game::pause()
 {
     pause_menu *pmenu=new pause_menu();
+    emit(pausemusic());
+    music->start();
     timer->stop();
     pmenu->show();
 }

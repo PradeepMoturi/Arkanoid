@@ -11,6 +11,11 @@ public:
     void run();
     void exec();
     ~BackgroundMusic();
+public slots:
+    void pausemusic();
+    void resumemusic();
+
+
 private:
     QMediaPlayer* player;
 };

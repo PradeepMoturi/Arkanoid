@@ -23,6 +23,9 @@ public:
     void sideConnections(ballworker* worker);
     void removeConnections(ballworker* worker);
     void powerConnections(Powerup* power);
+signals:
+    void pausemusic();
+    void resumemusic();
 
 public slots:
     void ballpositionupdater(Ball*b, double x, double y);

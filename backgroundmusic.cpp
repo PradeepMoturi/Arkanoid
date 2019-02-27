@@ -23,6 +23,14 @@ void BackgroundMusic::exec()
     player->stop();
     return;
 }
+void BackgroundMusic::pausemusic()
+{
+    player->pause();
+}
+void BackgroundMusic::resumemusic()
+{
+    player->play();
+}
 BackgroundMusic::~BackgroundMusic()
 {
     delete player;
