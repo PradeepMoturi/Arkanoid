@@ -5,6 +5,7 @@
 #include <QBrush>
 #include <QDebug>
 #include <QKeyEvent>
+#include <QGraphicsRectItem>
 #include <QTimer>
 #include <QMutexLocker>
 #include <QMutex>

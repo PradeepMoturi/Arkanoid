@@ -4,7 +4,7 @@
 
 Brick::Brick(int id,int cnt,QGraphicsItem* parent):QGraphicsItem(parent)
 {
-    brick_id=id; //0-1-2-3-4
+    brick_id=id;
     hits=cnt;
     width=80;
     height=20;

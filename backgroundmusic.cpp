@@ -16,7 +16,7 @@ void BackgroundMusic::exec()
     {
         if(player->state()==player->StoppedState)
         {
-            player->play();
+//            player->play();
         }
     }
 

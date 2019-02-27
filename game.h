@@ -15,7 +15,6 @@ class Game:public QGraphicsView{
 Q_OBJECT
 public:
     Game(QWidget *parent=nullptr);
-//    Game(QWidget *parent=NULL);
     ~Game();
     QGraphicsScene *scene;
     Score *score;
@@ -24,11 +23,11 @@ public slots:
     void ballpositionupdater(Ball*b, double x, double y);
     void build();
     void restart();
-    void end();
+    void end(QGraphicsScene*,Ball*);
     void pause();
     void remove_brick(Brick *brick);
-    void removepowerup(Powerup*);
-    void Multiply_ball(Powerup*);
+    void removepowerup(QGraphicsScene*,Powerup*);
+    void Multiply_ball(QGraphicsScene*,Powerup*);
 signals:
     void start();
 private:
@@ -40,7 +39,6 @@ private:
     void setup_scene();
     gridlayout* grid;
     QTimer *timer;
-//    void keyPressEvent(QKeyEvent *event);
     void createGrid(int rows,int columns);
     BackgroundMusic* music;
 };

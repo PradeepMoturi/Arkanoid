@@ -6,12 +6,10 @@
 class gridlayout
 {
 public:
-    gridlayout(int level,QGraphicsScene* view);
+    gridlayout(QGraphicsScene* curr,int level);
 
 private:
     QGraphicsScene* scene;
     void Build_Grid(int level);
-
-
 };
 #endif // GRIDLAYOUT_H

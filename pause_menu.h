@@ -19,11 +19,6 @@ private slots:
     void on_exit_clicked();
     void on_resume_clicked();
     void on_replay_clicked();
-
-    //void on_lcdNumber_2_windowIconTextChanged(const QString &iconText);
-
-    //void on_lcdNumber_2_windowTitleChanged(const QString &title);
-
 signals:
     void start();
 

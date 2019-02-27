@@ -9,8 +9,9 @@
 #include "powerup.h"
 extern Game* game;
 
-Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
+Paddle::Paddle(QGraphicsScene *curr,QGraphicsItem *parent):QGraphicsRectItem (parent)
 {
+    scene=curr;
     paddle_width=100;
     paddle_height=20;
     setRect(0,0,paddle_width,paddle_height);
@@ -80,28 +81,27 @@ void Paddle::CollisionChecker()
              if(object->getCenterX()>=this->leftCornerX()&&object->getCenterX()<=this->rightCornerX()&&object->y()+(object->rect().width()/2)<y())
              {
              // collides with paddle
-                emit ballCollision(false,false);
+                emit ballCollision(dynamic_cast<Ball*>(cItems[i]),false,false);
                 return;
              }
              else if(object->getCenterX()>=this->leftCornerX())
              {
-                 emit ballCollision(false,true);
+                 emit ballCollision(dynamic_cast<Ball*>(cItems[i]),false,true);
              }
              else
              {
-                 emit ballCollision(true,false);
+                 emit ballCollision(dynamic_cast<Ball*>(cItems[i]),true,false);
              }
          }
+
         Powerup* power = dynamic_cast<Powerup*>(cItems[i]);
         if(power)
         {
             if(power->powerup_id==1)
             {
-                emit multiballadd(power);
+                emit multiballadd(scene,power);
             }
         }
-
-
      }
 }
 
