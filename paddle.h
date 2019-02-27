@@ -3,7 +3,9 @@
 
 #include <QGraphicsRectItem>
 #include <QObject>
+#include "ball.h"
 #include"powerup.h"
+
 class Paddle:public QObject,public QGraphicsRectItem
 {
     Q_OBJECT
@@ -17,19 +19,19 @@ public:
     double getCenterX();
     double rightCornerX();
     double leftCornerX();
-
     void timerEvent(QTimerEvent *);
-    void CollisionChecker();//(qreal x,qreal y, double radius);
+    void CollisionChecker();
 signals:
     void multiballadd(Powerup*);
     void stop();
     void stop_game();
-    void ballCollision(bool left_corner,bool right_corner);
+    void ballCollision(Ball* ball,bool left_corner,bool right_corner);
 private:
     int cnt = 0;
     bool foo = true;
     double paddle_height;
     double paddle_width;
+    QGraphicsScene *scene;
     QMap<int,bool> keys;
 };
 

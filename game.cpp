@@ -19,17 +19,15 @@
 #include "ballworker.h"
 #include "powerup.h"
 #include <algorithm>
+
 extern Paddle* paddle;
 extern start_menu *smenu;
-extern Game *game;
-
 
 Game::Game(QWidget *parent):QGraphicsView (parent)
 {
     setup_scene();
     QApplication::setKeyboardInputInterval(5);
     music = new BackgroundMusic();
-
 };
 
 void Game::setup_scene()
@@ -41,13 +39,10 @@ void Game::setup_scene()
     setFixedSize(700, 700);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-
 }
+
 void Game::build()
 {
-    qDebug()<<QThread::currentThreadId();
-    //deleting the previous menu derived from the QGraphicsScene
-    //menu depending . can be start or end menu ??
     music->start();
     paddle = new Paddle();
     scene->addItem(paddle);
@@ -55,185 +50,217 @@ void Game::build()
     ball = new Ball();
     scene->addItem(ball);
 
-    // Adding Score to the Scene
     score = new Score();
     scene->addItem(score);
 
+    QThread* thread = new QThread(this);
+    ballworker* worker = new ballworker(scene,ball);
 
-    QThread* thread1 = new QThread();
-
-    ballworker* worker1 = new ballworker(ball,scene);
-
-    worker1->moveToThread(thread1);
-    thread1->start();
-
+    worker->moveToThread(thread);
+    thread->start();
 
     ball_list.push_back(ball);
-    worker_list.push_back(worker1);
-    QObject::connect(paddle,SIGNAL(ballCollision(bool,bool)),worker1,SLOT(PaddleCollisionDetected(bool,bool)));
-
-    connect(worker1,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+    worker_list.push_back(worker);
 
     //create a grid of blocks of size m*n
-    grid = new gridlayout(1,scene);
+    grid = new gridlayout(scene,1);
 
-    connect(worker1,SIGNAL(endgame()),this,SLOT(end()));
-
-    timer = new QTimer();
+    timer = new QTimer(this);
     timer->start(5);
-    connect(timer,SIGNAL(timeout()),worker1,SLOT(ball_move()));
-    connect(worker1,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
-    connect(paddle,SIGNAL(multiballadd(Powerup*)),this,SLOT(Multiply_ball(Powerup*)));
-    connect(paddle,SIGNAL(multiballadd(Powerup*)),this,SLOT(removepowerup(Powerup*)));
 
+    mainConnections(worker);
 
     this->show();
 }
-void Game::ballpositionupdater(Ball* b,double x, double y)
+
+void Game::ballpositionupdater(Ball* nball,double x, double y)
 {
-    b->setPos(x,y);
-    brick_collision();
+    nball->setPos(x,y);
+    brick_collision(nball);
 }
+
+void Game::mainConnections(ballworker *worker)
+{
+    connect(timer,SIGNAL(timeout()),worker,SLOT(ball_move()));
+
+    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+    connect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
+    connect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
+
+    connect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
+    connect(paddle,SIGNAL(multiballadd(Powerup*)),this,SLOT(Multiply_ball(Powerup*)));
+    connect(paddle,SIGNAL(multiballadd(Powerup*)),this,SLOT(removepowerup(Powerup*)));
+    connect(paddle,SIGNAL(stop()),this,SLOT(pause()));
+}
+
+void Game::sideConnections(ballworker *worker)
+{
+    connect(timer,SIGNAL(timeout()),worker,SLOT(ball_move()));
+
+    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+    connect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
+    connect(worker,SIGNAL(ballposupdater(Ball*, double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
+
+    connect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
+}
+
+void Game::removeConnections(ballworker *worker)
+{
+    disconnect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+    disconnect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
+    disconnect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
+    disconnect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
+    disconnect(timer,SIGNAL(timeout()),worker,SLOT(ball_move()));
+}
+
+void Game::powerConnections(Powerup *power)
+{
+    connect(timer,SIGNAL(timeout()),power,SLOT(powerup_move()));
+    connect(power,SIGNAL(remove_connection(Powerup*)),this,SLOT(removepowerup(Powerup*)));
+}
+
 void Game::remove_brick(Brick *brick)
 {
+    brick->decHits();
 
-    brick->setHits(brick->getHits()-1);
+    if(brick->getHits()==1){brick->update();}
 
-    if(brick->getHits()==1)
+    else
     {
-        brick->update();
-    }
-
-    else {
         scene->removeItem(brick);
         delete brick;
     }
 }
 
-void Game::pause()
+void Game::removepowerup(Powerup* power)
 {
-    pause_menu *pmenu=new pause_menu();
-
-    pmenu->show();
-}
-void Game::restart()
-{
-    qDebug()<<"Restart";
-    scene->clear();
-    this->build();
+    disconnect(timer,SIGNAL(timeout()),power,SLOT(powerup_move()));
+    power_list.erase(std::remove(power_list.begin(),power_list.end(),power),power_list.end());
+    scene->removeItem(power);
+    delete power;
 }
 
-void Game::end()
+void Game::end(ballworker* nworker,Ball *nball)
 {
-    qDebug()<<"Disconnected";
-    qApp->exit();
-    end_menu *emenu = new end_menu();
-    this->hide();
-    emenu->show();
-    //worker_list[0]->exit();
-    worker_list.pop_back();
+    size_t x=ball_list.size();
+    ball_list.erase(std::remove(ball_list.begin(),ball_list.end(),nball),ball_list.end());
+    size_t y=ball_list.size();
 
+    if(x!=y)
+    {
+        removeConnections(nworker);
+        scene->removeItem(nball);
+        worker_list.erase(std::remove(worker_list.begin(),worker_list.end(),nworker),worker_list.end());
+        delete nworker;
+        //delete nball;
+    }
+
+    if(ball_list.size()==0)
+    {
+        end_menu *emenu = new end_menu();
+        this->hide();
+        emenu->show();
+        return;
+    }
 }
 
-Game::~Game()
+void Game::brick_collision(Ball* nball)
 {
-    music->exit();
-    delete music;
-}
-void Game::brick_collision()
-{
-    QList<QGraphicsItem*> cItems = ball->collidingItems();
+    QList<QGraphicsItem*> cItems = nball->collidingItems();
 
     for (int i = 0, n = cItems.size(); i < n; ++i){
             Brick* brick = dynamic_cast<Brick*>(cItems[i]);
-            // collides with brick
             if (brick){
-                double ballx = ball->pos().x();
-                double bally = ball->pos().y();
+                double ballx = nball->pos().x();
+                double bally = nball->pos().y();
                 double brickx = brick->pos().x();
                 double bricky = brick->pos().y();
 
-                // collides from bottom
-                if (bally >= bricky + brick->getHeight() && ball->y_velocity < 0){
-                    ball->y_velocity = -1 * ball->y_velocity;
+                if (bally >= bricky + brick->getHeight() && nball->y_velocity < 0){
+                    nball->y_velocity = -1 * nball->y_velocity;
                 }
 
-                // collides from top
-                if (bricky >= bally + ball->rect().height() && ball->y_velocity > 0 ){
-                    ball->y_velocity = -1 * ball->y_velocity;
+                if (bricky >= bally + nball->rect().height() && nball->y_velocity > 0 ){
+                    nball->y_velocity = -1 * nball->y_velocity;
                 }
 
-                // collides from right
-                if (ballx >= brickx + brick->getWidth() && ball->x_velocity < 0){
-                    ball->x_velocity = -1 * ball->x_velocity;
+                if (ballx >= brickx + brick->getWidth() && nball->x_velocity < 0){
+                    nball->x_velocity = -1 * nball->x_velocity;
                 }
 
-                // collides from left
-                if (brickx >= ballx + ball->rect().width()  && ball->x_velocity > 0){
-                    ball->x_velocity = -1 * ball->x_velocity;
+                if (brickx >= ballx + nball->rect().width()  && nball->x_velocity > 0){
+                    nball->x_velocity = -1 * nball->x_velocity;
                 }
-                this->score->increase();
-          //      emit destroy(brick);
 
-                brick->setHits(brick->getHits()-1);
+                score->increase();
 
-                if(brick->getHits()==1)
-                {
-                    brick->update();
-                }
+                brick->decHits(); //decreases the hits
+
+                if(brick->getHits()==1) brick->update();
 
                 else
                 {
                     if(brick->brick_id!=0)
                     {
                            Powerup* power = new Powerup();
+                           power->set(brick->brick_id,brick->x(),brick->y());
                            scene->addItem(power);
 
-                           power->set(brick->brick_id,brick->x(),brick->y());
-                           qDebug()<<brick->x()<<" "<<brick->y();
                            power_list.push_back(power);
-                           connect(timer,SIGNAL(timeout()),power,SLOT(powerup_move()));
-                           connect(power,SIGNAL(remove_connection(Powerup*)),this,SLOT(removepowerup(Powerup*)));
+                           powerConnections(power);
                     }
                     scene->removeItem(brick);
                     delete brick;
                 }
             }
         }
-
 }
+
 void Game::Multiply_ball(Powerup* power)
 {
     long unsigned number_of_balls = ball_list.size();
-    qDebug()<<number_of_balls<<"A'''";
+    if(ball_list.size()>=10) return;
+
+    QThread* thread = new QThread(this);
+
     for(long unsigned i = 0;i< number_of_balls ; i++)
     {
         Ball* new_ball = new Ball();
-        scene->addItem(new_ball);
-
-        new_ball->setPos(ball_list[i]->x(),ball_list[i]->y());
-        QThread* thread1 = new QThread();
-
-        ballworker* worker1 = new ballworker(new_ball,scene);
-
-        worker1->moveToThread(thread1);
-        thread1->start();
-
+        ballworker* worker = new ballworker(scene,new_ball);
+        worker->moveToThread(thread);
 
         ball_list.push_back(new_ball);
-        worker_list.push_back(worker1);
-        QObject::connect(paddle,SIGNAL(ballCollision(bool,bool)),worker1,SLOT(PaddleCollisionDetected(bool,bool)));
+        worker_list.push_back(worker);
 
-        connect(worker1,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
-        connect(worker1,SIGNAL(endgame()),this,SLOT(end()));
+        new_ball->setPos(ball_list[i]->x(),ball_list[i]->y());
+        scene->addItem(new_ball);
 
-        connect(timer,SIGNAL(timeout()),worker1,SLOT(ball_move()));
-        connect(worker1,SIGNAL(ballposupdater(Ball*, double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
+        sideConnections(worker);
     }
+
+    thread->start();
 }
-void Game::removepowerup(Powerup* power)
+
+void Game::start()
 {
-    disconnect(timer,SIGNAL(timeout()),power,SLOT(powerup_move()));
-    power_list.erase(std::remove(power_list.begin(),power_list.end(),power),power_list.end());
-    delete power;
+    timer->start(5);
+}
+
+void Game::pause()
+{
+    pause_menu *pmenu=new pause_menu();
+    timer->stop();
+    pmenu->show();
+}
+
+void Game::restart()
+{
+    scene->clear();
+    this->build();
+}
+
+Game::~Game()
+{
+    music->exit();
+    delete music;
 }

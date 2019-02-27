@@ -5,6 +5,7 @@
 #include <QBrush>
 #include <QDebug>
 #include <QKeyEvent>
+#include <QGraphicsRectItem>
 #include <QTimer>
 #include <QMutexLocker>
 #include <QMutex>
@@ -23,13 +24,5 @@ Ball::Ball(QGraphicsItem *parent):QGraphicsEllipseItem(parent){
     setPos(game->width()/2-this->radius()/2,game->height()-30-this->radius());
 }
 
-double Ball::radius()
-{
-    return ball_radius;
-}
-
-
-
-double Ball::getCenterX(){
-    return x() + rect().width()/2;
-}
+double Ball::radius(){return ball_radius;}
+double Ball::getCenterX(){return x() + rect().width()/2;}

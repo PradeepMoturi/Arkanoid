@@ -5,6 +5,7 @@
 #include <QKeyEvent>
 #include <QObject>
 #include <QTimer>
+#include <QGraphicsView>
 #include <QThread>
 
 class Ball:public QObject,public QGraphicsEllipseItem{
@@ -13,8 +14,6 @@ public:
     Ball(QGraphicsItem *parent=nullptr);
     double radius();
     double getCenterX();
-
-
 public:
     double ball_radius;
     double x_velocity;

@@ -12,7 +12,6 @@ Powerup::Powerup(QGraphicsItem *parent):QGraphicsRectItem (parent)
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::green);
     setBrush(brush);
-
 };
 void Powerup::set(int id,double x, double y)
 {
@@ -23,16 +22,10 @@ void Powerup::set(int id,double x, double y)
 void Powerup::powerup_move()
 {
     qreal temp = 700;
-//    qDebug()<<"Powerup moved";
-//    qDebug()<<"Powerup moved";
 
     setPos(x(),y()+y_velocity);
     if (y()> temp)
     {
-        qDebug()<<"Power up reached Bottom Edge";
-        qDebug()<<"Item deleted\n";
         emit remove_connection(this);
-        //delete this;
     }
-
 }
