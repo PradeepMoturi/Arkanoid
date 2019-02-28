@@ -84,7 +84,7 @@ void Game::mainConnections(ballworker *worker)
 {
     connect(timer,SIGNAL(timeout()),worker,SLOT(ball_move()));
 
-    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+//    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
     connect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     connect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
 
@@ -102,7 +102,7 @@ void Game::sideConnections(ballworker *worker)
 {
     connect(timer,SIGNAL(timeout()),worker,SLOT(ball_move()));
 
-    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+//    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
     connect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     connect(worker,SIGNAL(ballposupdater(Ball*, double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
 
@@ -111,7 +111,7 @@ void Game::sideConnections(ballworker *worker)
 
 void Game::removeConnections(ballworker *worker)
 {
-    disconnect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+    //disconnect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
     disconnect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     disconnect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
     disconnect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
@@ -132,6 +132,16 @@ void Game::remove_brick(Brick *brick)
 
     else
     {
+        if(brick->brick_id!=0)
+        {
+               Powerup* power = new Powerup();
+               power->set(brick->brick_id,brick->x()+(brick->getWidth()/2)-(power->getwidth()/2),brick->y()+brick->getHeight());
+               scene->addItem(power);
+
+               power_list.push_back(power);
+               powerConnections(power);
+        }
+
         scene->removeItem(brick);
         delete brick;
     }
@@ -199,24 +209,7 @@ void Game::brick_collision(Ball* nball)
 
                 score->increase();
 
-                brick->decHits(); //decreases the hits
-
-                if(brick->getHits()==1) brick->update();
-
-                else
-                {
-                    if(brick->brick_id!=0)
-                    {
-                           Powerup* power = new Powerup();
-                           power->set(brick->brick_id,brick->x()+(brick->getWidth()/2)-(power->getwidth()/2),brick->y()+brick->getHeight());
-                           scene->addItem(power);
-
-                           power_list.push_back(power);
-                           powerConnections(power);
-                    }
-                    scene->removeItem(brick);
-                    delete brick;
-                }
+                remove_brick(brick);
             }
         }
 }
@@ -250,8 +243,6 @@ void Game::Multiply_ball(Powerup* power)
 
     }
     thread->start();
-
-
 }
 
 void Game::start()

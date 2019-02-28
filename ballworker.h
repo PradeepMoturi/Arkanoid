@@ -25,6 +25,6 @@ public slots:
 signals:
     void ballposupdater(Ball* nball,double x, double y);
     void endgame(ballworker*,Ball* nball);
-    void destroy(Brick* nbrick);
+//    void destroy(Brick* nbrick);
 };
 #endif // BALLWORKER_H

@@ -23,6 +23,7 @@ public:
     void sideConnections(ballworker* worker);
     void removeConnections(ballworker* worker);
     void powerConnections(Powerup* power);
+    void remove_brick(Brick *brick);
 signals:
     void pausemusic();
     void resumemusic();
@@ -34,7 +35,6 @@ public slots:
     void restart();
     void end(ballworker*,Ball*);
     void pause();
-    void remove_brick(Brick *brick);
     void removepowerup(Powerup*);
     void Multiply_ball(Powerup*);
 private:
