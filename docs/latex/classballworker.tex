@@ -1,5 +1,14 @@
 \hypertarget{classballworker}{}\doxysection{ballworker Class Reference}
 \label{classballworker}\index{ballworker@{ballworker}}
+
+
+The ballworker class Inherits from Q\+Object.  
+
+
+
+
+{\ttfamily \#include $<$ballworker.\+h$>$}
+
 Inheritance diagram for ballworker\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,40 +18,186 @@ Inheritance diagram for ballworker\+:\begin{figure}[H]
 \doxysubsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classballworker_aeb915d0a36253ace564e6638ba3f364e}\label{classballworker_aeb915d0a36253ace564e6638ba3f364e}} 
-void {\bfseries ball\+\_\+move} ()
-\item 
-\mbox{\Hypertarget{classballworker_a1ab2e93eaf8adddeddc0ddd2bef172dd}\label{classballworker_a1ab2e93eaf8adddeddc0ddd2bef172dd}} 
-void {\bfseries Paddle\+Collision\+Detected} (\mbox{\hyperlink{class_ball}{Ball}} $\ast$nball, bool left\+\_\+corner, bool right\+\_\+corner)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classballworker_aeb915d0a36253ace564e6638ba3f364e}{ball\+\_\+move}} ()
+\begin{DoxyCompactList}\small\item\em ball\+\_\+move moves the ball \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classballworker_a1ab2e93eaf8adddeddc0ddd2bef172dd}{Paddle\+Collision\+Detected}} (\mbox{\hyperlink{class_ball}{Ball}} $\ast$nball, bool left\+\_\+corner, bool right\+\_\+corner)
+\begin{DoxyCompactList}\small\item\em Paddle\+Collision\+Detected \mbox{\hyperlink{class_paddle}{Paddle}} Collision has been detected. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Signals}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classballworker_add60e4c209ba65881e16248a11af24db}\label{classballworker_add60e4c209ba65881e16248a11af24db}} 
-void {\bfseries ballposupdater} (\mbox{\hyperlink{class_ball}{Ball}} $\ast$nball, double x, double y)
-\item 
-\mbox{\Hypertarget{classballworker_a883a40c30ab97a2e417938b918045ce0}\label{classballworker_a883a40c30ab97a2e417938b918045ce0}} 
-void {\bfseries endgame} (\mbox{\hyperlink{classballworker}{ballworker}} $\ast$, \mbox{\hyperlink{class_ball}{Ball}} $\ast$nball)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classballworker_add60e4c209ba65881e16248a11af24db}{ballposupdater}} (\mbox{\hyperlink{class_ball}{Ball}} $\ast$nball, double x, double y)
+\begin{DoxyCompactList}\small\item\em ballposupdater Signal to change the position of the ball \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classballworker_a883a40c30ab97a2e417938b918045ce0}{endgame}} (\mbox{\hyperlink{classballworker}{ballworker}} $\ast$, \mbox{\hyperlink{class_ball}{Ball}} $\ast$nball)
+\begin{DoxyCompactList}\small\item\em endgame Signal is raised when the ball crosses bottom surface \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classballworker_a32cb6689f9d5ff6a886db4044cd5c783}\label{classballworker_a32cb6689f9d5ff6a886db4044cd5c783}} 
-{\bfseries ballworker} (Q\+Graphics\+Scene $\ast$curr, \mbox{\hyperlink{class_ball}{Ball}} $\ast$b)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classballworker_a5e943b005df943084d91146ecf4d5f25}{ballworker}} (Q\+Graphics\+Scene $\ast$curr, \mbox{\hyperlink{class_ball}{Ball}} $\ast$new\+\_\+ball)
+\begin{DoxyCompactList}\small\item\em ballworker Constructor \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
 \mbox{\Hypertarget{classballworker_abdc2995f8da832d8581459eead196602}\label{classballworker_abdc2995f8da832d8581459eead196602}} 
-\mbox{\hyperlink{class_ball}{Ball}} $\ast$ {\bfseries ball}
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_ball}{Ball}} $\ast$ \mbox{\hyperlink{classballworker_abdc2995f8da832d8581459eead196602}{ball}}
+\begin{DoxyCompactList}\small\item\em ball ball for which this class does work for. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classballworker_ac05c41a3117d0c6341515c26173dcd9d}\label{classballworker_ac05c41a3117d0c6341515c26173dcd9d}} 
+void \mbox{\hyperlink{classballworker_ac05c41a3117d0c6341515c26173dcd9d}{wall\+\_\+collision}} ()
+\begin{DoxyCompactList}\small\item\em wall\+\_\+collision Member Function to check for wall collision and update the velocity of the \mbox{\hyperlink{class_ball}{Ball}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classballworker_ae983c00fc85ae36aafd946de2e907f36}\label{classballworker_ae983c00fc85ae36aafd946de2e907f36}} 
+double \mbox{\hyperlink{classballworker_ae983c00fc85ae36aafd946de2e907f36}{screen\+\_\+width}}
+\begin{DoxyCompactList}\small\item\em screen\+\_\+width Contains the Width of the screen. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classballworker_aa41b0323d912a9b2391b544a3a5795ff}\label{classballworker_aa41b0323d912a9b2391b544a3a5795ff}} 
+double \mbox{\hyperlink{classballworker_aa41b0323d912a9b2391b544a3a5795ff}{screen\+\_\+height}}
+\begin{DoxyCompactList}\small\item\em screen\+\_\+height Contains the Height of the screen \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+The ballworker class Inherits from Q\+Object. 
+
+ballworker contains a ball and this object does all the work for the ball. It handles the \mbox{\hyperlink{class_paddle}{Paddle}} Collision for the ball and also the brick collision. 
+
+Definition at line 34 of file ballworker.\+h.
 
 
-Definition at line 27 of file ballworker.\+h.
 
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classballworker_a5e943b005df943084d91146ecf4d5f25}\label{classballworker_a5e943b005df943084d91146ecf4d5f25}} 
+\index{ballworker@{ballworker}!ballworker@{ballworker}}
+\index{ballworker@{ballworker}!ballworker@{ballworker}}
+\doxysubsubsection{\texorpdfstring{ballworker()}{ballworker()}}
+{\footnotesize\ttfamily ballworker\+::ballworker (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene $\ast$}]{curr,  }\item[{\mbox{\hyperlink{class_ball}{Ball}} $\ast$}]{new\+\_\+ball }\end{DoxyParamCaption})}
+
+
+
+ballworker Constructor 
+
+
+\begin{DoxyParams}{Parameters}
+{\em curr} & Current Scene of the \mbox{\hyperlink{class_ball}{Ball}} \\
+\hline
+{\em new\+\_\+ball} & Pointer to a ball object\\
+\hline
+\end{DoxyParams}
+Sets the Width and height of the screen 
+
+Definition at line 26 of file ballworker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{27 \{}
+\DoxyCodeLine{28     \mbox{\hyperlink{classballworker_ae983c00fc85ae36aafd946de2e907f36}{screen\_width}} = curr-\/>width();}
+\DoxyCodeLine{29     \mbox{\hyperlink{classballworker_aa41b0323d912a9b2391b544a3a5795ff}{screen\_height}} = curr-\/>height();}
+\DoxyCodeLine{30     \mbox{\hyperlink{classballworker_abdc2995f8da832d8581459eead196602}{ball}} = new\_ball;}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classballworker_aeb915d0a36253ace564e6638ba3f364e}\label{classballworker_aeb915d0a36253ace564e6638ba3f364e}} 
+\index{ballworker@{ballworker}!ball\_move@{ball\_move}}
+\index{ball\_move@{ball\_move}!ballworker@{ballworker}}
+\doxysubsubsection{\texorpdfstring{ball\_move}{ball\_move}}
+{\footnotesize\ttfamily void ballworker\+::ball\+\_\+move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+ball\+\_\+move moves the ball 
+
+It is a Slot to move the ball. It is connected to timeout signal of the timer in the \mbox{\hyperlink{class_game}{Game}}. This slot is called by main theread every 5ms. 
+
+Definition at line 35 of file ballworker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37     \mbox{\hyperlink{classballworker_ac05c41a3117d0c6341515c26173dcd9d}{wall\_collision}}();}
+\DoxyCodeLine{38     emit(\mbox{\hyperlink{classballworker_add60e4c209ba65881e16248a11af24db}{ballposupdater}}(\mbox{\hyperlink{classballworker_abdc2995f8da832d8581459eead196602}{ball}},\mbox{\hyperlink{classballworker_abdc2995f8da832d8581459eead196602}{ball}}-\/>x()+\mbox{\hyperlink{classballworker_abdc2995f8da832d8581459eead196602}{ball}}-\/>\mbox{\hyperlink{class_ball_ab83f60b9b137a292e1a034e0e6d14ae4}{get\_xvelocity}}(),\mbox{\hyperlink{classballworker_abdc2995f8da832d8581459eead196602}{ball}}-\/>y()+\mbox{\hyperlink{classballworker_abdc2995f8da832d8581459eead196602}{ball}}-\/>\mbox{\hyperlink{class_ball_a9a56417be16f1cbdf15e5dceb90a1eaa}{get\_yvelocity}}()));}
+\DoxyCodeLine{39 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{classballworker_add60e4c209ba65881e16248a11af24db}\label{classballworker_add60e4c209ba65881e16248a11af24db}} 
+\index{ballworker@{ballworker}!ballposupdater@{ballposupdater}}
+\index{ballposupdater@{ballposupdater}!ballworker@{ballworker}}
+\doxysubsubsection{\texorpdfstring{ballposupdater}{ballposupdater}}
+{\footnotesize\ttfamily void ballworker\+::ballposupdater (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ball}{Ball}} $\ast$}]{nball,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+ballposupdater Signal to change the position of the ball 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nball} & Pointer to the ball \\
+\hline
+{\em x} & New x position of the ball \\
+\hline
+{\em y} & New y position of the ball\\
+\hline
+\end{DoxyParams}
+This signal is conected to a slot ballpositionupdater in \mbox{\hyperlink{class_game}{Game}} i.\+e Main Thread. Sends the new position of the ball. \mbox{\Hypertarget{classballworker_a883a40c30ab97a2e417938b918045ce0}\label{classballworker_a883a40c30ab97a2e417938b918045ce0}} 
+\index{ballworker@{ballworker}!endgame@{endgame}}
+\index{endgame@{endgame}!ballworker@{ballworker}}
+\doxysubsubsection{\texorpdfstring{endgame}{endgame}}
+{\footnotesize\ttfamily void ballworker\+::endgame (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classballworker}{ballworker}} $\ast$}]{,  }\item[{\mbox{\hyperlink{class_ball}{Ball}} $\ast$}]{nball }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+endgame Signal is raised when the ball crosses bottom surface 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nball} & This Signal is connected to a slot in end in \mbox{\hyperlink{class_game}{Game}} i.\+e Main Thread. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classballworker_a1ab2e93eaf8adddeddc0ddd2bef172dd}\label{classballworker_a1ab2e93eaf8adddeddc0ddd2bef172dd}} 
+\index{ballworker@{ballworker}!PaddleCollisionDetected@{PaddleCollisionDetected}}
+\index{PaddleCollisionDetected@{PaddleCollisionDetected}!ballworker@{ballworker}}
+\doxysubsubsection{\texorpdfstring{PaddleCollisionDetected}{PaddleCollisionDetected}}
+{\footnotesize\ttfamily void ballworker\+::\+Paddle\+Collision\+Detected (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ball}{Ball}} $\ast$}]{nball,  }\item[{bool}]{left\+\_\+corner,  }\item[{bool}]{right\+\_\+corner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Paddle\+Collision\+Detected \mbox{\hyperlink{class_paddle}{Paddle}} Collision has been detected. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nball} & this slot changes the direction of nball \\
+\hline
+{\em left\+\_\+corner} & left\+\_\+corner is true if the it crosses left side of paddle. \\
+\hline
+{\em right\+\_\+corner} & right\+\_\+corner is true if the ball crosses right side of paddle.\\
+\hline
+\end{DoxyParams}
+It is connected to timeout() signal of the timer in \mbox{\hyperlink{class_game}{Game}} i.\+e main thread If both left\+\_\+corner and right\+\_\+corner are false we reverse the y velocity of the ball else we change the x or y velocity respectively 
+
+Definition at line 41 of file ballworker.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43        \textcolor{keywordflow}{if}(left\_corner == \textcolor{keyword}{false}\&\&right\_corner==\textcolor{keyword}{false})}
+\DoxyCodeLine{44        \{}
+\DoxyCodeLine{45            nball-\/>\mbox{\hyperlink{class_ball_ac559cf20d9791c6c4e98ab9c3e2d77e4}{set\_yvelocity}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{46        \}}
+\DoxyCodeLine{47        \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(left\_corner==\textcolor{keyword}{true})}
+\DoxyCodeLine{48        \{}
+\DoxyCodeLine{49            nball-\/>\mbox{\hyperlink{class_ball_a941d0434860d457fd5efd58769abfddc}{set\_xvelocity}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{50        \}}
+\DoxyCodeLine{51        \textcolor{keywordflow}{else}}
+\DoxyCodeLine{52        \{}
+\DoxyCodeLine{53            nball-\/>\mbox{\hyperlink{class_ball_a941d0434860d457fd5efd58769abfddc}{set\_xvelocity}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{54        \}}
+\DoxyCodeLine{55 \}}
+
+\end{DoxyCode}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

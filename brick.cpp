@@ -30,11 +30,17 @@ Brick::Brick(int id,int cnt,QGraphicsItem* parent):QGraphicsItem(parent)
     height=20;
 }
 
-void Brick::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Brick::paint(QPainter *painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
     QRectF map=boundingRect();
-    if(this->getHits()==1) painter->setBrush(Qt::yellow);
-    else painter->setBrush(Qt::red);
+    if(this->getHits()==1)
+    {
+        painter->setBrush(Qt::yellow);
+    }
+    else
+    {
+        painter->setBrush(Qt::red);
+    }
     painter->drawRoundedRect(map,4,4);
 }
 
@@ -47,14 +53,28 @@ int Brick::getHits()
 {
     return hits;
 }
+
 void Brick::decHits()
 {
-    QMutex mutex;
-    mutex.lock();
     hits=hits-1;
-    mutex.unlock();
 }
-int Brick::getHeight(){return height;}
-int Brick::getWidth(){return width;}
-void Brick::setHeight(int temp){this->height=temp;}
-void Brick::setWidth(int temp){this->width=temp;}
+
+int Brick::getHeight()
+{
+    return height;
+}
+
+int Brick::getWidth()
+{
+    return width;
+}
+
+void Brick::setHeight(int new_height)
+{
+    this->height=new_height;
+}
+
+void Brick::setWidth(int new_width)
+{
+    this->width=new_width;
+}

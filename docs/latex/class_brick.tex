@@ -1,5 +1,14 @@
 \hypertarget{class_brick}{}\doxysection{Brick Class Reference}
 \label{class_brick}\index{Brick@{Brick}}
+
+
+The \mbox{\hyperlink{class_brick}{Brick}} class Inherits from Q\+Graphics\+Item Stores the information about the brick.  
+
+
+
+
+{\ttfamily \#include $<$brick.\+h$>$}
+
 Inheritance diagram for Brick\+:\begin{figure}[H]
 \begin{center}
 \leavevmode
@@ -9,45 +18,308 @@ Inheritance diagram for Brick\+:\begin{figure}[H]
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_brick_ab8d9315e6e5b2a8f317efe70c255cb3e}\label{class_brick_ab8d9315e6e5b2a8f317efe70c255cb3e}} 
-{\bfseries Brick} (int id, int cnt, Q\+Graphics\+Item $\ast$parent=nullptr)
-\item 
-\mbox{\Hypertarget{class_brick_aef169d9d3fa8071a0e55794138275f0d}\label{class_brick_aef169d9d3fa8071a0e55794138275f0d}} 
-Q\+RectF {\bfseries bounding\+Rect} () const
-\item 
-\mbox{\Hypertarget{class_brick_a4caf1a79fce7a93411b887304dcdbd64}\label{class_brick_a4caf1a79fce7a93411b887304dcdbd64}} 
-void {\bfseries paint} (Q\+Painter $\ast$painter, const Q\+Style\+Option\+Graphics\+Item $\ast$option, Q\+Widget $\ast$widget)
-\item 
-\mbox{\Hypertarget{class_brick_a79fceb3203607f4c44c8dd96a7481f2d}\label{class_brick_a79fceb3203607f4c44c8dd96a7481f2d}} 
-int {\bfseries get\+Hits} ()
-\item 
-\mbox{\Hypertarget{class_brick_ad6468582c60cb29ba66ec6d7d48ff549}\label{class_brick_ad6468582c60cb29ba66ec6d7d48ff549}} 
-int {\bfseries get\+Height} ()
-\item 
-\mbox{\Hypertarget{class_brick_ad95310e7feb8082b052379ec5296a399}\label{class_brick_ad95310e7feb8082b052379ec5296a399}} 
-int {\bfseries get\+Width} ()
-\item 
-\mbox{\Hypertarget{class_brick_a50635eaf059430e2a8cc4df9c4284124}\label{class_brick_a50635eaf059430e2a8cc4df9c4284124}} 
-void {\bfseries dec\+Hits} ()
-\item 
-\mbox{\Hypertarget{class_brick_a920a1031e12f94b3ce4513b754b4e923}\label{class_brick_a920a1031e12f94b3ce4513b754b4e923}} 
-void {\bfseries set\+Height} (int x)
-\item 
-\mbox{\Hypertarget{class_brick_ab6ae5e0e9d0d4d9e8781bca03888f1c0}\label{class_brick_ab6ae5e0e9d0d4d9e8781bca03888f1c0}} 
-void {\bfseries set\+Width} (int x)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_brick_ab8d9315e6e5b2a8f317efe70c255cb3e}{Brick}} (int id, int cnt, Q\+Graphics\+Item $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_brick}{Brick}} Constructor. \end{DoxyCompactList}\item 
+Q\+RectF \mbox{\hyperlink{class_brick_aef169d9d3fa8071a0e55794138275f0d}{bounding\+Rect}} () const
+\begin{DoxyCompactList}\small\item\em bounding\+Rect \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_brick_a37e0b67b17c9504c9c7231154a32438e}{paint}} (Q\+Painter $\ast$painter, const Q\+Style\+Option\+Graphics\+Item $\ast$, Q\+Widget $\ast$)
+\begin{DoxyCompactList}\small\item\em paint Paints the Bricks \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_brick_a79fceb3203607f4c44c8dd96a7481f2d}{get\+Hits}} ()
+\begin{DoxyCompactList}\small\item\em get\+Hits \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_brick_ad6468582c60cb29ba66ec6d7d48ff549}{get\+Height}} ()
+\begin{DoxyCompactList}\small\item\em get\+Height \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_brick_ad95310e7feb8082b052379ec5296a399}{get\+Width}} ()
+\begin{DoxyCompactList}\small\item\em get\+Width \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_brick_a50635eaf059430e2a8cc4df9c4284124}{dec\+Hits}} ()
+\begin{DoxyCompactList}\small\item\em dec\+Hits \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_brick_acacce11e2f3ab72a2f167e2baaa67fe3}{set\+Height}} (int new\+\_\+height)
+\begin{DoxyCompactList}\small\item\em set\+Height \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_brick_aa9c31cef5cfc4bd4590904edad2ffd29}{set\+Width}} (int new\+\_\+width)
+\begin{DoxyCompactList}\small\item\em set\+Width \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{class_brick_ac33a985cd0b9e7d4ed233121ab99222f}\label{class_brick_ac33a985cd0b9e7d4ed233121ab99222f}} 
-int {\bfseries brick\+\_\+id}
-\end{DoxyCompactItemize}
+int \mbox{\hyperlink{class_brick_ac33a985cd0b9e7d4ed233121ab99222f}{brick\+\_\+id}}
+\begin{DoxyCompactList}\small\item\em brick\+\_\+id Contains the Information About the \mbox{\hyperlink{class_powerup}{Powerup}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_brick_a2cb4388212a739857daa231fbfff6fae}\label{class_brick_a2cb4388212a739857daa231fbfff6fae}} 
+int \mbox{\hyperlink{class_brick_a2cb4388212a739857daa231fbfff6fae}{hits}}
+\begin{DoxyCompactList}\small\item\em hits Stores the number of Hits required to Break the \mbox{\hyperlink{class_ball}{Ball}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_brick_a268f044b17390e2129a70c62e4792129}\label{class_brick_a268f044b17390e2129a70c62e4792129}} 
+int \mbox{\hyperlink{class_brick_a268f044b17390e2129a70c62e4792129}{height}}
+\begin{DoxyCompactList}\small\item\em height Stores the Height of the \mbox{\hyperlink{class_ball}{Ball}} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_brick_a0cd912e71b9338f6d544750702eac2a9}\label{class_brick_a0cd912e71b9338f6d544750702eac2a9}} 
+int \mbox{\hyperlink{class_brick_a0cd912e71b9338f6d544750702eac2a9}{width}}
+\begin{DoxyCompactList}\small\item\em width Stores the Width of the \mbox{\hyperlink{class_ball}{Ball}} \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_brick}{Brick}} class Inherits from Q\+Graphics\+Item Stores the information about the brick. 
+
+Definition at line 35 of file brick.\+h.
 
 
-Definition at line 30 of file brick.\+h.
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_brick_ab8d9315e6e5b2a8f317efe70c255cb3e}\label{class_brick_ab8d9315e6e5b2a8f317efe70c255cb3e}} 
+\index{Brick@{Brick}!Brick@{Brick}}
+\index{Brick@{Brick}!Brick@{Brick}}
+\doxysubsubsection{\texorpdfstring{Brick()}{Brick()}}
+{\footnotesize\ttfamily Brick\+::\+Brick (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{int}]{cnt,  }\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_brick}{Brick}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & Tells if the \mbox{\hyperlink{class_brick}{Brick}} has a \mbox{\hyperlink{class_powerup}{Powerup}} or not \\
+\hline
+{\em cnt} & Gives Information about how many hits are required for the brick to break \\
+\hline
+{\em parent} & Is always set to nullptr \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 25 of file brick.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{25                                                 :QGraphicsItem(parent)}
+\DoxyCodeLine{26 \{}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_brick_ac33a985cd0b9e7d4ed233121ab99222f}{brick\_id}}=id;}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_brick_a2cb4388212a739857daa231fbfff6fae}{hits}}=cnt;}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_brick_a0cd912e71b9338f6d544750702eac2a9}{width}}=80;}
+\DoxyCodeLine{30     \mbox{\hyperlink{class_brick_a268f044b17390e2129a70c62e4792129}{height}}=20;}
+\DoxyCodeLine{31 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_brick_aef169d9d3fa8071a0e55794138275f0d}\label{class_brick_aef169d9d3fa8071a0e55794138275f0d}} 
+\index{Brick@{Brick}!boundingRect@{boundingRect}}
+\index{boundingRect@{boundingRect}!Brick@{Brick}}
+\doxysubsubsection{\texorpdfstring{boundingRect()}{boundingRect()}}
+{\footnotesize\ttfamily Q\+RectF Brick\+::bounding\+Rect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+bounding\+Rect 
+
+\begin{DoxyReturn}{Returns}
+Q\+RectF Object is returned 
+\end{DoxyReturn}
+
+
+Definition at line 47 of file brick.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{48 \{}
+\DoxyCodeLine{49     \textcolor{keywordflow}{return} QRectF(0,0,\mbox{\hyperlink{class_brick_a0cd912e71b9338f6d544750702eac2a9}{width}},\mbox{\hyperlink{class_brick_a268f044b17390e2129a70c62e4792129}{height}});}
+\DoxyCodeLine{50 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_brick_a50635eaf059430e2a8cc4df9c4284124}\label{class_brick_a50635eaf059430e2a8cc4df9c4284124}} 
+\index{Brick@{Brick}!decHits@{decHits}}
+\index{decHits@{decHits}!Brick@{Brick}}
+\doxysubsubsection{\texorpdfstring{decHits()}{decHits()}}
+{\footnotesize\ttfamily void Brick\+::dec\+Hits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+dec\+Hits 
+
+Reduces the number of hits by 1 
+
+Definition at line 57 of file brick.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{58 \{}
+\DoxyCodeLine{59     \mbox{\hyperlink{class_brick_a2cb4388212a739857daa231fbfff6fae}{hits}}=\mbox{\hyperlink{class_brick_a2cb4388212a739857daa231fbfff6fae}{hits}}-\/1;}
+\DoxyCodeLine{60 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_brick_ad6468582c60cb29ba66ec6d7d48ff549}\label{class_brick_ad6468582c60cb29ba66ec6d7d48ff549}} 
+\index{Brick@{Brick}!getHeight@{getHeight}}
+\index{getHeight@{getHeight}!Brick@{Brick}}
+\doxysubsubsection{\texorpdfstring{getHeight()}{getHeight()}}
+{\footnotesize\ttfamily int Brick\+::get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Height 
+
+\begin{DoxyReturn}{Returns}
+Height of the \mbox{\hyperlink{class_brick}{Brick}} 
+\end{DoxyReturn}
+
+
+Definition at line 62 of file brick.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{63 \{}
+\DoxyCodeLine{64     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_brick_a268f044b17390e2129a70c62e4792129}{height}};}
+\DoxyCodeLine{65 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_brick_a79fceb3203607f4c44c8dd96a7481f2d}\label{class_brick_a79fceb3203607f4c44c8dd96a7481f2d}} 
+\index{Brick@{Brick}!getHits@{getHits}}
+\index{getHits@{getHits}!Brick@{Brick}}
+\doxysubsubsection{\texorpdfstring{getHits()}{getHits()}}
+{\footnotesize\ttfamily int Brick\+::get\+Hits (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Hits 
+
+\begin{DoxyReturn}{Returns}
+Number of Hits remaining to break the brick 
+\end{DoxyReturn}
+
+
+Definition at line 52 of file brick.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53 \{}
+\DoxyCodeLine{54     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_brick_a2cb4388212a739857daa231fbfff6fae}{hits}};}
+\DoxyCodeLine{55 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_brick_ad95310e7feb8082b052379ec5296a399}\label{class_brick_ad95310e7feb8082b052379ec5296a399}} 
+\index{Brick@{Brick}!getWidth@{getWidth}}
+\index{getWidth@{getWidth}!Brick@{Brick}}
+\doxysubsubsection{\texorpdfstring{getWidth()}{getWidth()}}
+{\footnotesize\ttfamily int Brick\+::get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+Width 
+
+\begin{DoxyReturn}{Returns}
+Width of the \mbox{\hyperlink{class_brick}{Brick}} 
+\end{DoxyReturn}
+
+
+Definition at line 67 of file brick.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{68 \{}
+\DoxyCodeLine{69     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_brick_a0cd912e71b9338f6d544750702eac2a9}{width}};}
+\DoxyCodeLine{70 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_brick_a37e0b67b17c9504c9c7231154a32438e}\label{class_brick_a37e0b67b17c9504c9c7231154a32438e}} 
+\index{Brick@{Brick}!paint@{paint}}
+\index{paint@{paint}!Brick@{Brick}}
+\doxysubsubsection{\texorpdfstring{paint()}{paint()}}
+{\footnotesize\ttfamily void Brick\+::paint (\begin{DoxyParamCaption}\item[{Q\+Painter $\ast$}]{painter,  }\item[{const Q\+Style\+Option\+Graphics\+Item $\ast$}]{,  }\item[{Q\+Widget $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+paint Paints the Bricks 
+
+
+\begin{DoxyParams}{Parameters}
+{\em painter} & Q\+Painter Object used to paint the brick\\
+\hline
+\end{DoxyParams}
+If the Number of hits is 1 then the the color of \mbox{\hyperlink{class_brick}{Brick}} is Yellow If the Number of hits is 2 then the the color of \mbox{\hyperlink{class_brick}{Brick}} is Red 
+
+Definition at line 33 of file brick.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{34 \{}
+\DoxyCodeLine{35     QRectF map=\mbox{\hyperlink{class_brick_aef169d9d3fa8071a0e55794138275f0d}{boundingRect}}();}
+\DoxyCodeLine{36     \textcolor{keywordflow}{if}(this-\/>\mbox{\hyperlink{class_brick_a79fceb3203607f4c44c8dd96a7481f2d}{getHits}}()==1)}
+\DoxyCodeLine{37     \{}
+\DoxyCodeLine{38         painter-\/>setBrush(Qt::yellow);}
+\DoxyCodeLine{39     \}}
+\DoxyCodeLine{40     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{41     \{}
+\DoxyCodeLine{42         painter-\/>setBrush(Qt::red);}
+\DoxyCodeLine{43     \}}
+\DoxyCodeLine{44     painter-\/>drawRoundedRect(map,4,4);}
+\DoxyCodeLine{45 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_brick_acacce11e2f3ab72a2f167e2baaa67fe3}\label{class_brick_acacce11e2f3ab72a2f167e2baaa67fe3}} 
+\index{Brick@{Brick}!setHeight@{setHeight}}
+\index{setHeight@{setHeight}!Brick@{Brick}}
+\doxysubsubsection{\texorpdfstring{setHeight()}{setHeight()}}
+{\footnotesize\ttfamily void Brick\+::set\+Height (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+height }\end{DoxyParamCaption})}
+
+
+
+set\+Height 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+height} & New Height of the \mbox{\hyperlink{class_brick}{Brick}}\\
+\hline
+\end{DoxyParams}
+Changes the Height of the \mbox{\hyperlink{class_brick}{Brick}} 
+
+Definition at line 72 of file brick.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{73 \{}
+\DoxyCodeLine{74     this-\/>\mbox{\hyperlink{class_brick_a268f044b17390e2129a70c62e4792129}{height}}=new\_height;}
+\DoxyCodeLine{75 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_brick_aa9c31cef5cfc4bd4590904edad2ffd29}\label{class_brick_aa9c31cef5cfc4bd4590904edad2ffd29}} 
+\index{Brick@{Brick}!setWidth@{setWidth}}
+\index{setWidth@{setWidth}!Brick@{Brick}}
+\doxysubsubsection{\texorpdfstring{setWidth()}{setWidth()}}
+{\footnotesize\ttfamily void Brick\+::set\+Width (\begin{DoxyParamCaption}\item[{int}]{new\+\_\+width }\end{DoxyParamCaption})}
+
+
+
+set\+Width 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+\_\+width} & New Width of the \mbox{\hyperlink{class_brick}{Brick}}\\
+\hline
+\end{DoxyParams}
+Changes the Width of the \mbox{\hyperlink{class_brick}{Brick}} 
+
+Definition at line 77 of file brick.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{78 \{}
+\DoxyCodeLine{79     this-\/>\mbox{\hyperlink{class_brick_a0cd912e71b9338f6d544750702eac2a9}{width}}=new\_width;}
+\DoxyCodeLine{80 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_brick_ac33a985cd0b9e7d4ed233121ab99222f}\label{class_brick_ac33a985cd0b9e7d4ed233121ab99222f}} 
+\index{Brick@{Brick}!brick\_id@{brick\_id}}
+\index{brick\_id@{brick\_id}!Brick@{Brick}}
+\doxysubsubsection{\texorpdfstring{brick\_id}{brick\_id}}
+{\footnotesize\ttfamily int Brick\+::brick\+\_\+id}
+
+
+
+brick\+\_\+id Contains the Information About the \mbox{\hyperlink{class_powerup}{Powerup}}. 
+
+No Power up brick\+\_\+id is 0. Power up \+: Multiple \mbox{\hyperlink{class_ball}{Ball}} Power up brick\+\_\+id is is 1. Power up \+: Increase in \mbox{\hyperlink{class_paddle}{Paddle}} Length brick\+\_\+id is 2. Power up \+: Decrease in \mbox{\hyperlink{class_paddle}{Paddle}} Length brick\+\_\+id is 3. Power up \+: Fire \mbox{\hyperlink{class_ball}{Ball}} brick\+\_\+id is 4. 
+
+Definition at line 113 of file brick.\+h.
 
 
 

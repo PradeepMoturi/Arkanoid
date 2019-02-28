@@ -67,6 +67,8 @@ $(function() {
 <a href="#signals">Signals</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="class_game-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">Game Class Reference</div>  </div>
@@ -147,6 +149,48 @@ QGraphicsScene *&#160;</td><td class="memItemRight" valign="bottom"><b>scene</b>
 <tr class="memitem:ad195acc6b5ee17a5a07fea0b7b4ff5e2"><td class="memItemLeft" align="right" valign="top"><a id="ad195acc6b5ee17a5a07fea0b7b4ff5e2"></a>
 <a class="el" href="class_score.html">Score</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>score</b></td></tr>
 <tr class="separator:ad195acc6b5ee17a5a07fea0b7b4ff5e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a99a17f82b1fb13bd7758c48bba0d4b1e"><td class="memItemLeft" align="right" valign="top"><a id="a99a17f82b1fb13bd7758c48bba0d4b1e"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>brick_collision</b> (<a class="el" href="class_ball.html">Ball</a> *b)</td></tr>
+<tr class="separator:a99a17f82b1fb13bd7758c48bba0d4b1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4def72ff881824e1ddaf43f9093086af"><td class="memItemLeft" align="right" valign="top"><a id="a4def72ff881824e1ddaf43f9093086af"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>setup_scene</b> ()</td></tr>
+<tr class="separator:a4def72ff881824e1ddaf43f9093086af"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec0d3dfc87fe40fdc4fb9d4e7e9b0e64"><td class="memItemLeft" align="right" valign="top"><a id="aec0d3dfc87fe40fdc4fb9d4e7e9b0e64"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>createGrid</b> (int rows, int columns)</td></tr>
+<tr class="separator:aec0d3dfc87fe40fdc4fb9d4e7e9b0e64"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a83aa904de1255fb1aa88f8e4ef2ea68a"><td class="memItemLeft" align="right" valign="top"><a id="a83aa904de1255fb1aa88f8e4ef2ea68a"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><b>fire_time</b> =0</td></tr>
+<tr class="separator:a83aa904de1255fb1aa88f8e4ef2ea68a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fc9c2e774c363eb5a5e8f6d865ffc0e"><td class="memItemLeft" align="right" valign="top"><a id="a2fc9c2e774c363eb5a5e8f6d865ffc0e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>status</b> =false</td></tr>
+<tr class="separator:a2fc9c2e774c363eb5a5e8f6d865ffc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92bcf8f81449ab546dd97f656781d2ec"><td class="memItemLeft" align="right" valign="top"><a id="a92bcf8f81449ab546dd97f656781d2ec"></a>
+<a class="el" href="class_ball.html">Ball</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>ball</b></td></tr>
+<tr class="separator:a92bcf8f81449ab546dd97f656781d2ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3909c75759bd5eb007db3a134f36dd79"><td class="memItemLeft" align="right" valign="top"><a id="a3909c75759bd5eb007db3a134f36dd79"></a>
+std::vector&lt; <a class="el" href="class_ball.html">Ball</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>ball_list</b></td></tr>
+<tr class="separator:a3909c75759bd5eb007db3a134f36dd79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad349347d8f73b64d55dabc3df6ad29f9"><td class="memItemLeft" align="right" valign="top"><a id="ad349347d8f73b64d55dabc3df6ad29f9"></a>
+std::vector&lt; <a class="el" href="classballworker.html">ballworker</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>worker_list</b></td></tr>
+<tr class="separator:ad349347d8f73b64d55dabc3df6ad29f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae14f1ec6141c77cc1cddf75c5d5735ba"><td class="memItemLeft" align="right" valign="top"><a id="ae14f1ec6141c77cc1cddf75c5d5735ba"></a>
+std::vector&lt; <a class="el" href="class_powerup.html">Powerup</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>power_list</b></td></tr>
+<tr class="separator:ae14f1ec6141c77cc1cddf75c5d5735ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e4a0145d02c9cda78fe5bb3d09008e1"><td class="memItemLeft" align="right" valign="top"><a id="a3e4a0145d02c9cda78fe5bb3d09008e1"></a>
+<a class="el" href="classgridlayout.html">gridlayout</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>grid</b></td></tr>
+<tr class="separator:a3e4a0145d02c9cda78fe5bb3d09008e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e7f2b309d353973cd1d6654417fb87b"><td class="memItemLeft" align="right" valign="top"><a id="a5e7f2b309d353973cd1d6654417fb87b"></a>
+QTimer *&#160;</td><td class="memItemRight" valign="bottom"><b>timer</b></td></tr>
+<tr class="separator:a5e7f2b309d353973cd1d6654417fb87b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac90f75f7c3609a10d42c85934d807909"><td class="memItemLeft" align="right" valign="top"><a id="ac90f75f7c3609a10d42c85934d807909"></a>
+<a class="el" href="class_background_music.html">BackgroundMusic</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>music</b></td></tr>
+<tr class="separator:ac90f75f7c3609a10d42c85934d807909"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">

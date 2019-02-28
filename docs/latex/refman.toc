@@ -1,0 +1,58 @@
+\@ifundefined {etoctocstyle}{\let \etoc@startlocaltoc \@gobble \let \etoc@settocdepth \@gobble \let \etoc@depthtag \@gobble \let \etoc@setlocaltop \@gobble }{}
+\contentsline {chapter}{\numberline {1}Arkanoid}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}Hierarchical Index}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Class Hierarchy}{3}{section.2.1}
+\contentsline {chapter}{\numberline {3}Class Index}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Class List}{5}{section.3.1}
+\contentsline {chapter}{\numberline {4}Class Documentation}{7}{chapter.4}
+\contentsline {section}{\numberline {4.1}Background\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}Music Class Reference}{7}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}*}{7}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}*}{7}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Detailed Description}{7}{subsection.4.1.3}
+\contentsline {section}{\numberline {4.2}Ball Class Reference}{8}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}*}{8}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}*}{8}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Detailed Description}{8}{subsection.4.2.3}
+\contentsline {section}{\numberline {4.3}ballworker Class Reference}{8}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}*}{8}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}*}{9}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}*}{9}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}*}{9}{subsection.4.3.4}
+\contentsline {subsection}{\numberline {4.3.5}Detailed Description}{9}{subsection.4.3.5}
+\contentsline {section}{\numberline {4.4}Brick Class Reference}{9}{section.4.4}
+\contentsline {subsection}{\numberline {4.4.1}*}{9}{subsection.4.4.1}
+\contentsline {subsection}{\numberline {4.4.2}*}{10}{subsection.4.4.2}
+\contentsline {subsection}{\numberline {4.4.3}Detailed Description}{10}{subsection.4.4.3}
+\contentsline {section}{\numberline {4.5}end\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}menu Class Reference}{10}{section.4.5}
+\contentsline {subsection}{\numberline {4.5.1}*}{10}{subsection.4.5.1}
+\contentsline {subsection}{\numberline {4.5.2}Detailed Description}{10}{subsection.4.5.2}
+\contentsline {section}{\numberline {4.6}Game Class Reference}{11}{section.4.6}
+\contentsline {subsection}{\numberline {4.6.1}*}{11}{subsection.4.6.1}
+\contentsline {subsection}{\numberline {4.6.2}*}{11}{subsection.4.6.2}
+\contentsline {subsection}{\numberline {4.6.3}*}{11}{subsection.4.6.3}
+\contentsline {subsection}{\numberline {4.6.4}*}{11}{subsection.4.6.4}
+\contentsline {subsection}{\numberline {4.6.5}Detailed Description}{12}{subsection.4.6.5}
+\contentsline {section}{\numberline {4.7}gridlayout Class Reference}{12}{section.4.7}
+\contentsline {subsection}{\numberline {4.7.1}*}{12}{subsection.4.7.1}
+\contentsline {subsection}{\numberline {4.7.2}Detailed Description}{12}{subsection.4.7.2}
+\contentsline {section}{\numberline {4.8}Paddle Class Reference}{12}{section.4.8}
+\contentsline {subsection}{\numberline {4.8.1}*}{12}{subsection.4.8.1}
+\contentsline {subsection}{\numberline {4.8.2}*}{13}{subsection.4.8.2}
+\contentsline {subsection}{\numberline {4.8.3}Detailed Description}{13}{subsection.4.8.3}
+\contentsline {section}{\numberline {4.9}pause\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}menu Class Reference}{13}{section.4.9}
+\contentsline {subsection}{\numberline {4.9.1}*}{13}{subsection.4.9.1}
+\contentsline {subsection}{\numberline {4.9.2}*}{13}{subsection.4.9.2}
+\contentsline {subsection}{\numberline {4.9.3}Detailed Description}{14}{subsection.4.9.3}
+\contentsline {section}{\numberline {4.10}Powerup Class Reference}{14}{section.4.10}
+\contentsline {subsection}{\numberline {4.10.1}*}{14}{subsection.4.10.1}
+\contentsline {subsection}{\numberline {4.10.2}*}{14}{subsection.4.10.2}
+\contentsline {subsection}{\numberline {4.10.3}*}{14}{subsection.4.10.3}
+\contentsline {subsection}{\numberline {4.10.4}*}{14}{subsection.4.10.4}
+\contentsline {subsection}{\numberline {4.10.5}Detailed Description}{15}{subsection.4.10.5}
+\contentsline {section}{\numberline {4.11}Score Class Reference}{15}{section.4.11}
+\contentsline {subsection}{\numberline {4.11.1}*}{15}{subsection.4.11.1}
+\contentsline {subsection}{\numberline {4.11.2}Detailed Description}{15}{subsection.4.11.2}
+\contentsline {section}{\numberline {4.12}start\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}\_\discretionary {\unhbox \voidb@x \hbox {\relax \fontsize {7}{8}\selectfont $\leftarrow \joinrel \rhook $}}{}{}menu Class Reference}{15}{section.4.12}
+\contentsline {subsection}{\numberline {4.12.1}*}{15}{subsection.4.12.1}
+\contentsline {subsection}{\numberline {4.12.2}*}{16}{subsection.4.12.2}
+\contentsline {subsection}{\numberline {4.12.3}Detailed Description}{16}{subsection.4.12.3}
