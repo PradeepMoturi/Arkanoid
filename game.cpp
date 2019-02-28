@@ -1,3 +1,22 @@
+/*
+Copyright (c) 2019 Revanth Babu, Pradeep Moturi, Jeevan Chandra, Udit Maniyar
+
+This file is part of Arkanoid 
+(see https://github.com/IITH-SBJoshi/concurrency-1).
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
 #include <QThread>
 #include <QObject>
 #include <QDebug>
@@ -19,6 +38,7 @@
 #include "ballworker.h"
 #include "powerup.h"
 #include <algorithm>
+#include <math.h>
 
 extern Paddle* paddle;
 extern start_menu *smenu;
@@ -83,7 +103,7 @@ void Game::mainConnections(ballworker *worker)
 {
     connect(timer,SIGNAL(timeout()),worker,SLOT(ball_move()));
 
-    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+//    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
     connect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     connect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
 
@@ -91,13 +111,16 @@ void Game::mainConnections(ballworker *worker)
     connect(paddle,SIGNAL(multiballadd()),this,SLOT(Multiply_ball()));
     connect(paddle,SIGNAL(destroy_powerup(Powerup*)),this,SLOT(removepowerup(Powerup*)));
     connect(paddle,SIGNAL(stop()),this,SLOT(pause()));
+
+    connect(this,SIGNAL(pausemusic()),music,SLOT(pausemusic()));
+    connect(this,SIGNAL(resumemusic()),music,SLOT(resumemusic()));
 }
 
 void Game::sideConnections(ballworker *worker)
 {
     connect(timer,SIGNAL(timeout()),worker,SLOT(ball_move()));
 
-    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+//    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
     connect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     connect(worker,SIGNAL(ballposupdater(Ball*, double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
 
@@ -106,7 +129,7 @@ void Game::sideConnections(ballworker *worker)
 
 void Game::removeConnections(ballworker *worker)
 {
-    disconnect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
+    //disconnect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
     disconnect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     disconnect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
     disconnect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
@@ -127,6 +150,16 @@ void Game::remove_brick(Brick *brick)
 
     else
     {
+        if(brick->brick_id!=0)
+        {
+               Powerup* power = new Powerup();
+               power->set(brick->brick_id,brick->x()+(brick->getWidth()/2)-(power->getwidth()/2),brick->y()+brick->getHeight());
+               scene->addItem(power);
+
+               power_list.push_back(power);
+               powerConnections(power);
+        }
+
         scene->removeItem(brick);
         delete brick;
     }
@@ -176,42 +209,25 @@ void Game::brick_collision(Ball* nball)
                 double brickx = brick->pos().x();
                 double bricky = brick->pos().y();
 
-                if (bally >= bricky + brick->getHeight() && nball->y_velocity < 0){
-                    nball->y_velocity = -1 * nball->y_velocity;
+                if (bally >= bricky + brick->getHeight() && nball->get_yvelocity() < 0){
+                    nball->set_yvelocity(true);
                 }
 
-                if (bricky >= bally + nball->rect().height() && nball->y_velocity > 0 ){
-                    nball->y_velocity = -1 * nball->y_velocity;
+                if (bricky >= bally + nball->rect().height() && nball->get_yvelocity() > 0 ){
+                    nball->set_yvelocity(false);
                 }
 
-                if (ballx >= brickx + brick->getWidth() && nball->x_velocity < 0){
-                    nball->x_velocity = -1 * nball->x_velocity;
+                if (ballx >= brickx + brick->getWidth() && nball->get_xvelocity() < 0){
+                    nball->set_xvelocity(true);
                 }
 
-                if (brickx >= ballx + nball->rect().width()  && nball->x_velocity > 0){
-                    nball->x_velocity = -1 * nball->x_velocity;
+                if (brickx >= ballx + nball->rect().width()  && nball->get_xvelocity() > 0){
+                    nball->set_xvelocity(false);
                 }
 
                 score->increase();
 
-                brick->decHits(); //decreases the hits
-
-                if(brick->getHits()==1) brick->update();
-
-                else
-                {
-                    if(brick->brick_id!=0)
-                    {
-                           Powerup* power = new Powerup();
-                           power->set(brick->brick_id,brick->x()+(brick->getWidth()/2)-(power->getwidth()/2),brick->y()+brick->getHeight());
-                           scene->addItem(power);
-
-                           power_list.push_back(power);
-                           powerConnections(power);
-                    }
-                    scene->removeItem(brick);
-                    delete brick;
-                }
+                remove_brick(brick);
             }
         }
 }
@@ -227,28 +243,37 @@ void Game::Multiply_ball()
     {
         Ball* new_ball = new Ball();
         ballworker* worker = new ballworker(scene,new_ball);
+
         worker->moveToThread(thread);
 
         ball_list.push_back(new_ball);
         worker_list.push_back(worker);
 
         new_ball->setPos(ball_list[i]->x(),ball_list[i]->y());
+        double vel_x = ball_list[i]->get_xvelocity();
+
+        if(vel_x>0) new_ball->set_xvelocity(false);
+        else new_ball->set_xvelocity(true);
+
         scene->addItem(new_ball);
 
         sideConnections(worker);
-    }
 
+    }
     thread->start();
 }
 
 void Game::start()
 {
     timer->start(5);
+    emit(resumemusic());
 }
 
 void Game::pause()
 {
     pause_menu *pmenu=new pause_menu();
+    emit(pausemusic());
+    music->start();
     timer->stop();
     pmenu->show();
 }
