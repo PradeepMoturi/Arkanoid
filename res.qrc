@@ -6,5 +6,6 @@
     </qresource>
     <qresource prefix="/Images">
         <file>background_space.jpg</file>
+        <file>data/Images/Main_Menu_BG.jpg</file>
     </qresource>
 </RCC>

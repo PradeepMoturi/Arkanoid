@@ -30,7 +30,6 @@ SOURCES += \
     ball.cpp \
     game.cpp \
     paddle.cpp \
-    start_menu.cpp \
     pause_menu.cpp \
     end_menu.cpp \
     backgroundmusic.cpp \
@@ -38,13 +37,14 @@ SOURCES += \
     score.cpp \
     gridlayout.cpp \
     ballworker.cpp \
-    powerup.cpp
+    powerup.cpp \
+    button.cpp \
+    startpage.cpp
 
 HEADERS += \
     ball.h \
     game.h \
     paddle.h \
-    start_menu.h \
     pause_menu.h \
     end_menu.h \
     backgroundmusic.h \
@@ -52,10 +52,11 @@ HEADERS += \
     score.h \
     gridlayout.h \
     ballworker.h \
-    powerup.h
+    powerup.h \
+    button.h \
+    startpage.h
 
 FORMS += \
-    start_menu.ui \
     pause_menu.ui \
     end_menu.ui
 

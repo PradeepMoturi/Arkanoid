@@ -23,18 +23,18 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "game.h"
 #include "ball.h"
 #include "paddle.h"
-#include "start_menu.h"
-#include "start_menu.h"
+#include "startpage.h"
+//#include "start_menu.h"
 Game *game;
 Paddle *paddle;
-start_menu *smenu;
+MainWindow *smenu;
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
     game = new Game();
-    smenu = new start_menu();
+    smenu = new MainWindow();
     smenu->show();
 
     return a.exec();

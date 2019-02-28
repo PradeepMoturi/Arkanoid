@@ -58,7 +58,10 @@ public slots:
     void pause();
     void removepowerup(Powerup*);
     void Multiply_ball();
+    void updateStatus();
 private:
+    int fire_time=0;
+    bool status=false;
     void brick_collision(Ball* b);
     Ball* ball;
     std::vector <Ball*> ball_list;
