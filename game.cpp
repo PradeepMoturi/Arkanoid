@@ -70,6 +70,9 @@ void Game::build()
     ball = new Ball();
     scene->addItem(ball);
 
+    status=false;
+    fire_time=0;
+
     score = new Score();
     scene->addItem(score);
 
@@ -97,12 +100,25 @@ void Game::ballpositionupdater(Ball* nball,double x, double y)
 {
     nball->setPos(x,y);
     brick_collision(nball);
+
+    if(fire_time>=700)
+    {
+        status=false;
+        fire_time=0;
+    }
+
+    if(status) fire_time++;
+}
+
+void Game::updateStatus()
+{
+    status=true;
+    fire_time=0;
 }
 
 void Game::mainConnections(ballworker *worker)
 {
     connect(timer,SIGNAL(timeout()),worker,SLOT(ball_move()));
-
 //    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
     connect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     connect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
@@ -111,6 +127,7 @@ void Game::mainConnections(ballworker *worker)
     connect(paddle,SIGNAL(multiballadd()),this,SLOT(Multiply_ball()));
     connect(paddle,SIGNAL(destroy_powerup(Powerup*)),this,SLOT(removepowerup(Powerup*)));
     connect(paddle,SIGNAL(stop()),this,SLOT(pause()));
+    connect(paddle,SIGNAL(sendStatus()),this,SLOT(updateStatus()));
 
     connect(this,SIGNAL(pausemusic()),music,SLOT(pausemusic()));
     connect(this,SIGNAL(resumemusic()),music,SLOT(resumemusic()));
@@ -133,6 +150,7 @@ void Game::removeConnections(ballworker *worker)
     disconnect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     disconnect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
     disconnect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
+    disconnect(paddle,SIGNAL(sendStatus()),this,SLOT(updateStatus()));
     disconnect(timer,SIGNAL(timeout()),worker,SLOT(ball_move()));
 }
 
@@ -209,20 +227,25 @@ void Game::brick_collision(Ball* nball)
                 double brickx = brick->pos().x();
                 double bricky = brick->pos().y();
 
-                if (bally >= bricky + brick->getHeight() && nball->get_yvelocity() < 0){
-                    nball->set_yvelocity(true);
-                }
+                //status different ignore
 
-                if (bricky >= bally + nball->rect().height() && nball->get_yvelocity() > 0 ){
-                    nball->set_yvelocity(false);
-                }
+                if(!status)
+                {
+                    if (bally >= bricky + brick->getHeight() && nball->get_yvelocity() < 0){
+                        nball->set_yvelocity(true);
+                    }
 
-                if (ballx >= brickx + brick->getWidth() && nball->get_xvelocity() < 0){
-                    nball->set_xvelocity(true);
-                }
+                    if (bricky >= bally + nball->rect().height() && nball->get_yvelocity() > 0 ){
+                        nball->set_yvelocity(false);
+                    }
 
-                if (brickx >= ballx + nball->rect().width()  && nball->get_xvelocity() > 0){
-                    nball->set_xvelocity(false);
+                    if (ballx >= brickx + brick->getWidth() && nball->get_xvelocity() < 0){
+                        nball->set_xvelocity(true);
+                    }
+
+                    if (brickx >= ballx + nball->rect().width()  && nball->get_xvelocity() > 0){
+                        nball->set_xvelocity(false);
+                    }
                 }
 
                 score->increase();

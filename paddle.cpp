@@ -80,14 +80,14 @@ void Paddle::timerEvent(QTimerEvent *)
             if(paddle_width>101)
             {
                 paddle_width = 100;
-                this->setRect(0,0,paddle_width,paddle_height);
-                this->move_paddle(25);
+                this->setRect(25,0,paddle_width,paddle_height);
+//              this->move_paddle(25);
             }
             if(paddle_width<99)
             {
                 paddle_width = 100;
-                this->setRect(0,0,paddle_width,paddle_height);
-                this->move_paddle(-25);
+                this->setRect(-25,0,paddle_width,paddle_height);
+//              this->move_paddle(-25);
             }
         }
     }
@@ -143,15 +143,19 @@ void Paddle::CollisionChecker()
             {
                 cnt = 1;
                 paddle_width = 150;
-                this->setRect(0,0,paddle_width,paddle_height);
-                this->move_paddle(-25);
+                this->setRect(-25,0,paddle_width,paddle_height);
+//                this->move_paddle(-25);
             }
             if(power->powerup_id == 3)
             {
                 cnt = 1;
                 paddle_width = 50;
-                this->setRect(0,0,paddle_width,paddle_height);
-                this->move_paddle(25);
+                this->setRect(25,0,paddle_width,paddle_height);
+//                this->move_paddle(25);
+            }
+            if(power->powerup_id==4)
+            {
+                emit(sendStatus());
             }
             emit destroy_powerup(power);
         }

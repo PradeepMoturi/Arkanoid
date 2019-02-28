@@ -42,6 +42,7 @@ public:
     void CollisionChecker();
 signals:
     void multiballadd();
+    void sendStatus();
     void destroy_powerup(Powerup *);
     void stop();
     void stop_game();
