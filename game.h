@@ -46,6 +46,8 @@ public:
 signals:
     void pausemusic();
     void resumemusic();
+    void restartmusic();
+    void brick_sound();
 
 public slots:
     void ballpositionupdater(Ball*b, double x, double y);

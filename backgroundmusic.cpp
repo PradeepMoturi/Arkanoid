@@ -23,6 +23,9 @@ BackgroundMusic::BackgroundMusic()
 {
     player = new QMediaPlayer();
     player->setMedia(QUrl("qrc:/Sound/data/bgm.mp3"));
+
+    brickNoise = new QMediaPlayer();
+    brickNoise->setMedia(QUrl("qrc:/Sound/data/Sounds/brickNoise.wav"));
 }
 void BackgroundMusic::run()
 {
@@ -50,7 +53,18 @@ void BackgroundMusic::resumemusic()
 {
     player->play();
 }
+
+void BackgroundMusic::restartmusic()
+{
+    player->stop();
+    player->play();
+}
 BackgroundMusic::~BackgroundMusic()
 {
     delete player;
+}
+
+void BackgroundMusic::Brick_Sound()
+{
+    brickNoise->play();
 }

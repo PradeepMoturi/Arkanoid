@@ -111,9 +111,12 @@ void Game::mainConnections(ballworker *worker)
     connect(paddle,SIGNAL(multiballadd()),this,SLOT(Multiply_ball()));
     connect(paddle,SIGNAL(destroy_powerup(Powerup*)),this,SLOT(removepowerup(Powerup*)));
     connect(paddle,SIGNAL(stop()),this,SLOT(pause()));
+    connect(this,SIGNAL(brick_sound()),music,SLOT(Brick_Sound()));
 
     connect(this,SIGNAL(pausemusic()),music,SLOT(pausemusic()));
     connect(this,SIGNAL(resumemusic()),music,SLOT(resumemusic()));
+    connect(this,SIGNAL(restartmusic()),music,SLOT(restartmusic()));
+
 }
 
 void Game::sideConnections(ballworker *worker)
@@ -190,6 +193,7 @@ void Game::end(ballworker* nworker,Ball *nball)
 
     if(ball_list.size()==0)
     {
+        emit(pausemusic());
         end_menu *emenu = new end_menu();
         this->hide();
         emenu->show();
@@ -226,6 +230,7 @@ void Game::brick_collision(Ball* nball)
                 }
 
                 score->increase();
+                emit(brick_sound());
 
                 remove_brick(brick);
             }
@@ -281,7 +286,9 @@ void Game::pause()
 void Game::restart()
 {
     scene->clear();
+    emit(restartmusic());
     this->build();
+
 }
 
 Game::~Game()

@@ -33,10 +33,12 @@ public:
 public slots:
     void pausemusic();
     void resumemusic();
-
+    void restartmusic();
+    void Brick_Sound();
 
 private:
     QMediaPlayer* player;
+    QMediaPlayer* brickNoise;
 };
 
 
