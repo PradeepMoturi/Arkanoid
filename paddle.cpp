@@ -1,3 +1,22 @@
+/*
+Copyright (c) 2019 Revanth Babu, Pradeep Moturi, Jeevan Chandra, Udit Maniyar
+
+This file is part of Arkanoid 
+(see https://github.com/IITH-SBJoshi/concurrency-1).
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
 #include "paddle.h"
 #include "game.h"
 #include "ball.h"
@@ -13,6 +32,7 @@ Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
 {
     paddle_width=100;
     paddle_height=20;
+    cnt = 0;
     setRect(0,0,paddle_width,paddle_height);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
@@ -51,6 +71,26 @@ void Paddle::timerEvent(QTimerEvent *)
           move_paddle(10);
     }
     CollisionChecker();
+    if(cnt>0)
+    {
+        cnt++;
+        if(cnt>600)
+        {
+            cnt = 0;
+            if(paddle_width>101)
+            {
+                paddle_width = 100;
+                this->setRect(0,0,paddle_width,paddle_height);
+                this->move_paddle(25);
+            }
+            if(paddle_width<99)
+            {
+                paddle_width = 100;
+                this->setRect(0,0,paddle_width,paddle_height);
+                this->move_paddle(-25);
+            }
+        }
+    }
 }
 void Paddle::move_paddle(double dis)
 {
@@ -97,8 +137,23 @@ void Paddle::CollisionChecker()
         {
             if(power->powerup_id==1)
             {
-                emit multiballadd(power);
+                emit multiballadd();
             }
+            if(power->powerup_id == 2)
+            {
+                cnt = 1;
+                paddle_width = 150;
+                this->setRect(0,0,paddle_width,paddle_height);
+                this->move_paddle(-25);
+            }
+            if(power->powerup_id == 3)
+            {
+                cnt = 1;
+                paddle_width = 50;
+                this->setRect(0,0,paddle_width,paddle_height);
+                this->move_paddle(25);
+            }
+            emit destroy_powerup(power);
         }
      }
 }

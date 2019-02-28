@@ -1,3 +1,22 @@
+/*
+Copyright (c) 2019 Revanth Babu, Pradeep Moturi, Jeevan Chandra, Udit Maniyar
+
+This file is part of Arkanoid 
+(see https://github.com/IITH-SBJoshi/concurrency-1).
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
 #include <QThread>
 #include <QObject>
 #include <QDebug>
@@ -89,9 +108,8 @@ void Game::mainConnections(ballworker *worker)
     connect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
 
     connect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
-    connect(paddle,SIGNAL(multiballadd(Powerup*)),this,SLOT(Multiply_ball(Powerup*)));
-    connect(paddle,SIGNAL(multiballadd(Powerup*)),this,SLOT(removepowerup(Powerup*)));
-
+    connect(paddle,SIGNAL(multiballadd()),this,SLOT(Multiply_ball()));
+    connect(paddle,SIGNAL(destroy_powerup(Powerup*)),this,SLOT(removepowerup(Powerup*)));
     connect(paddle,SIGNAL(stop()),this,SLOT(pause()));
 
     connect(this,SIGNAL(pausemusic()),music,SLOT(pausemusic()));
@@ -214,7 +232,7 @@ void Game::brick_collision(Ball* nball)
         }
 }
 
-void Game::Multiply_ball(Powerup* power)
+void Game::Multiply_ball()
 {
     long unsigned number_of_balls = ball_list.size();
     if(ball_list.size()>=10) return;
