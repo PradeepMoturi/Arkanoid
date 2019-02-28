@@ -12,3 +12,7 @@ script:
  - qmake -project "QT += widgets multimedia testlib"
  - qmake "CONFIG+=c++11" arkanoid.pro
  - make
+ 
+ branches:
+  only:
+    - master
