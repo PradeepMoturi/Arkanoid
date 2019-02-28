@@ -1,5 +1,6 @@
 #include <QDebug>
 #include <math.h>
+#include <QtMath>
 #include "ballworker.h"
 #include "brick.h"
 
@@ -16,25 +17,23 @@ ballworker ::~ballworker(){}
 
 void ballworker::ball_move()
 {
-    //qDebug()<<ball->x_velocity<<" "<<ball->y_velocity;
-    //qDebug()<<QThread::currentThreadId();
     wall_collision();
-    emit(ballposupdater(ball,ball->x()+ball->x_velocity,ball->y()+ball->y_velocity));
+    emit(ballposupdater(ball,ball->x()+ball->get_xvelocity(),ball->y()+ball->get_yvelocity()));
 }
 
 void ballworker::PaddleCollisionDetected(Ball* nball,bool left_corner,bool right_corner)
 {
        if(left_corner == false&&right_corner==false)
        {
-           nball->y_velocity = -std::fabs(ball->y_velocity);
+           nball->set_yvelocity(false);
        }
        else if(left_corner==true)
        {
-           nball->x_velocity = -std::fabs(ball->x_velocity);
+           nball->set_xvelocity(false);
        }
        else
        {
-           nball->x_velocity = std::fabs(ball->x_velocity);
+           nball->set_xvelocity(true);
        }
 }
 
@@ -42,17 +41,17 @@ void ballworker::wall_collision()
 {
     if (ball->mapToScene(ball->rect().topLeft()).x() <= 0)
     {
-        ball->x_velocity =  std::fabs(ball->x_velocity);
+        ball->set_xvelocity(true);
     }
 
     if (ball->mapToScene(ball->rect().topRight()).x() >= screen_width)
     {
-        ball->x_velocity = -std::fabs(ball->x_velocity);
+        ball->set_xvelocity(false);
     }
 
     if (ball->mapToScene(ball->rect().topLeft()).y()<= 0)
     {
-        ball->y_velocity = std::fabs(ball->y_velocity);
+        ball->set_yvelocity(true);
     }
 
     if (ball->mapToScene(ball->rect().topRight()).y()> screen_height)

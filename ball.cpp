@@ -26,3 +26,20 @@ Ball::Ball(QGraphicsItem *parent):QGraphicsEllipseItem(parent){
 
 double Ball::radius(){return ball_radius;}
 double Ball::getCenterX(){return x() + rect().width()/2;}
+double Ball::get_xvelocity(){return x_velocity;}
+double Ball::get_yvelocity(){return y_velocity;}
+
+void Ball::set_xvelocity(bool pos)
+{
+    mutex.lock();
+    if(pos)x_velocity=abs(x_velocity);
+    else x_velocity=-1*abs(x_velocity);
+    mutex.unlock();
+}
+void Ball::set_yvelocity(bool pos)
+{
+    mutex.lock();
+    if(pos)y_velocity=abs(y_velocity);
+    else y_velocity=-1*abs(y_velocity);
+    mutex.unlock();
+}

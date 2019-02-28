@@ -181,20 +181,20 @@ void Game::brick_collision(Ball* nball)
                 double brickx = brick->pos().x();
                 double bricky = brick->pos().y();
 
-                if (bally >= bricky + brick->getHeight() && nball->y_velocity < 0){
-                    nball->y_velocity = -1 * nball->y_velocity;
+                if (bally >= bricky + brick->getHeight() && nball->get_yvelocity() < 0){
+                    nball->set_yvelocity(true);
                 }
 
-                if (bricky >= bally + nball->rect().height() && nball->y_velocity > 0 ){
-                    nball->y_velocity = -1 * nball->y_velocity;
+                if (bricky >= bally + nball->rect().height() && nball->get_yvelocity() > 0 ){
+                    nball->set_yvelocity(false);
                 }
 
-                if (ballx >= brickx + brick->getWidth() && nball->x_velocity < 0){
-                    nball->x_velocity = -1 * nball->x_velocity;
+                if (ballx >= brickx + brick->getWidth() && nball->get_xvelocity() < 0){
+                    nball->set_xvelocity(true);
                 }
 
-                if (brickx >= ballx + nball->rect().width()  && nball->x_velocity > 0){
-                    nball->x_velocity = -1 * nball->x_velocity;
+                if (brickx >= ballx + nball->rect().width()  && nball->get_xvelocity() > 0){
+                    nball->set_xvelocity(false);
                 }
 
                 score->increase();
@@ -239,9 +239,11 @@ void Game::Multiply_ball(Powerup* power)
         worker_list.push_back(worker);
 
         new_ball->setPos(ball_list[i]->x(),ball_list[i]->y());
-        double vel_x = ball_list[i]->x_velocity;
-        new_ball->x_velocity = -vel_x;
-        qDebug()<<std::cos(45)<<"hii";
+        double vel_x = ball_list[i]->get_xvelocity();
+
+        if(vel_x>0) new_ball->set_xvelocity(false);
+        else new_ball->set_xvelocity(true);
+
         scene->addItem(new_ball);
 
         sideConnections(worker);
