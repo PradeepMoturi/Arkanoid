@@ -108,9 +108,8 @@ void Game::mainConnections(ballworker *worker)
     connect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
 
     connect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
-    connect(paddle,SIGNAL(multiballadd(Powerup*)),this,SLOT(Multiply_ball(Powerup*)));
-    connect(paddle,SIGNAL(multiballadd(Powerup*)),this,SLOT(removepowerup(Powerup*)));
-
+    connect(paddle,SIGNAL(multiballadd()),this,SLOT(Multiply_ball()));
+    connect(paddle,SIGNAL(destroy_powerup(Powerup*)),this,SLOT(removepowerup(Powerup*)));
     connect(paddle,SIGNAL(stop()),this,SLOT(pause()));
 
     connect(this,SIGNAL(pausemusic()),music,SLOT(pausemusic()));
@@ -233,7 +232,7 @@ void Game::brick_collision(Ball* nball)
         }
 }
 
-void Game::Multiply_ball(Powerup* power)
+void Game::Multiply_ball()
 {
     long unsigned number_of_balls = ball_list.size();
     if(ball_list.size()>=10) return;

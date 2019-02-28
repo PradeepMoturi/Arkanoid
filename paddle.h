@@ -41,7 +41,8 @@ public:
     void timerEvent(QTimerEvent *);
     void CollisionChecker();
 signals:
-    void multiballadd(Powerup*);
+    void multiballadd();
+    void destroy_powerup(Powerup *);
     void stop();
     void stop_game();
     void ballCollision(Ball* ball,bool left_corner,bool right_corner);
