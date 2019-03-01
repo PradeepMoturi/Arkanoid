@@ -31,9 +31,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "game.h"
 #include "ball.h"
 #include "paddle.h"
-#include "start_menu.h"
+#include "startpage.h"
 #include "pause_menu.h"
-#include "end_menu.h"
+#include "endmenu.h"
 #include "brick.h"
 #include "ballworker.h"
 #include "powerup.h"
@@ -41,7 +41,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <math.h>
 
 extern Paddle* paddle;
-extern start_menu *smenu;
 
 Game::Game(QWidget *parent):QGraphicsView (parent)
 {
@@ -215,7 +214,7 @@ void Game::end(ballworker* nworker,Ball *nball)
     if(ball_list.size()==0)
     {
         emit(pausemusic());
-        end_menu *emenu = new end_menu();
+        EndMenu *emenu = new EndMenu();
         this->hide();
         emenu->show();
         return;
