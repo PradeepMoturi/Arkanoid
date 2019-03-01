@@ -81,6 +81,8 @@ void Game::build()
     worker->moveToThread(thread);
     thread->start();
 
+    ball_list.resize(0);
+    worker_list.resize(0);
     ball_list.push_back(ball);
     worker_list.push_back(worker);
 
@@ -126,11 +128,8 @@ void Game::mainConnections(ballworker *worker)
     connect(paddle,SIGNAL(multiballadd()),this,SLOT(Multiply_ball()));
     connect(paddle,SIGNAL(destroy_powerup(Powerup*)),this,SLOT(removepowerup(Powerup*)));
     connect(paddle,SIGNAL(stop()),this,SLOT(pause()));
-//<<<<<<< HEAD
     connect(this,SIGNAL(brick_sound()),music,SLOT(Brick_Sound()));
-//=======
     connect(paddle,SIGNAL(sendStatus()),this,SLOT(updateStatus()));
-//>>>>>>> 8a2acc11507e4f19ff8c2677c08ca9795f4c5e3e
 
     connect(this,SIGNAL(pausemusic()),music,SLOT(pausemusic()));
     connect(this,SIGNAL(resumemusic()),music,SLOT(resumemusic()));
