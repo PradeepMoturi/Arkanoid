@@ -22,20 +22,65 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <QMediaPlayer>
 #include <QThread>
 #include <QObject>
+/*!
+ * \brief The BackgroundMusic class
+ * Inherits from QThread.
+ * Used to play Background music and sounds whenever ball hits paddle and bricks
+ */
 class BackgroundMusic : public QThread
 {
     Q_OBJECT
 public:
+    // member functions
+     /**
+      * \brief Constructor
+      *
+      * Construct a new media player
+      */
     BackgroundMusic();
+
+    /**
+     * \brief run Starting point of the thread
+     *
+     * The starting point for the thread. After calling start(), the newly created thread calls this function.
+     * Returning from this method will end the execution of the thread.
+     * Executes the exec() member function.
+     */
+
     void run();
+
+
+    /*!
+     * \brief exec
+     *
+     * Runs in a loop and restarts song if finished
+     */
     void exec();
+
+    /*!
+      * \brief Destructor
+      *
+      * removes the player which was started in constructor
+      */
     ~BackgroundMusic();
+
 public slots:
+    /*!
+     * \brief pausemusic Pauses the music player
+     */
     void pausemusic();
+
+    /*!
+     * \brief resumemusic Resumes the music player
+     */
     void resumemusic();
 
 
 private:
+
+    /*!
+     * \brief player QMediaPlayer object used to play music
+     */
     QMediaPlayer* player;
 };
 
