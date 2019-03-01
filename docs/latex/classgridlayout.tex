@@ -1,0 +1,186 @@
+\hypertarget{classgridlayout}{}\doxysection{gridlayout Class Reference}
+\label{classgridlayout}\index{gridlayout@{gridlayout}}
+
+
+The gridlayout class.  
+
+
+
+
+{\ttfamily \#include $<$gridlayout.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classgridlayout_a4fe0285526c52d114bafeb2d9efff6cb}{gridlayout}} (Q\+Graphics\+Scene $\ast$curr, int level)
+\begin{DoxyCompactList}\small\item\em gridlayout \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{classgridlayout_acb579a692a556e89b55f75e4b175a08d}{bricks\+\_\+remaining}} = 0
+\begin{DoxyCompactList}\small\item\em bricks\+\_\+remaining \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classgridlayout_a68f82857233a64e4afe49eb0a331ddbe}{Build\+\_\+\+Grid}} (int level)
+\begin{DoxyCompactList}\small\item\em Build\+\_\+\+Grid. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Graphics\+Scene $\ast$ \mbox{\hyperlink{classgridlayout_aee6f862b87df720daeaa325676f71635}{scene}}
+\begin{DoxyCompactList}\small\item\em scene \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The gridlayout class. 
+
+This class creates a grid of bricks in the scene 
+
+Definition at line 32 of file gridlayout.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classgridlayout_a4fe0285526c52d114bafeb2d9efff6cb}\label{classgridlayout_a4fe0285526c52d114bafeb2d9efff6cb}} 
+\index{gridlayout@{gridlayout}!gridlayout@{gridlayout}}
+\index{gridlayout@{gridlayout}!gridlayout@{gridlayout}}
+\doxysubsubsection{\texorpdfstring{gridlayout()}{gridlayout()}}
+{\footnotesize\ttfamily gridlayout\+::gridlayout (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Scene $\ast$}]{curr,  }\item[{int}]{level }\end{DoxyParamCaption})}
+
+
+
+gridlayout 
+
+This constructor takes in the scene and level of the game as input. 
+\begin{DoxyParams}{Parameters}
+{\em curr} & stores the current scene where this grid needs to be placed. \\
+\hline
+{\em level} & refers to the level id that needs to be mapped from the text file. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 28 of file gridlayout.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{29 \{}
+\DoxyCodeLine{30     \mbox{\hyperlink{classgridlayout_aee6f862b87df720daeaa325676f71635}{scene}} = curr;}
+\DoxyCodeLine{31     \mbox{\hyperlink{classgridlayout_acb579a692a556e89b55f75e4b175a08d}{bricks\_remaining}} = 0;}
+\DoxyCodeLine{32 }
+\DoxyCodeLine{33     \mbox{\hyperlink{classgridlayout_a68f82857233a64e4afe49eb0a331ddbe}{Build\_Grid}}(level);}
+\DoxyCodeLine{34 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classgridlayout_a68f82857233a64e4afe49eb0a331ddbe}\label{classgridlayout_a68f82857233a64e4afe49eb0a331ddbe}} 
+\index{gridlayout@{gridlayout}!Build\_Grid@{Build\_Grid}}
+\index{Build\_Grid@{Build\_Grid}!gridlayout@{gridlayout}}
+\doxysubsubsection{\texorpdfstring{Build\_Grid()}{Build\_Grid()}}
+{\footnotesize\ttfamily void gridlayout\+::\+Build\+\_\+\+Grid (\begin{DoxyParamCaption}\item[{int}]{level }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Build\+\_\+\+Grid. 
+
+This function takes in the level as the input and displays the grid in the scene. 
+\begin{DoxyParams}{Parameters}
+{\em level} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 36 of file gridlayout.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{37 \{}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     QString file;}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     std::srand(time(NULL));}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     level=rand()\%5;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{keywordflow}{if}(level == 0)}
+\DoxyCodeLine{46     \{}
+\DoxyCodeLine{47         file = \textcolor{stringliteral}{":/levels/data/level0.txt"};}
+\DoxyCodeLine{48     \}}
+\DoxyCodeLine{49 }
+\DoxyCodeLine{50     \textcolor{keywordflow}{if}(level == 1)}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52         file = \textcolor{stringliteral}{":/levels/data/level1.txt"};}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54 }
+\DoxyCodeLine{55     \textcolor{keywordflow}{if}(level == 2)}
+\DoxyCodeLine{56     \{}
+\DoxyCodeLine{57         file = \textcolor{stringliteral}{":/levels/data/level2.txt"};}
+\DoxyCodeLine{58     \}}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60     \textcolor{keywordflow}{if}(level == 3)}
+\DoxyCodeLine{61     \{}
+\DoxyCodeLine{62         file = \textcolor{stringliteral}{":/levels/data/level3.txt"};}
+\DoxyCodeLine{63     \}}
+\DoxyCodeLine{64 }
+\DoxyCodeLine{65     \textcolor{keywordflow}{if}(level == 4)}
+\DoxyCodeLine{66     \{}
+\DoxyCodeLine{67         file = \textcolor{stringliteral}{":/levels/data/level4.txt"};}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     QFile myFile(file);}
+\DoxyCodeLine{71     \textcolor{keywordflow}{if} (myFile.open(QIODevice::ReadOnly))}
+\DoxyCodeLine{72     \{}
+\DoxyCodeLine{73         QTextStream in(\&myFile);}
+\DoxyCodeLine{74         \textcolor{keywordflow}{while} (!in.atEnd())}
+\DoxyCodeLine{75         \{}
+\DoxyCodeLine{76             QString line = in.readLine();}
+\DoxyCodeLine{77             QStringList point = line.split(\textcolor{stringliteral}{" "});}
+\DoxyCodeLine{78             \mbox{\hyperlink{class_brick}{Brick}} *brick=\textcolor{keyword}{new} \mbox{\hyperlink{class_brick}{Brick}}(point[0].toInt(),point[1].toInt());}
+\DoxyCodeLine{79             brick-\/>setPos(point[2].toDouble(),point[3].toDouble());}
+\DoxyCodeLine{80             \mbox{\hyperlink{classgridlayout_aee6f862b87df720daeaa325676f71635}{scene}}-\/>addItem(brick);}
+\DoxyCodeLine{81             \mbox{\hyperlink{classgridlayout_acb579a692a556e89b55f75e4b175a08d}{bricks\_remaining}}++;}
+\DoxyCodeLine{82         \}}
+\DoxyCodeLine{83         myFile.close();}
+\DoxyCodeLine{84     \}}
+\DoxyCodeLine{85 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classgridlayout_acb579a692a556e89b55f75e4b175a08d}\label{classgridlayout_acb579a692a556e89b55f75e4b175a08d}} 
+\index{gridlayout@{gridlayout}!bricks\_remaining@{bricks\_remaining}}
+\index{bricks\_remaining@{bricks\_remaining}!gridlayout@{gridlayout}}
+\doxysubsubsection{\texorpdfstring{bricks\_remaining}{bricks\_remaining}}
+{\footnotesize\ttfamily int gridlayout\+::bricks\+\_\+remaining = 0}
+
+
+
+bricks\+\_\+remaining 
+
+Counter for No. of bricks remaining 
+
+Definition at line 49 of file gridlayout.\+h.
+
+\mbox{\Hypertarget{classgridlayout_aee6f862b87df720daeaa325676f71635}\label{classgridlayout_aee6f862b87df720daeaa325676f71635}} 
+\index{gridlayout@{gridlayout}!scene@{scene}}
+\index{scene@{scene}!gridlayout@{gridlayout}}
+\doxysubsubsection{\texorpdfstring{scene}{scene}}
+{\footnotesize\ttfamily Q\+Graphics\+Scene$\ast$ gridlayout\+::scene\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+scene 
+
+scene holds the variable 
+
+Definition at line 57 of file gridlayout.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+gridlayout.\+h\item 
+gridlayout.\+cpp\end{DoxyCompactItemize}

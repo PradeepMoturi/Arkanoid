@@ -1,23 +1,50 @@
+/*
+Copyright (c) 2019 Revanth Babu, Pradeep Moturi, Jeevan Chandra, Udit Maniyar
+
+This file is part of Arkanoid 
+(see https://github.com/IITH-SBJoshi/concurrency-1).
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
 #include "ball.h"
 #include "game.h"
+#include "paddle.h"
+#include "brick.h"
 #include <QBrush>
 #include <QDebug>
 #include <QKeyEvent>
+#include <QGraphicsRectItem>
 #include <QTimer>
-
+#include <QMutexLocker>
+#include <QMutex>
+#include <QtMath>
 extern Game* game;
 
-Ball::Ball(QGraphicsItem *parent):QGraphicsEllipseItem(parent){
+Ball::Ball(QGraphicsItem *parent):QGraphicsEllipseItem(parent)
+{
     ball_radius=20;
-    x_velocity=1;
-    y_velocity=-1;
+
+    x_velocity = -1;
+    y_velocity = -2;
+
     setRect(0,0,ball_radius,ball_radius);
     QBrush brush;
     brush.setStyle(Qt::SolidPattern);
     brush.setColor(Qt::red);
     setBrush(brush);
+
     setPos(game->width()/2-this->radius()/2,game->height()-30-this->radius());
-//    setPos(400,800);
 }
 
 double Ball::radius()
@@ -25,42 +52,55 @@ double Ball::radius()
     return ball_radius;
 }
 
-void Ball::move()
+double Ball::getCenterX()
 {
-     setPos(x()+this->x_velocity,y()+this->y_velocity);
-
-     qDebug()<<"After deletion signal\n";
-
-     wall_collision();
-
-//     paddle_collision();
+    return x() + rect().width()/2;
 }
 
-void Ball::wall_collision()
+double Ball::get_xvelocity()
 {
-    double screenW = game->width();
-    double screenH = game->height();
+    return x_velocity;
+}
 
-    // left edge
-    if (mapToScene(rect().topLeft()).x() <= 0){
-        x_velocity = -1 * x_velocity;
+double Ball::get_yvelocity()
+{
+    return y_velocity;
+}
+
+void Ball::set_xvelocity(bool pos)
+{
+    mutex.lock();
+
+    if(pos)
+    {
+        x_velocity=fabs(x_velocity);
+    }
+    else
+    {
+        x_velocity=-1*fabs(x_velocity);
     }
 
-    // right edge
-    if (mapToScene(rect().topRight()).x() >= screenW){
-        x_velocity = -1 * x_velocity;
+    mutex.unlock();
+}
+void Ball::set_yvelocity(bool pos)
+{
+    mutex.lock();
+
+    if(pos)
+    {
+        y_velocity=fabs(y_velocity);
     }
 
-    // top edge
-    if (mapToScene(rect().topLeft()).y()<= 0){
-        y_velocity = -1 * y_velocity;
+    else
+    {
+        y_velocity=-1*fabs(y_velocity);
     }
+    mutex.unlock();
+}
+void Ball::set_xnewvelocity(double newvelx)
+{
+    mutex.lock();
 
-    //bottom edge
-    if (mapToScene(rect().topLeft()).y() >= screenH){
-        emit(endgame());
-        game->scene->removeItem(this);
-        delete this;
-        qDebug()<<"Item deleted\n";
-    }
+    x_velocity = newvelx;
+    mutex.unlock();
 }

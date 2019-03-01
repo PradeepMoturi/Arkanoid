@@ -1,0 +1,224 @@
+\hypertarget{class_main_window}{}\doxysection{Main\+Window Class Reference}
+\label{class_main_window}\index{MainWindow@{MainWindow}}
+
+
+The Start Page class.  
+
+
+
+
+{\ttfamily \#include $<$startpage.\+h$>$}
+
+Inheritance diagram for Main\+Window\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_main_window}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_main_window_a996c5a2b6f77944776856f08ec30858d}{Main\+Window}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor for the Start page. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_main_window_a9dbc6f1085a7989df2789095a410663c}{handle\+New\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Function to run when New \mbox{\hyperlink{class_game}{Game}} is clicked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_main_window_a99f2d9a63634175dfc53c6170a6f5f9f}{handle\+Exit\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Function to run when Exit \mbox{\hyperlink{class_game}{Game}} is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_custom_button}{Custom\+Button}} $\ast$ \mbox{\hyperlink{class_main_window_ab10f092b2a3e2b304cee4f2ba692934a}{m\+\_\+new\+\_\+game}}
+\begin{DoxyCompactList}\small\item\em New \mbox{\hyperlink{class_game}{Game}} button. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_custom_button}{Custom\+Button}} $\ast$ \mbox{\hyperlink{class_main_window_a0167d74a6c976c5a9805474c7e72d09a}{m\+\_\+exit\+Game}}
+\begin{DoxyCompactList}\small\item\em Exit \mbox{\hyperlink{class_game}{Game}} button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Start Page class. 
+
+This is the first page you see. 
+
+Definition at line 11 of file startpage.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_main_window_a996c5a2b6f77944776856f08ec30858d}\label{class_main_window_a996c5a2b6f77944776856f08ec30858d}} 
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\index{MainWindow@{MainWindow}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{MainWindow()}{MainWindow()}}
+{\footnotesize\ttfamily Main\+Window\+::\+Main\+Window (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the Start page. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & This adds background,instructions and buttons. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 9 of file startpage.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9                                      : QMainWindow(parent)}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{comment}{// Add title}}
+\DoxyCodeLine{12     QLabel* mainTitle = \textcolor{keyword}{new} QLabel(\textcolor{stringliteral}{"ARKANOID"}, \textcolor{keyword}{this});}
+\DoxyCodeLine{13     QFont f(\textcolor{stringliteral}{"Arial"}, 32, QFont::Bold);}
+\DoxyCodeLine{14     mainTitle-\/>setStyleSheet(\textcolor{stringliteral}{"QLabel \{color : white;\}"});}
+\DoxyCodeLine{15     mainTitle-\/>setFont(f);}
+\DoxyCodeLine{16     mainTitle-\/>setGeometry(235, 50, 350, 50);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     QLabel *instructions = \textcolor{keyword}{new} QLabel(\textcolor{keyword}{this});}
+\DoxyCodeLine{19     instructions-\/>setText(\textcolor{stringliteral}{"<u>INSTRUCTIONS:</u>"}}
+\DoxyCodeLine{20                           \textcolor{stringliteral}{"<br><br>Use Arrow Keys to Move the paddle<br><br>"}}
+\DoxyCodeLine{21                           \textcolor{stringliteral}{"Press Esc key to pause the game"});}
+\DoxyCodeLine{22     instructions-\/>setStyleSheet(\textcolor{stringliteral}{"font: 20px; color: yellow"});}
+\DoxyCodeLine{23     instructions-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{24     instructions-\/>setGeometry(QRect(QPoint(60, 80), QSize(600, 180)));}
+\DoxyCodeLine{25     instructions-\/>show();}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{comment}{// Widget to add buttons}}
+\DoxyCodeLine{28     QWidget* wid = \textcolor{keyword}{new} QWidget(\textcolor{keyword}{this});}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30     QPalette palette;}
+\DoxyCodeLine{31     palette.setBrush(QPalette::Button,Qt::gray);}
+\DoxyCodeLine{32     palette.setBrush(QPalette::Background, QBrush(QImage(\textcolor{stringliteral}{":/Images/data/Images/Main\_Menu\_BG.jpg"}).scaled(700,700)));}
+\DoxyCodeLine{33     this-\/>setPalette(palette);}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     \textcolor{comment}{// Resize and show MainWindow}}
+\DoxyCodeLine{36     this-\/>resize(700, 700);}
+\DoxyCodeLine{37     this-\/>setFixedSize(700,700);}
+\DoxyCodeLine{38     this-\/>move(0, 0);}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{// Set wid as the central widget of MainWindow}}
+\DoxyCodeLine{41     this-\/>setCentralWidget(wid);}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{comment}{// Create a vertical layout for buttons}}
+\DoxyCodeLine{44     QVBoxLayout* layout = \textcolor{keyword}{new} QVBoxLayout();}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{// Create the required buttons}}
+\DoxyCodeLine{49     \textcolor{comment}{//m\_instructions = new CustomButton("Instructions");}}
+\DoxyCodeLine{50     \mbox{\hyperlink{class_main_window_ab10f092b2a3e2b304cee4f2ba692934a}{m\_new\_game}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_custom_button}{CustomButton}}(\textcolor{stringliteral}{"New Game"});}
+\DoxyCodeLine{51     \mbox{\hyperlink{class_main_window_a0167d74a6c976c5a9805474c7e72d09a}{m\_exitGame}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_custom_button}{CustomButton}}(\textcolor{stringliteral}{"Exit"});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53 }
+\DoxyCodeLine{54     \textcolor{comment}{// Set the layout of the central widget}}
+\DoxyCodeLine{55     wid-\/>setLayout(layout);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{comment}{// Add buttons to layout}}
+\DoxyCodeLine{58     \textcolor{comment}{//layout-\/>addWidget(m\_instructions);}}
+\DoxyCodeLine{59     layout-\/>addWidget(\mbox{\hyperlink{class_main_window_ab10f092b2a3e2b304cee4f2ba692934a}{m\_new\_game}});}
+\DoxyCodeLine{60     layout-\/>addWidget(\mbox{\hyperlink{class_main_window_a0167d74a6c976c5a9805474c7e72d09a}{m\_exitGame}});}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62     \textcolor{comment}{// Set alignment and spacing of layout}}
+\DoxyCodeLine{63     layout-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{64     layout-\/>setSpacing(50);}
+\DoxyCodeLine{65 }
+\DoxyCodeLine{66     \textcolor{comment}{// Set size of buttons}}
+\DoxyCodeLine{67     \textcolor{comment}{//m\_instructions-\/>setFixedSize(QSize(200,50));}}
+\DoxyCodeLine{68     \mbox{\hyperlink{class_main_window_ab10f092b2a3e2b304cee4f2ba692934a}{m\_new\_game}}-\/>setFixedSize(QSize(200,50));}
+\DoxyCodeLine{69     \mbox{\hyperlink{class_main_window_a0167d74a6c976c5a9805474c7e72d09a}{m\_exitGame}}-\/>setFixedSize(QSize(200,50));}
+\DoxyCodeLine{70 }
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     \textcolor{comment}{// Connect the buttons to the appropriate slots}}
+\DoxyCodeLine{73     connect(\mbox{\hyperlink{class_main_window_ab10f092b2a3e2b304cee4f2ba692934a}{m\_new\_game}},SIGNAL(pressed()),\mbox{\hyperlink{class_main_window_ab10f092b2a3e2b304cee4f2ba692934a}{m\_new\_game}},SLOT(changeColor()));}
+\DoxyCodeLine{74     connect(\mbox{\hyperlink{class_main_window_a0167d74a6c976c5a9805474c7e72d09a}{m\_exitGame}},SIGNAL(pressed()),\mbox{\hyperlink{class_main_window_a0167d74a6c976c5a9805474c7e72d09a}{m\_exitGame}},SLOT(changeColor()));}
+\DoxyCodeLine{75     connect(\mbox{\hyperlink{class_main_window_ab10f092b2a3e2b304cee4f2ba692934a}{m\_new\_game}}, SIGNAL(released()), \textcolor{keyword}{this}, SLOT(\mbox{\hyperlink{class_main_window_a9dbc6f1085a7989df2789095a410663c}{handleNewGame}}()));}
+\DoxyCodeLine{76     connect(\mbox{\hyperlink{class_main_window_a0167d74a6c976c5a9805474c7e72d09a}{m\_exitGame}}, SIGNAL(released()), \textcolor{keyword}{this}, SLOT(\mbox{\hyperlink{class_main_window_a99f2d9a63634175dfc53c6170a6f5f9f}{handleExitGame}}()));}
+\DoxyCodeLine{77 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_main_window_a99f2d9a63634175dfc53c6170a6f5f9f}\label{class_main_window_a99f2d9a63634175dfc53c6170a6f5f9f}} 
+\index{MainWindow@{MainWindow}!handleExitGame@{handleExitGame}}
+\index{handleExitGame@{handleExitGame}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{handleExitGame}{handleExitGame}}
+{\footnotesize\ttfamily void Main\+Window\+::handle\+Exit\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Function to run when Exit \mbox{\hyperlink{class_game}{Game}} is clicked. 
+
+This safely exits the game. 
+
+Definition at line 85 of file startpage.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     this-\/>close();}
+\DoxyCodeLine{88 }
+\DoxyCodeLine{89 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_main_window_a9dbc6f1085a7989df2789095a410663c}\label{class_main_window_a9dbc6f1085a7989df2789095a410663c}} 
+\index{MainWindow@{MainWindow}!handleNewGame@{handleNewGame}}
+\index{handleNewGame@{handleNewGame}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{handleNewGame}{handleNewGame}}
+{\footnotesize\ttfamily void Main\+Window\+::handle\+New\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Function to run when New \mbox{\hyperlink{class_game}{Game}} is clicked. 
+
+This sends the signal to build the game. 
+
+Definition at line 79 of file startpage.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80 \{}
+\DoxyCodeLine{81     game-\/>\mbox{\hyperlink{class_game_ab0f21e585b373e81baec2eb21679defe}{build}}();}
+\DoxyCodeLine{82     \textcolor{keyword}{delete} \textcolor{keyword}{this};}
+\DoxyCodeLine{83 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_main_window_a0167d74a6c976c5a9805474c7e72d09a}\label{class_main_window_a0167d74a6c976c5a9805474c7e72d09a}} 
+\index{MainWindow@{MainWindow}!m\_exitGame@{m\_exitGame}}
+\index{m\_exitGame@{m\_exitGame}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_exitGame}{m\_exitGame}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_custom_button}{Custom\+Button}}$\ast$ Main\+Window\+::m\+\_\+exit\+Game\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Exit \mbox{\hyperlink{class_game}{Game}} button. 
+
+This is a Q\+Push\+Button object for Exit \mbox{\hyperlink{class_game}{Game}} button. 
+
+Definition at line 50 of file startpage.\+h.
+
+\mbox{\Hypertarget{class_main_window_ab10f092b2a3e2b304cee4f2ba692934a}\label{class_main_window_ab10f092b2a3e2b304cee4f2ba692934a}} 
+\index{MainWindow@{MainWindow}!m\_new\_game@{m\_new\_game}}
+\index{m\_new\_game@{m\_new\_game}!MainWindow@{MainWindow}}
+\doxysubsubsection{\texorpdfstring{m\_new\_game}{m\_new\_game}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_custom_button}{Custom\+Button}}$\ast$ Main\+Window\+::m\+\_\+new\+\_\+game\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+New \mbox{\hyperlink{class_game}{Game}} button. 
+
+This is a Q\+Push\+Button object for New \mbox{\hyperlink{class_game}{Game}} button. 
+
+Definition at line 44 of file startpage.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+startpage.\+h\item 
+startpage.\+cpp\end{DoxyCompactItemize}

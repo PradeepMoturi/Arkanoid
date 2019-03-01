@@ -1,25 +1,84 @@
-#include "ballworker.h"
-#include <QDebug>
-#include <QTimer>
-#include <QObject>
-#include "ball.h"
-#include "game.h"
-#include <QTimer>
+/*
+Copyright (c) 2019 Revanth Babu, Pradeep Moturi, Jeevan Chandra, Udit Maniyar
 
-BallWorker::BallWorker(QObject *parent)
+This file is part of Arkanoid 
+(see https://github.com/IITH-SBJoshi/concurrency-1).
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+*/
+#include <QDebug>
+#include <math.h>
+#include <QtMath>
+#include "ballworker.h"
+#include "brick.h"
+
+ballworker::ballworker(QGraphicsScene* curr,Ball* new_ball)
 {
-    QTimer *timer=new QTimer();
-    connect(timer,SIGNAL(timeout()),this,SLOT(run()));
-    timer->start();
+    screen_width = curr->width();
+    screen_height = curr->height();
+    ball = new_ball;
+
 }
 
-void BallWorker::run()
+
+void ballworker::ball_move()
 {
-    for(int i=0;i<1000;i++)
+    wall_collision();
+    emit(ballposupdater(ball,ball->x()+ball->get_xvelocity(),ball->y()+ball->get_yvelocity()));
+}
+
+void ballworker::PaddleCollisionDetected(Ball* nball,bool left_corner,bool right_corner, double factor)
+{
+       if(left_corner == false&&right_corner==false)
+       {
+           nball->set_yvelocity(false);
+           double velx = nball->get_xvelocity();
+           if(velx<3.5)
+           {
+               nball->set_xnewvelocity(velx + factor);
+           }
+       }
+       else if(left_corner==true)
+       {
+           nball->set_xvelocity(false);
+       }
+       else
+       {
+           nball->set_xvelocity(true);
+       }
+}
+
+void ballworker::wall_collision()
+{
+    if (ball->mapToScene(ball->rect().topLeft()).x() <= 0)
     {
-        qDebug()<<" Thread here\n";
-        qDebug()<<"Bye Thread\n";
+        ball->set_xvelocity(true);
     }
-    qDebug()<<"Who's first?\n";
-    exec();
+
+    if (ball->mapToScene(ball->rect().topRight()).x() >= screen_width)
+    {
+        ball->set_xvelocity(false);
+    }
+
+    if (ball->mapToScene(ball->rect().topLeft()).y()<= 0)
+    {
+        ball->set_yvelocity(true);
+    }
+
+    if (ball->mapToScene(ball->rect().topRight()).y()> screen_height)
+    {
+        emit(endgame(this,ball));
+        return;
+    }
 }

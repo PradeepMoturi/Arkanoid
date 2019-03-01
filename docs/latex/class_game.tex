@@ -1,0 +1,937 @@
+\hypertarget{class_game}{}\doxysection{Game Class Reference}
+\label{class_game}\index{Game@{Game}}
+
+
+The \mbox{\hyperlink{class_game}{Game}} class.  
+
+
+
+
+{\ttfamily \#include $<$game.\+h$>$}
+
+Inheritance diagram for Game\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_aeb70712a6f7e053019964d48bfdba2a1}{ballpositionupdater}} (\mbox{\hyperlink{class_ball}{Ball}} $\ast$b, double x, double y)
+\begin{DoxyCompactList}\small\item\em ballpositionupdater \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_ab0f21e585b373e81baec2eb21679defe}{build}} ()
+\begin{DoxyCompactList}\small\item\em build \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a3d9b98f7c4a96ecf578f75b96c9f0e90}{start}} ()
+\begin{DoxyCompactList}\small\item\em start \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_aeb468737e1495cfcfbf512cfdc751117}{restart}} ()
+\begin{DoxyCompactList}\small\item\em restart \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a4b507ab6c09910b3a621cf1980d65604}{pause}} ()
+\begin{DoxyCompactList}\small\item\em pause \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a46bbb867557410b839d74070311b6da2}{end}} (\mbox{\hyperlink{classballworker}{ballworker}} $\ast$, \mbox{\hyperlink{class_ball}{Ball}} $\ast$)
+\begin{DoxyCompactList}\small\item\em end \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a9b120f60c1a2291876ec6bb9812f5cf8}{removepowerup}} (\mbox{\hyperlink{class_powerup}{Powerup}} $\ast$)
+\begin{DoxyCompactList}\small\item\em removepowerup \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a89ce2e204947c00c48cbafcc4211f478}{Multiply\+\_\+ball}} ()
+\begin{DoxyCompactList}\small\item\em Multiply\+\_\+ball. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a43b8950da0c337f9710cf33b42196ed1}{update\+Status}} ()
+\begin{DoxyCompactList}\small\item\em update\+Status \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_a03f8eb64a9b449a2f57c5d5ea262efad}{pausemusic}} ()
+\begin{DoxyCompactList}\small\item\em pausemusic \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a855f2daffbb2733666a99bf0ff38decd}{resumemusic}} ()
+\begin{DoxyCompactList}\small\item\em resumemusic \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_aaa816236c47e7a1ddbce0596b13e3461}{restartmusic}} ()
+\begin{DoxyCompactList}\small\item\em restartmusic \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a44442dfd40731109a5b0a977e1a8b879}{brick\+\_\+sound}} ()
+\begin{DoxyCompactList}\small\item\em brick\+\_\+sound \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_game_ac1a9dde49041f68e14234a41a862865d}{Game}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_game}{Game}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a00a325d229ed366ce11268bc26a5ea23}{main\+Connections}} (\mbox{\hyperlink{classballworker}{ballworker}} $\ast$worker)
+\begin{DoxyCompactList}\small\item\em main\+Connections \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a713d93d0ea54ba52d13b29c5e99f3344}{side\+Connections}} (\mbox{\hyperlink{classballworker}{ballworker}} $\ast$worker)
+\begin{DoxyCompactList}\small\item\em side\+Connections \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a4ab01c7ed5103cfc53e14948c506a403}{remove\+Connections}} (\mbox{\hyperlink{classballworker}{ballworker}} $\ast$worker)
+\begin{DoxyCompactList}\small\item\em remove\+Connections \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a411f4e097db42e7bfa12fa78975a71b3}{power\+Connections}} (\mbox{\hyperlink{class_powerup}{Powerup}} $\ast$power)
+\begin{DoxyCompactList}\small\item\em power\+Connections \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a0d935a98e5fd85e39c22e6a2fec5f4f2}{remove\+\_\+brick}} (\mbox{\hyperlink{class_brick}{Brick}} $\ast$brick)
+\begin{DoxyCompactList}\small\item\em remove\+\_\+brick \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Q\+Graphics\+Scene $\ast$ \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}
+\item 
+\mbox{\hyperlink{class_score}{Score}} $\ast$ \mbox{\hyperlink{class_game_ad195acc6b5ee17a5a07fea0b7b4ff5e2}{score}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_a99a17f82b1fb13bd7758c48bba0d4b1e}{brick\+\_\+collision}} (\mbox{\hyperlink{class_ball}{Ball}} $\ast$b)
+\begin{DoxyCompactList}\small\item\em brick\+\_\+collision \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_a4def72ff881824e1ddaf43f9093086af}{setup\+\_\+scene}} ()
+\begin{DoxyCompactList}\small\item\em setup\+\_\+scene \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_game_aec0d3dfc87fe40fdc4fb9d4e7e9b0e64}{create\+Grid}} (int rows, int columns)
+\begin{DoxyCompactList}\small\item\em create\+Grid \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_game_a83aa904de1255fb1aa88f8e4ef2ea68a}{fire\+\_\+time}} =0
+\item 
+\mbox{\Hypertarget{class_game_a2fc9c2e774c363eb5a5e8f6d865ffc0e}\label{class_game_a2fc9c2e774c363eb5a5e8f6d865ffc0e}} 
+bool {\bfseries status}
+\item 
+\mbox{\hyperlink{class_ball}{Ball}} $\ast$ \mbox{\hyperlink{class_game_a92bcf8f81449ab546dd97f656781d2ec}{ball}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_ball}{Ball}} $\ast$ $>$ \mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\+\_\+list}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{classballworker}{ballworker}} $\ast$ $>$ \mbox{\hyperlink{class_game_ad349347d8f73b64d55dabc3df6ad29f9}{worker\+\_\+list}}
+\item 
+std\+::vector$<$ \mbox{\hyperlink{class_powerup}{Powerup}} $\ast$ $>$ \mbox{\hyperlink{class_game_ae14f1ec6141c77cc1cddf75c5d5735ba}{power\+\_\+list}}
+\item 
+\mbox{\hyperlink{classgridlayout}{gridlayout}} $\ast$ \mbox{\hyperlink{class_game_a3e4a0145d02c9cda78fe5bb3d09008e1}{grid}}
+\item 
+Q\+Timer $\ast$ \mbox{\hyperlink{class_game_a5e7f2b309d353973cd1d6654417fb87b}{timer}}
+\item 
+\mbox{\hyperlink{class_background_music}{Background\+Music}} $\ast$ \mbox{\hyperlink{class_game_ac90f75f7c3609a10d42c85934d807909}{music}}
+\item 
+std\+::map$<$ Q\+Thread $\ast$, int $>$ \mbox{\hyperlink{class_game_a022caad32636eef9cf81d529990d569c}{thread\+\_\+map}}
+\begin{DoxyCompactList}\small\item\em thread\+\_\+map \end{DoxyCompactList}\item 
+std\+::map$<$ \mbox{\hyperlink{classballworker}{ballworker}} $\ast$, Q\+Thread $\ast$ $>$ \mbox{\hyperlink{class_game_a8c2d9142fb4650e2807e0348db19b74f}{balltothread}}
+\begin{DoxyCompactList}\small\item\em balltothread \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_game}{Game}} class. 
+
+\mbox{\hyperlink{class_game}{Game}} class creates many connections, creates the grid, handles brick ball collisions, creates new worker threads, new ball objects, starts the timer, updates the brick status, powerup status and many more.. 
+
+Definition at line 41 of file game.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_game_ac1a9dde49041f68e14234a41a862865d}\label{class_game_ac1a9dde49041f68e14234a41a862865d}} 
+\index{Game@{Game}!Game@{Game}}
+\index{Game@{Game}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Game()}{Game()}}
+{\footnotesize\ttfamily Game\+::\+Game (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_game}{Game}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & pointer of the game object is set to null \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 45 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{45                          :QGraphicsView (parent)}
+\DoxyCodeLine{46 \{}
+\DoxyCodeLine{47     \mbox{\hyperlink{class_game_a4def72ff881824e1ddaf43f9093086af}{setup\_scene}}();}
+\DoxyCodeLine{48     QApplication::setKeyboardInputInterval(5);}
+\DoxyCodeLine{49     \mbox{\hyperlink{class_game_ac90f75f7c3609a10d42c85934d807909}{music}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_background_music}{BackgroundMusic}}();}
+\DoxyCodeLine{50 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_game_aeb70712a6f7e053019964d48bfdba2a1}\label{class_game_aeb70712a6f7e053019964d48bfdba2a1}} 
+\index{Game@{Game}!ballpositionupdater@{ballpositionupdater}}
+\index{ballpositionupdater@{ballpositionupdater}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{ballpositionupdater}{ballpositionupdater}}
+{\footnotesize\ttfamily void Game\+::ballpositionupdater (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ball}{Ball}} $\ast$}]{b,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+ballpositionupdater 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & The ball which is passed to be transformed to new co-\/ordinates. \\
+\hline
+{\em x} & New x co-\/ordinate of the ball. \\
+\hline
+{\em y} & New y co-\/ordinate of the ball.\\
+\hline
+\end{DoxyParams}
+This slot updates the position of the ball to the new x and y coordinates taking the signal ballposupdater from the ball worker. 
+
+Definition at line 102 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{103 \{}
+\DoxyCodeLine{104     nball-\/>setPos(x,y);}
+\DoxyCodeLine{105     \mbox{\hyperlink{class_game_a99a17f82b1fb13bd7758c48bba0d4b1e}{brick\_collision}}(nball);}
+\DoxyCodeLine{106 }
+\DoxyCodeLine{107     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_game_a83aa904de1255fb1aa88f8e4ef2ea68a}{fire\_time}}>=700)}
+\DoxyCodeLine{108     \{}
+\DoxyCodeLine{109         status=\textcolor{keyword}{false};}
+\DoxyCodeLine{110         \mbox{\hyperlink{class_game_a83aa904de1255fb1aa88f8e4ef2ea68a}{fire\_time}}=0;}
+\DoxyCodeLine{111     \}}
+\DoxyCodeLine{112 }
+\DoxyCodeLine{113     \textcolor{keywordflow}{if}(status) \mbox{\hyperlink{class_game_a83aa904de1255fb1aa88f8e4ef2ea68a}{fire\_time}}++;}
+\DoxyCodeLine{114 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a99a17f82b1fb13bd7758c48bba0d4b1e}\label{class_game_a99a17f82b1fb13bd7758c48bba0d4b1e}} 
+\index{Game@{Game}!brick\_collision@{brick\_collision}}
+\index{brick\_collision@{brick\_collision}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{brick\_collision()}{brick\_collision()}}
+{\footnotesize\ttfamily void Game\+::brick\+\_\+collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ball}{Ball}} $\ast$}]{b }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+brick\+\_\+collision 
+
+stores the status of the fire mode for the ball objects$<$
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & This member functions takes in the ball object as the parameter and handles all the collisions with the ball, increases the score after collisions, updates the status of the collided bricks, either updating the colour of the ball or removing the brick from the scene and finally updating the velocity of the brick. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 249 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{250 \{}
+\DoxyCodeLine{251     QList<QGraphicsItem*> cItems = nball-\/>collidingItems();}
+\DoxyCodeLine{252 }
+\DoxyCodeLine{253     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0, n = cItems.size(); i < n; ++i)\{}
+\DoxyCodeLine{254             \mbox{\hyperlink{class_brick}{Brick}}* brick = dynamic\_cast<Brick*>(cItems[i]);}
+\DoxyCodeLine{255             \textcolor{keywordflow}{if} (brick)\{}
+\DoxyCodeLine{256                 \textcolor{keywordtype}{double} ballx = nball-\/>pos().x();}
+\DoxyCodeLine{257                 \textcolor{keywordtype}{double} bally = nball-\/>pos().y();}
+\DoxyCodeLine{258                 \textcolor{keywordtype}{double} brickx = brick-\/>pos().x();}
+\DoxyCodeLine{259                 \textcolor{keywordtype}{double} bricky = brick-\/>pos().y();}
+\DoxyCodeLine{260 }
+\DoxyCodeLine{261                 \textcolor{comment}{//status different ignore}}
+\DoxyCodeLine{262 }
+\DoxyCodeLine{263                 \textcolor{keywordflow}{if}(!status)}
+\DoxyCodeLine{264                 \{}
+\DoxyCodeLine{265                     \textcolor{keywordflow}{if} (bally >= bricky + brick-\/>\mbox{\hyperlink{class_brick_ad6468582c60cb29ba66ec6d7d48ff549}{getHeight}}() \&\& nball-\/>get\_yvelocity() < 0)\{}
+\DoxyCodeLine{266                         nball-\/>set\_yvelocity(\textcolor{keyword}{true});}
+\DoxyCodeLine{267                     \}}
+\DoxyCodeLine{268 }
+\DoxyCodeLine{269                     \textcolor{keywordflow}{if} (bricky >= bally + nball-\/>rect().height() \&\& nball-\/>get\_yvelocity() > 0 )\{}
+\DoxyCodeLine{270                         nball-\/>set\_yvelocity(\textcolor{keyword}{false});}
+\DoxyCodeLine{271                     \}}
+\DoxyCodeLine{272 }
+\DoxyCodeLine{273                     \textcolor{keywordflow}{if} (ballx >= brickx + brick-\/>\mbox{\hyperlink{class_brick_ad95310e7feb8082b052379ec5296a399}{getWidth}}() \&\& nball-\/>get\_xvelocity() < 0)\{}
+\DoxyCodeLine{274                         nball-\/>set\_xvelocity(\textcolor{keyword}{true});}
+\DoxyCodeLine{275                     \}}
+\DoxyCodeLine{276 }
+\DoxyCodeLine{277                     \textcolor{keywordflow}{if} (brickx >= ballx + nball-\/>rect().width()  \&\& nball-\/>get\_xvelocity() > 0)\{}
+\DoxyCodeLine{278                         nball-\/>set\_xvelocity(\textcolor{keyword}{false});}
+\DoxyCodeLine{279                     \}}
+\DoxyCodeLine{280                 \}}
+\DoxyCodeLine{281                 \textcolor{keywordflow}{if}(brick-\/>\mbox{\hyperlink{class_brick_a79fceb3203607f4c44c8dd96a7481f2d}{getHits}}()==1)}
+\DoxyCodeLine{282                 \{}
+\DoxyCodeLine{283                     \mbox{\hyperlink{class_game_ad195acc6b5ee17a5a07fea0b7b4ff5e2}{score}}-\/>\mbox{\hyperlink{class_score_ab5dbfab6935903c075509546878cfbda}{increase}}();}
+\DoxyCodeLine{284                 \}}
+\DoxyCodeLine{285                 emit(\mbox{\hyperlink{class_game_a44442dfd40731109a5b0a977e1a8b879}{brick\_sound}}());}
+\DoxyCodeLine{286 }
+\DoxyCodeLine{287                 \mbox{\hyperlink{class_game_a0d935a98e5fd85e39c22e6a2fec5f4f2}{remove\_brick}}(brick);}
+\DoxyCodeLine{288             \}}
+\DoxyCodeLine{289         \}}
+\DoxyCodeLine{290 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a44442dfd40731109a5b0a977e1a8b879}\label{class_game_a44442dfd40731109a5b0a977e1a8b879}} 
+\index{Game@{Game}!brick\_sound@{brick\_sound}}
+\index{brick\_sound@{brick\_sound}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{brick\_sound}{brick\_sound}}
+{\footnotesize\ttfamily void Game\+::brick\+\_\+sound (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+brick\+\_\+sound 
+
+This signal asks to play cue sound when brick breaks \mbox{\Hypertarget{class_game_ab0f21e585b373e81baec2eb21679defe}\label{class_game_ab0f21e585b373e81baec2eb21679defe}} 
+\index{Game@{Game}!build@{build}}
+\index{build@{build}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{build}{build}}
+{\footnotesize\ttfamily void Game\+::build (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+build 
+
+This member function initialises music, main ball, ballworker and timer objects and creates a new thread. It moves the ballworker object to the new thread and starts the timer and main\+Connections function is called here. 
+
+Definition at line 63 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65     \mbox{\hyperlink{class_game_ac90f75f7c3609a10d42c85934d807909}{music}}-\/>start();}
+\DoxyCodeLine{66     paddle = \textcolor{keyword}{new} \mbox{\hyperlink{class_paddle}{Paddle}}();}
+\DoxyCodeLine{67     \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}-\/>addItem(paddle);}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{69     \mbox{\hyperlink{class_game_a92bcf8f81449ab546dd97f656781d2ec}{ball}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_ball}{Ball}}();}
+\DoxyCodeLine{70     \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}-\/>addItem(\mbox{\hyperlink{class_game_a92bcf8f81449ab546dd97f656781d2ec}{ball}});}
+\DoxyCodeLine{71 }
+\DoxyCodeLine{72     status=\textcolor{keyword}{false};}
+\DoxyCodeLine{73     \mbox{\hyperlink{class_game_a83aa904de1255fb1aa88f8e4ef2ea68a}{fire\_time}}=0;}
+\DoxyCodeLine{74 }
+\DoxyCodeLine{75     \mbox{\hyperlink{class_game_ad195acc6b5ee17a5a07fea0b7b4ff5e2}{score}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_score}{Score}}();}
+\DoxyCodeLine{76     \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}-\/>addItem(\mbox{\hyperlink{class_game_ad195acc6b5ee17a5a07fea0b7b4ff5e2}{score}});}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{78     QThread* thread = \textcolor{keyword}{new} QThread(\textcolor{keyword}{this});}
+\DoxyCodeLine{79     \mbox{\hyperlink{classballworker}{ballworker}}* worker = \textcolor{keyword}{new} \mbox{\hyperlink{classballworker}{ballworker}}(\mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}},\mbox{\hyperlink{class_game_a92bcf8f81449ab546dd97f656781d2ec}{ball}});}
+\DoxyCodeLine{80 }
+\DoxyCodeLine{81     worker-\/>moveToThread(thread);}
+\DoxyCodeLine{82     thread-\/>start();}
+\DoxyCodeLine{83 }
+\DoxyCodeLine{84     \mbox{\hyperlink{class_game_a8c2d9142fb4650e2807e0348db19b74f}{balltothread}}[worker] = thread;}
+\DoxyCodeLine{85     \mbox{\hyperlink{class_game_a022caad32636eef9cf81d529990d569c}{thread\_map}}[thread]++;}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{87     \mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.resize(0);}
+\DoxyCodeLine{88     \mbox{\hyperlink{class_game_ad349347d8f73b64d55dabc3df6ad29f9}{worker\_list}}.resize(0);}
+\DoxyCodeLine{89     \mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.push\_back(\mbox{\hyperlink{class_game_a92bcf8f81449ab546dd97f656781d2ec}{ball}});}
+\DoxyCodeLine{90     \mbox{\hyperlink{class_game_ad349347d8f73b64d55dabc3df6ad29f9}{worker\_list}}.push\_back(worker);}
+\DoxyCodeLine{91 }
+\DoxyCodeLine{92     \textcolor{comment}{//create a grid of blocks of size m*n}}
+\DoxyCodeLine{93     \mbox{\hyperlink{class_game_a3e4a0145d02c9cda78fe5bb3d09008e1}{grid}} = \textcolor{keyword}{new} \mbox{\hyperlink{classgridlayout}{gridlayout}}(\mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}},1);}
+\DoxyCodeLine{94     \mbox{\hyperlink{class_game_a5e7f2b309d353973cd1d6654417fb87b}{timer}} = \textcolor{keyword}{new} QTimer(\textcolor{keyword}{this});}
+\DoxyCodeLine{95     \mbox{\hyperlink{class_game_a5e7f2b309d353973cd1d6654417fb87b}{timer}}-\/>start(5);}
+\DoxyCodeLine{96 }
+\DoxyCodeLine{97     \mbox{\hyperlink{class_game_a00a325d229ed366ce11268bc26a5ea23}{mainConnections}}(worker);}
+\DoxyCodeLine{98 }
+\DoxyCodeLine{99     this-\/>show();}
+\DoxyCodeLine{100 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_aec0d3dfc87fe40fdc4fb9d4e7e9b0e64}\label{class_game_aec0d3dfc87fe40fdc4fb9d4e7e9b0e64}} 
+\index{Game@{Game}!createGrid@{createGrid}}
+\index{createGrid@{createGrid}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{createGrid()}{createGrid()}}
+{\footnotesize\ttfamily void Game\+::create\+Grid (\begin{DoxyParamCaption}\item[{int}]{rows,  }\item[{int}]{columns }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+create\+Grid 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rows} & \\
+\hline
+{\em columns} & This function takes rows and columns as parameters and creates the grid. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_game_a46bbb867557410b839d74070311b6da2}\label{class_game_a46bbb867557410b839d74070311b6da2}} 
+\index{Game@{Game}!end@{end}}
+\index{end@{end}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{end}{end}}
+{\footnotesize\ttfamily void Game\+::end (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classballworker}{ballworker}} $\ast$}]{nworker,  }\item[{\mbox{\hyperlink{class_ball}{Ball}} $\ast$}]{nball }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+end 
+
+This member function takes worker and ball objects as parameters, removes all the connections deletes the worker objects, displays the end menu when all the ball objects are moved out of the scene. This slot is triggered when it receives the endgame signal from the worker object. 
+
+Definition at line 218 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{219 \{}
+\DoxyCodeLine{220     \textcolor{keywordtype}{size\_t} x=\mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.size();}
+\DoxyCodeLine{221     \mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.erase(std::remove(\mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.begin(),\mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.end(),nball),\mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.end());}
+\DoxyCodeLine{222     \textcolor{keywordtype}{size\_t} y=\mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.size();}
+\DoxyCodeLine{223 }
+\DoxyCodeLine{224     \textcolor{keywordflow}{if}(x!=y)}
+\DoxyCodeLine{225     \{}
+\DoxyCodeLine{226         \mbox{\hyperlink{class_game_a4ab01c7ed5103cfc53e14948c506a403}{removeConnections}}(nworker);}
+\DoxyCodeLine{227         \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}-\/>removeItem(nball);}
+\DoxyCodeLine{228         \mbox{\hyperlink{class_game_ad349347d8f73b64d55dabc3df6ad29f9}{worker\_list}}.erase(std::remove(\mbox{\hyperlink{class_game_ad349347d8f73b64d55dabc3df6ad29f9}{worker\_list}}.begin(),\mbox{\hyperlink{class_game_ad349347d8f73b64d55dabc3df6ad29f9}{worker\_list}}.end(),nworker),\mbox{\hyperlink{class_game_ad349347d8f73b64d55dabc3df6ad29f9}{worker\_list}}.end());}
+\DoxyCodeLine{229         \mbox{\hyperlink{class_game_a022caad32636eef9cf81d529990d569c}{thread\_map}}[\mbox{\hyperlink{class_game_a8c2d9142fb4650e2807e0348db19b74f}{balltothread}}[nworker]]-\/-\/;}
+\DoxyCodeLine{230         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_game_a022caad32636eef9cf81d529990d569c}{thread\_map}}[\mbox{\hyperlink{class_game_a8c2d9142fb4650e2807e0348db19b74f}{balltothread}}[nworker]]==0)}
+\DoxyCodeLine{231             \mbox{\hyperlink{class_game_a8c2d9142fb4650e2807e0348db19b74f}{balltothread}}[nworker]-\/>quit();}
+\DoxyCodeLine{232 }
+\DoxyCodeLine{233 }
+\DoxyCodeLine{234 }
+\DoxyCodeLine{235         \textcolor{keyword}{delete} nworker;}
+\DoxyCodeLine{236         \textcolor{comment}{//delete nball;}}
+\DoxyCodeLine{237     \}}
+\DoxyCodeLine{238 }
+\DoxyCodeLine{239     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.size()==0)}
+\DoxyCodeLine{240     \{}
+\DoxyCodeLine{241         emit(\mbox{\hyperlink{class_game_a03f8eb64a9b449a2f57c5d5ea262efad}{pausemusic}}());}
+\DoxyCodeLine{242         \mbox{\hyperlink{class_end_menu}{EndMenu}} *emenu = \textcolor{keyword}{new} \mbox{\hyperlink{class_end_menu}{EndMenu}}();}
+\DoxyCodeLine{243         this-\/>hide();}
+\DoxyCodeLine{244         emenu-\/>show();}
+\DoxyCodeLine{245         \textcolor{keywordflow}{return};}
+\DoxyCodeLine{246     \}}
+\DoxyCodeLine{247 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a00a325d229ed366ce11268bc26a5ea23}\label{class_game_a00a325d229ed366ce11268bc26a5ea23}} 
+\index{Game@{Game}!mainConnections@{mainConnections}}
+\index{mainConnections@{mainConnections}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{mainConnections()}{mainConnections()}}
+{\footnotesize\ttfamily void Game\+::main\+Connections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classballworker}{ballworker}} $\ast$}]{worker }\end{DoxyParamCaption})}
+
+
+
+main\+Connections 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & The ballworker is sent as a parameter to this function. This function handles all the connections for the main ball. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 122 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{123 \{}
+\DoxyCodeLine{124     connect(\mbox{\hyperlink{class_game_a5e7f2b309d353973cd1d6654417fb87b}{timer}},SIGNAL(timeout()),worker,SLOT(ball\_move()));}
+\DoxyCodeLine{125 \textcolor{comment}{//    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove\_brick(Brick*)));}}
+\DoxyCodeLine{126     connect(worker,SIGNAL(endgame(\mbox{\hyperlink{classballworker}{ballworker}}*,\mbox{\hyperlink{class_ball}{Ball}}*)),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_a46bbb867557410b839d74070311b6da2}{end}}(\mbox{\hyperlink{classballworker}{ballworker}}*,\mbox{\hyperlink{class_ball}{Ball}}*)));}
+\DoxyCodeLine{127     connect(worker,SIGNAL(ballposupdater(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{double}, \textcolor{keywordtype}{double})),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_aeb70712a6f7e053019964d48bfdba2a1}{ballpositionupdater}}(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{double}, \textcolor{keywordtype}{double})));}
+\DoxyCodeLine{128 }
+\DoxyCodeLine{129     connect(paddle,SIGNAL(ballCollision(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{bool},\textcolor{keywordtype}{bool}, \textcolor{keywordtype}{double})),worker,SLOT(PaddleCollisionDetected(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{bool},\textcolor{keywordtype}{bool},\textcolor{keywordtype}{double})));}
+\DoxyCodeLine{130     connect(paddle,SIGNAL(multiballadd()),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_a89ce2e204947c00c48cbafcc4211f478}{Multiply\_ball}}()));}
+\DoxyCodeLine{131     connect(paddle,SIGNAL(destroy\_powerup(\mbox{\hyperlink{class_powerup}{Powerup}}*)),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_a9b120f60c1a2291876ec6bb9812f5cf8}{removepowerup}}(\mbox{\hyperlink{class_powerup}{Powerup}}*)));}
+\DoxyCodeLine{132     connect(paddle,SIGNAL(stop()),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_a4b507ab6c09910b3a621cf1980d65604}{pause}}()));}
+\DoxyCodeLine{133     connect(\textcolor{keyword}{this},SIGNAL(\mbox{\hyperlink{class_game_a44442dfd40731109a5b0a977e1a8b879}{brick\_sound}}()),\mbox{\hyperlink{class_game_ac90f75f7c3609a10d42c85934d807909}{music}},SLOT(Brick\_Sound()));}
+\DoxyCodeLine{134     connect(paddle,SIGNAL(sendStatus()),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_a43b8950da0c337f9710cf33b42196ed1}{updateStatus}}()));}
+\DoxyCodeLine{135 }
+\DoxyCodeLine{136     connect(\textcolor{keyword}{this},SIGNAL(\mbox{\hyperlink{class_game_a03f8eb64a9b449a2f57c5d5ea262efad}{pausemusic}}()),\mbox{\hyperlink{class_game_ac90f75f7c3609a10d42c85934d807909}{music}},SLOT(\mbox{\hyperlink{class_game_a03f8eb64a9b449a2f57c5d5ea262efad}{pausemusic}}()));}
+\DoxyCodeLine{137     connect(\textcolor{keyword}{this},SIGNAL(\mbox{\hyperlink{class_game_a855f2daffbb2733666a99bf0ff38decd}{resumemusic}}()),\mbox{\hyperlink{class_game_ac90f75f7c3609a10d42c85934d807909}{music}},SLOT(\mbox{\hyperlink{class_game_a855f2daffbb2733666a99bf0ff38decd}{resumemusic}}()));}
+\DoxyCodeLine{138     connect(\textcolor{keyword}{this},SIGNAL(\mbox{\hyperlink{class_game_aaa816236c47e7a1ddbce0596b13e3461}{restartmusic}}()),\mbox{\hyperlink{class_game_ac90f75f7c3609a10d42c85934d807909}{music}},SLOT(\mbox{\hyperlink{class_game_aaa816236c47e7a1ddbce0596b13e3461}{restartmusic}}()));}
+\DoxyCodeLine{139 }
+\DoxyCodeLine{140 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a89ce2e204947c00c48cbafcc4211f478}\label{class_game_a89ce2e204947c00c48cbafcc4211f478}} 
+\index{Game@{Game}!Multiply\_ball@{Multiply\_ball}}
+\index{Multiply\_ball@{Multiply\_ball}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{Multiply\_ball}{Multiply\_ball}}
+{\footnotesize\ttfamily void Game\+::\+Multiply\+\_\+ball (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+Multiply\+\_\+ball. 
+
+This member function doubles every ball object in the ball\+\_\+list and gives it a opposite direction for the x-\/velocity, creates a new thread, adds the newly created ball and the worker object to their respective lists. Each of the worker objects is moved to the newly created thread. The newly created items are added to the scene. The connections for each of the newly created ball,worker and timer objects are called by the side\+Connections function.\+This slot is triggered by the multiball signal from the paddle object. 
+
+Definition at line 292 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{293 \{}
+\DoxyCodeLine{294     \textcolor{keywordtype}{long} \textcolor{keywordtype}{unsigned} number\_of\_balls = \mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.size();}
+\DoxyCodeLine{295     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.size()>=10) \textcolor{keywordflow}{return};}
+\DoxyCodeLine{296 }
+\DoxyCodeLine{297     QThread* thread = \textcolor{keyword}{new} QThread(\textcolor{keyword}{this});}
+\DoxyCodeLine{298 }
+\DoxyCodeLine{299     \textcolor{keywordflow}{for}(\textcolor{keywordtype}{long} \textcolor{keywordtype}{unsigned} i = 0;i< number\_of\_balls ; i++)}
+\DoxyCodeLine{300     \{}
+\DoxyCodeLine{301         \mbox{\hyperlink{class_ball}{Ball}}* new\_ball = \textcolor{keyword}{new} \mbox{\hyperlink{class_ball}{Ball}}();}
+\DoxyCodeLine{302         \mbox{\hyperlink{classballworker}{ballworker}}* worker = \textcolor{keyword}{new} \mbox{\hyperlink{classballworker}{ballworker}}(\mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}},new\_ball);}
+\DoxyCodeLine{303 }
+\DoxyCodeLine{304         worker-\/>moveToThread(thread);}
+\DoxyCodeLine{305 }
+\DoxyCodeLine{306         \mbox{\hyperlink{class_game_a8c2d9142fb4650e2807e0348db19b74f}{balltothread}}[worker] = thread;}
+\DoxyCodeLine{307         \mbox{\hyperlink{class_game_a022caad32636eef9cf81d529990d569c}{thread\_map}}[thread]++;}
+\DoxyCodeLine{308 }
+\DoxyCodeLine{309         \mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}.push\_back(new\_ball);}
+\DoxyCodeLine{310         \mbox{\hyperlink{class_game_ad349347d8f73b64d55dabc3df6ad29f9}{worker\_list}}.push\_back(worker);}
+\DoxyCodeLine{311 }
+\DoxyCodeLine{312         new\_ball-\/>setPos(\mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}[i]-\/>x(),\mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}[i]-\/>y());}
+\DoxyCodeLine{313         \textcolor{keywordtype}{double} vel\_x = \mbox{\hyperlink{class_game_a3909c75759bd5eb007db3a134f36dd79}{ball\_list}}[i]-\/>get\_xvelocity();}
+\DoxyCodeLine{314 }
+\DoxyCodeLine{315         \textcolor{keywordflow}{if}(vel\_x>0) new\_ball-\/>\mbox{\hyperlink{class_ball_a941d0434860d457fd5efd58769abfddc}{set\_xvelocity}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{316         \textcolor{keywordflow}{else} new\_ball-\/>\mbox{\hyperlink{class_ball_a941d0434860d457fd5efd58769abfddc}{set\_xvelocity}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{317 }
+\DoxyCodeLine{318         \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}-\/>addItem(new\_ball);}
+\DoxyCodeLine{319 }
+\DoxyCodeLine{320         \mbox{\hyperlink{class_game_a713d93d0ea54ba52d13b29c5e99f3344}{sideConnections}}(worker);}
+\DoxyCodeLine{321 }
+\DoxyCodeLine{322     \}}
+\DoxyCodeLine{323     thread-\/>start();}
+\DoxyCodeLine{324 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a4b507ab6c09910b3a621cf1980d65604}\label{class_game_a4b507ab6c09910b3a621cf1980d65604}} 
+\index{Game@{Game}!pause@{pause}}
+\index{pause@{pause}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{pause}{pause}}
+{\footnotesize\ttfamily void Game\+::pause (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+pause 
+
+this stops the timer to pause the game. 
+
+Definition at line 332 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{333 \{}
+\DoxyCodeLine{334     \mbox{\hyperlink{class_pause_menu}{PauseMenu}} *pmenu=\textcolor{keyword}{new} \mbox{\hyperlink{class_pause_menu}{PauseMenu}}();}
+\DoxyCodeLine{335     emit(\mbox{\hyperlink{class_game_a03f8eb64a9b449a2f57c5d5ea262efad}{pausemusic}}());}
+\DoxyCodeLine{336     \textcolor{comment}{//music-\/>start();}}
+\DoxyCodeLine{337     \mbox{\hyperlink{class_game_a5e7f2b309d353973cd1d6654417fb87b}{timer}}-\/>stop();}
+\DoxyCodeLine{338     pmenu-\/>show();}
+\DoxyCodeLine{339 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a03f8eb64a9b449a2f57c5d5ea262efad}\label{class_game_a03f8eb64a9b449a2f57c5d5ea262efad}} 
+\index{Game@{Game}!pausemusic@{pausemusic}}
+\index{pausemusic@{pausemusic}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{pausemusic}{pausemusic}}
+{\footnotesize\ttfamily void Game\+::pausemusic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+pausemusic 
+
+This member signal pauses the background music. \mbox{\Hypertarget{class_game_a411f4e097db42e7bfa12fa78975a71b3}\label{class_game_a411f4e097db42e7bfa12fa78975a71b3}} 
+\index{Game@{Game}!powerConnections@{powerConnections}}
+\index{powerConnections@{powerConnections}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{powerConnections()}{powerConnections()}}
+{\footnotesize\ttfamily void Game\+::power\+Connections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_powerup}{Powerup}} $\ast$}]{power }\end{DoxyParamCaption})}
+
+
+
+power\+Connections 
+
+
+\begin{DoxyParams}{Parameters}
+{\em power} & The \mbox{\hyperlink{class_powerup}{Powerup}} object is sent as a parameter to this functions which handles all the connections for the power object mainly for the power,timer and worker objects. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 163 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{164 \{}
+\DoxyCodeLine{165     connect(\mbox{\hyperlink{class_game_a5e7f2b309d353973cd1d6654417fb87b}{timer}},SIGNAL(timeout()),power,SLOT(powerup\_move()));}
+\DoxyCodeLine{166     connect(power,SIGNAL(remove\_connection(\mbox{\hyperlink{class_powerup}{Powerup}}*)),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_a9b120f60c1a2291876ec6bb9812f5cf8}{removepowerup}}(\mbox{\hyperlink{class_powerup}{Powerup}}*)));}
+\DoxyCodeLine{167 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a0d935a98e5fd85e39c22e6a2fec5f4f2}\label{class_game_a0d935a98e5fd85e39c22e6a2fec5f4f2}} 
+\index{Game@{Game}!remove\_brick@{remove\_brick}}
+\index{remove\_brick@{remove\_brick}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{remove\_brick()}{remove\_brick()}}
+{\footnotesize\ttfamily void Game\+::remove\+\_\+brick (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_brick}{Brick}} $\ast$}]{brick }\end{DoxyParamCaption})}
+
+
+
+remove\+\_\+brick 
+
+
+\begin{DoxyParams}{Parameters}
+{\em brick} & This member function deletes the brick from the scene after receiving it from the brick\+\_\+collision function. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 169 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{170 \{}
+\DoxyCodeLine{171     brick-\/>\mbox{\hyperlink{class_brick_a50635eaf059430e2a8cc4df9c4284124}{decHits}}();}
+\DoxyCodeLine{172 }
+\DoxyCodeLine{173     \textcolor{keywordflow}{if}(brick-\/>\mbox{\hyperlink{class_brick_a79fceb3203607f4c44c8dd96a7481f2d}{getHits}}()==1)\{brick-\/>update();\}}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{175     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{176     \{}
+\DoxyCodeLine{177         \textcolor{keywordflow}{if}(brick-\/>\mbox{\hyperlink{class_brick_ac33a985cd0b9e7d4ed233121ab99222f}{brick\_id}}!=0)}
+\DoxyCodeLine{178         \{}
+\DoxyCodeLine{179                \mbox{\hyperlink{class_powerup}{Powerup}}* power = \textcolor{keyword}{new} \mbox{\hyperlink{class_powerup}{Powerup}}();}
+\DoxyCodeLine{180                power-\/>\mbox{\hyperlink{class_powerup_a9b454d8f74f9bbb155c1514c4cd7c263}{set}}(brick-\/>\mbox{\hyperlink{class_brick_ac33a985cd0b9e7d4ed233121ab99222f}{brick\_id}},brick-\/>x()+(brick-\/>\mbox{\hyperlink{class_brick_ad95310e7feb8082b052379ec5296a399}{getWidth}}()/2)-\/(power-\/>\mbox{\hyperlink{class_powerup_a3cf5234a528272aa4430e55823bc82b8}{getwidth}}()/2),brick-\/>y()+brick-\/>\mbox{\hyperlink{class_brick_ad6468582c60cb29ba66ec6d7d48ff549}{getHeight}}());}
+\DoxyCodeLine{181                \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}-\/>addItem(power);}
+\DoxyCodeLine{182 }
+\DoxyCodeLine{183                \mbox{\hyperlink{class_game_ae14f1ec6141c77cc1cddf75c5d5735ba}{power\_list}}.push\_back(power);}
+\DoxyCodeLine{184                \mbox{\hyperlink{class_game_a411f4e097db42e7bfa12fa78975a71b3}{powerConnections}}(power);}
+\DoxyCodeLine{185         \}}
+\DoxyCodeLine{186 }
+\DoxyCodeLine{187         \mbox{\hyperlink{class_game_a3e4a0145d02c9cda78fe5bb3d09008e1}{grid}}-\/>\mbox{\hyperlink{classgridlayout_acb579a692a556e89b55f75e4b175a08d}{bricks\_remaining}}-\/-\/;}
+\DoxyCodeLine{188         \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}-\/>removeItem(brick);}
+\DoxyCodeLine{189         \textcolor{keyword}{delete} brick;}
+\DoxyCodeLine{190     \};}
+\DoxyCodeLine{191     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_game_a3e4a0145d02c9cda78fe5bb3d09008e1}{grid}}-\/>\mbox{\hyperlink{classgridlayout_acb579a692a556e89b55f75e4b175a08d}{bricks\_remaining}}==0)}
+\DoxyCodeLine{192     \{}
+\DoxyCodeLine{193 }
+\DoxyCodeLine{194         usleep(1000);}
+\DoxyCodeLine{195         \textcolor{keywordflow}{for}(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{long} i = 0;i<\mbox{\hyperlink{class_game_ad349347d8f73b64d55dabc3df6ad29f9}{worker\_list}}.size();i++)}
+\DoxyCodeLine{196         \{}
+\DoxyCodeLine{197             \mbox{\hyperlink{class_game_a4ab01c7ed5103cfc53e14948c506a403}{removeConnections}}(\mbox{\hyperlink{class_game_ad349347d8f73b64d55dabc3df6ad29f9}{worker\_list}}[i]);}
+\DoxyCodeLine{198         \}}
+\DoxyCodeLine{199         \mbox{\hyperlink{class_game_a8c2d9142fb4650e2807e0348db19b74f}{balltothread}}.clear();}
+\DoxyCodeLine{200         \mbox{\hyperlink{class_game_a022caad32636eef9cf81d529990d569c}{thread\_map}}.clear();}
+\DoxyCodeLine{201         emit(\mbox{\hyperlink{class_game_a03f8eb64a9b449a2f57c5d5ea262efad}{pausemusic}}());}
+\DoxyCodeLine{202         \mbox{\hyperlink{class_end_menu}{EndMenu}} *emenu = \textcolor{keyword}{new} \mbox{\hyperlink{class_end_menu}{EndMenu}}();}
+\DoxyCodeLine{203         this-\/>hide();}
+\DoxyCodeLine{204         emenu-\/>show();}
+\DoxyCodeLine{205 }
+\DoxyCodeLine{206     \}}
+\DoxyCodeLine{207    \textcolor{comment}{// qDebug()<<grid-\/>bricks\_remaining<<"a''";}}
+\DoxyCodeLine{208 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a4ab01c7ed5103cfc53e14948c506a403}\label{class_game_a4ab01c7ed5103cfc53e14948c506a403}} 
+\index{Game@{Game}!removeConnections@{removeConnections}}
+\index{removeConnections@{removeConnections}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{removeConnections()}{removeConnections()}}
+{\footnotesize\ttfamily void Game\+::remove\+Connections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classballworker}{ballworker}} $\ast$}]{worker }\end{DoxyParamCaption})}
+
+
+
+remove\+Connections 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & The ballworker is sent as a parameter to this function. This function removes all the connections created in the main\+Connections and the side\+Connections, mainly for the timer,worker,paddle and ball objects. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 153 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{154 \{}
+\DoxyCodeLine{155     \textcolor{comment}{//disconnect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove\_brick(Brick*)));}}
+\DoxyCodeLine{156     disconnect(worker,SIGNAL(endgame(\mbox{\hyperlink{classballworker}{ballworker}}*,\mbox{\hyperlink{class_ball}{Ball}}*)),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_a46bbb867557410b839d74070311b6da2}{end}}(\mbox{\hyperlink{classballworker}{ballworker}}*,\mbox{\hyperlink{class_ball}{Ball}}*)));}
+\DoxyCodeLine{157     disconnect(worker,SIGNAL(ballposupdater(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{double}, \textcolor{keywordtype}{double})),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_aeb70712a6f7e053019964d48bfdba2a1}{ballpositionupdater}}(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{double}, \textcolor{keywordtype}{double})));}
+\DoxyCodeLine{158     disconnect(paddle,SIGNAL(ballCollision(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{bool},\textcolor{keywordtype}{bool},\textcolor{keywordtype}{double})),worker,SLOT(PaddleCollisionDetected(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{bool},\textcolor{keywordtype}{bool},\textcolor{keywordtype}{double})));}
+\DoxyCodeLine{159     disconnect(paddle,SIGNAL(sendStatus()),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_a43b8950da0c337f9710cf33b42196ed1}{updateStatus}}()));}
+\DoxyCodeLine{160     disconnect(\mbox{\hyperlink{class_game_a5e7f2b309d353973cd1d6654417fb87b}{timer}},SIGNAL(timeout()),worker,SLOT(ball\_move()));}
+\DoxyCodeLine{161 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a9b120f60c1a2291876ec6bb9812f5cf8}\label{class_game_a9b120f60c1a2291876ec6bb9812f5cf8}} 
+\index{Game@{Game}!removepowerup@{removepowerup}}
+\index{removepowerup@{removepowerup}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{removepowerup}{removepowerup}}
+{\footnotesize\ttfamily void Game\+::removepowerup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_powerup}{Powerup}} $\ast$}]{power }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+removepowerup 
+
+This member function removes the powerup object from the scene as soon as it receives the destroy\+\_\+powerup signal from the paddle object. It removes the powerup object from the scene and also deletes the powerup object. 
+
+Definition at line 210 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{211 \{}
+\DoxyCodeLine{212     disconnect(\mbox{\hyperlink{class_game_a5e7f2b309d353973cd1d6654417fb87b}{timer}},SIGNAL(timeout()),power,SLOT(powerup\_move()));}
+\DoxyCodeLine{213     \mbox{\hyperlink{class_game_ae14f1ec6141c77cc1cddf75c5d5735ba}{power\_list}}.erase(std::remove(\mbox{\hyperlink{class_game_ae14f1ec6141c77cc1cddf75c5d5735ba}{power\_list}}.begin(),\mbox{\hyperlink{class_game_ae14f1ec6141c77cc1cddf75c5d5735ba}{power\_list}}.end(),power),\mbox{\hyperlink{class_game_ae14f1ec6141c77cc1cddf75c5d5735ba}{power\_list}}.end());}
+\DoxyCodeLine{214     \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}-\/>removeItem(power);}
+\DoxyCodeLine{215     \textcolor{keyword}{delete} power;}
+\DoxyCodeLine{216 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_aeb468737e1495cfcfbf512cfdc751117}\label{class_game_aeb468737e1495cfcfbf512cfdc751117}} 
+\index{Game@{Game}!restart@{restart}}
+\index{restart@{restart}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{restart}{restart}}
+{\footnotesize\ttfamily void Game\+::restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+restart 
+
+This clears the scene and rebuilds the game. 
+
+Definition at line 341 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{342 \{}
+\DoxyCodeLine{343     \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}-\/>clear();}
+\DoxyCodeLine{344     emit(\mbox{\hyperlink{class_game_aaa816236c47e7a1ddbce0596b13e3461}{restartmusic}}());}
+\DoxyCodeLine{345     this-\/>\mbox{\hyperlink{class_game_ab0f21e585b373e81baec2eb21679defe}{build}}();}
+\DoxyCodeLine{346 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_aaa816236c47e7a1ddbce0596b13e3461}\label{class_game_aaa816236c47e7a1ddbce0596b13e3461}} 
+\index{Game@{Game}!restartmusic@{restartmusic}}
+\index{restartmusic@{restartmusic}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{restartmusic}{restartmusic}}
+{\footnotesize\ttfamily void Game\+::restartmusic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+restartmusic 
+
+This signal asks to restart music from the start. \mbox{\Hypertarget{class_game_a855f2daffbb2733666a99bf0ff38decd}\label{class_game_a855f2daffbb2733666a99bf0ff38decd}} 
+\index{Game@{Game}!resumemusic@{resumemusic}}
+\index{resumemusic@{resumemusic}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{resumemusic}{resumemusic}}
+{\footnotesize\ttfamily void Game\+::resumemusic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+resumemusic 
+
+This member signal resumes the backgroud music. \mbox{\Hypertarget{class_game_a4def72ff881824e1ddaf43f9093086af}\label{class_game_a4def72ff881824e1ddaf43f9093086af}} 
+\index{Game@{Game}!setup\_scene@{setup\_scene}}
+\index{setup\_scene@{setup\_scene}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{setup\_scene()}{setup\_scene()}}
+{\footnotesize\ttfamily void Game\+::setup\+\_\+scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+setup\+\_\+scene 
+
+This member function creates a new Q\+Graphics\+Scene object, sets the background image on to a fixed scene size, turns off the scrollbar both horizontally and vertically. 
+
+Definition at line 52 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{53 \{}
+\DoxyCodeLine{54     \mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}}=\textcolor{keyword}{new} QGraphicsScene(0,0,700,700,\textcolor{keyword}{this});}
+\DoxyCodeLine{55     setScene(\mbox{\hyperlink{class_game_a8119e3b9a632906c6808fa294b46a92a}{scene}});}
+\DoxyCodeLine{56     \textcolor{comment}{/* https://www.pexels.com/photo/blue-\/universe-\/956981/ -\/> url of image -\/> Felix Mittermeier */}}
+\DoxyCodeLine{57     setBackgroundBrush(QBrush(QImage(\textcolor{stringliteral}{":/Images/data/Images/background\_space.jpg"})));}
+\DoxyCodeLine{58     setFixedSize(700, 700);}
+\DoxyCodeLine{59     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);}
+\DoxyCodeLine{60     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);}
+\DoxyCodeLine{61 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a713d93d0ea54ba52d13b29c5e99f3344}\label{class_game_a713d93d0ea54ba52d13b29c5e99f3344}} 
+\index{Game@{Game}!sideConnections@{sideConnections}}
+\index{sideConnections@{sideConnections}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{sideConnections()}{sideConnections()}}
+{\footnotesize\ttfamily void Game\+::side\+Connections (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classballworker}{ballworker}} $\ast$}]{worker }\end{DoxyParamCaption})}
+
+
+
+side\+Connections 
+
+
+\begin{DoxyParams}{Parameters}
+{\em worker} & The ballworker is sent as a parameter to this function. This function handles all the connections for the newly created balls, mainly for the timer, worker, paddle and ball objects. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 142 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{143 \{}
+\DoxyCodeLine{144     connect(\mbox{\hyperlink{class_game_a5e7f2b309d353973cd1d6654417fb87b}{timer}},SIGNAL(timeout()),worker,SLOT(ball\_move()));}
+\DoxyCodeLine{145 }
+\DoxyCodeLine{146 \textcolor{comment}{//    connect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove\_brick(Brick*)));}}
+\DoxyCodeLine{147     connect(worker,SIGNAL(endgame(\mbox{\hyperlink{classballworker}{ballworker}}*,\mbox{\hyperlink{class_ball}{Ball}}*)),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_a46bbb867557410b839d74070311b6da2}{end}}(\mbox{\hyperlink{classballworker}{ballworker}}*,\mbox{\hyperlink{class_ball}{Ball}}*)));}
+\DoxyCodeLine{148     connect(worker,SIGNAL(ballposupdater(\mbox{\hyperlink{class_ball}{Ball}}*, \textcolor{keywordtype}{double}, \textcolor{keywordtype}{double})),\textcolor{keyword}{this},SLOT(\mbox{\hyperlink{class_game_aeb70712a6f7e053019964d48bfdba2a1}{ballpositionupdater}}(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{double}, \textcolor{keywordtype}{double})));}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{150     connect(paddle,SIGNAL(ballCollision(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{bool},\textcolor{keywordtype}{bool},\textcolor{keywordtype}{double})),worker,SLOT(PaddleCollisionDetected(\mbox{\hyperlink{class_ball}{Ball}}*,\textcolor{keywordtype}{bool},\textcolor{keywordtype}{bool},\textcolor{keywordtype}{double})));}
+\DoxyCodeLine{151 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a3d9b98f7c4a96ecf578f75b96c9f0e90}\label{class_game_a3d9b98f7c4a96ecf578f75b96c9f0e90}} 
+\index{Game@{Game}!start@{start}}
+\index{start@{start}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{start}{start}}
+{\footnotesize\ttfamily void Game\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+start 
+
+starts the game by starting the timer. 
+
+Definition at line 326 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{327 \{}
+\DoxyCodeLine{328     \mbox{\hyperlink{class_game_a5e7f2b309d353973cd1d6654417fb87b}{timer}}-\/>start(5);}
+\DoxyCodeLine{329     emit(\mbox{\hyperlink{class_game_a855f2daffbb2733666a99bf0ff38decd}{resumemusic}}());}
+\DoxyCodeLine{330 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_game_a43b8950da0c337f9710cf33b42196ed1}\label{class_game_a43b8950da0c337f9710cf33b42196ed1}} 
+\index{Game@{Game}!updateStatus@{updateStatus}}
+\index{updateStatus@{updateStatus}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{updateStatus}{updateStatus}}
+{\footnotesize\ttfamily void Game\+::update\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+update\+Status 
+
+This member function updates the fireball status to true and fire\+\_\+time to zero as soon as it receives the send\+Status signal from the paddle object. 
+
+Definition at line 116 of file game.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{117 \{}
+\DoxyCodeLine{118     status=\textcolor{keyword}{true};}
+\DoxyCodeLine{119     \mbox{\hyperlink{class_game_a83aa904de1255fb1aa88f8e4ef2ea68a}{fire\_time}}=0;}
+\DoxyCodeLine{120 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_game_a92bcf8f81449ab546dd97f656781d2ec}\label{class_game_a92bcf8f81449ab546dd97f656781d2ec}} 
+\index{Game@{Game}!ball@{ball}}
+\index{ball@{ball}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{ball}{ball}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_ball}{Ball}}$\ast$ Game\+::ball\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the pointer to the main ball 
+
+Definition at line 217 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a3909c75759bd5eb007db3a134f36dd79}\label{class_game_a3909c75759bd5eb007db3a134f36dd79}} 
+\index{Game@{Game}!ball\_list@{ball\_list}}
+\index{ball\_list@{ball\_list}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{ball\_list}{ball\_list}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_ball}{Ball}}$\ast$$>$ Game\+::ball\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+ball\+\_\+list stores the list of all ball\+\_\+objects currently safe in the scene 
+
+Definition at line 218 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a8c2d9142fb4650e2807e0348db19b74f}\label{class_game_a8c2d9142fb4650e2807e0348db19b74f}} 
+\index{Game@{Game}!balltothread@{balltothread}}
+\index{balltothread@{balltothread}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{balltothread}{balltothread}}
+{\footnotesize\ttfamily std\+::map$<$\mbox{\hyperlink{classballworker}{ballworker}}$\ast$, Q\+Thread$\ast$$>$ Game\+::balltothread\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+balltothread 
+
+Map to store thread assigned to a ball. 
+
+Definition at line 255 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a83aa904de1255fb1aa88f8e4ef2ea68a}\label{class_game_a83aa904de1255fb1aa88f8e4ef2ea68a}} 
+\index{Game@{Game}!fire\_time@{fire\_time}}
+\index{fire\_time@{fire\_time}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{fire\_time}{fire\_time}}
+{\footnotesize\ttfamily int Game\+::fire\+\_\+time =0\hspace{0.3cm}{\ttfamily [private]}}
+
+stores approximately the time the ball objects are in fire mode after picking up the powerup 
+
+Definition at line 204 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a3e4a0145d02c9cda78fe5bb3d09008e1}\label{class_game_a3e4a0145d02c9cda78fe5bb3d09008e1}} 
+\index{Game@{Game}!grid@{grid}}
+\index{grid@{grid}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{grid}{grid}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classgridlayout}{gridlayout}}$\ast$ Game\+::grid\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the brick layout in the scene. 
+
+Definition at line 229 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ac90f75f7c3609a10d42c85934d807909}\label{class_game_ac90f75f7c3609a10d42c85934d807909}} 
+\index{Game@{Game}!music@{music}}
+\index{music@{music}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{music}{music}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_background_music}{Background\+Music}}$\ast$ Game\+::music\hspace{0.3cm}{\ttfamily [private]}}
+
+object of custom class \mbox{\hyperlink{class_background_music}{Background\+Music}}. 
+
+Definition at line 241 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ae14f1ec6141c77cc1cddf75c5d5735ba}\label{class_game_ae14f1ec6141c77cc1cddf75c5d5735ba}} 
+\index{Game@{Game}!power\_list@{power\_list}}
+\index{power\_list@{power\_list}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{power\_list}{power\_list}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{class_powerup}{Powerup}}$\ast$$>$ Game\+::power\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+power\+\_\+list stores the list of all the \mbox{\hyperlink{class_powerup}{Powerup}} objects. 
+
+Definition at line 220 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a8119e3b9a632906c6808fa294b46a92a}\label{class_game_a8119e3b9a632906c6808fa294b46a92a}} 
+\index{Game@{Game}!scene@{scene}}
+\index{scene@{scene}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{scene}{scene}}
+{\footnotesize\ttfamily Q\+Graphics\+Scene$\ast$ Game\+::scene}
+
+stores the scene of the all the game object. 
+
+Definition at line 50 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ad195acc6b5ee17a5a07fea0b7b4ff5e2}\label{class_game_ad195acc6b5ee17a5a07fea0b7b4ff5e2}} 
+\index{Game@{Game}!score@{score}}
+\index{score@{score}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_score}{Score}}$\ast$ Game\+::score}
+
+stores the score object of the game 
+
+Definition at line 51 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a022caad32636eef9cf81d529990d569c}\label{class_game_a022caad32636eef9cf81d529990d569c}} 
+\index{Game@{Game}!thread\_map@{thread\_map}}
+\index{thread\_map@{thread\_map}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{thread\_map}{thread\_map}}
+{\footnotesize\ttfamily std\+::map$<$Q\+Thread$\ast$,int$>$ Game\+::thread\+\_\+map\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+thread\+\_\+map 
+
+Map to store No. of balls assigned to a thread. 
+
+Definition at line 248 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_a5e7f2b309d353973cd1d6654417fb87b}\label{class_game_a5e7f2b309d353973cd1d6654417fb87b}} 
+\index{Game@{Game}!timer@{timer}}
+\index{timer@{timer}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily Q\+Timer$\ast$ Game\+::timer\hspace{0.3cm}{\ttfamily [private]}}
+
+timer object 
+
+Definition at line 230 of file game.\+h.
+
+\mbox{\Hypertarget{class_game_ad349347d8f73b64d55dabc3df6ad29f9}\label{class_game_ad349347d8f73b64d55dabc3df6ad29f9}} 
+\index{Game@{Game}!worker\_list@{worker\_list}}
+\index{worker\_list@{worker\_list}!Game@{Game}}
+\doxysubsubsection{\texorpdfstring{worker\_list}{worker\_list}}
+{\footnotesize\ttfamily std\+::vector$<$\mbox{\hyperlink{classballworker}{ballworker}}$\ast$$>$ Game\+::worker\+\_\+list\hspace{0.3cm}{\ttfamily [private]}}
+
+worker\+\_\+list stores the list of all worker\+\_\+objects in the scene 
+
+Definition at line 219 of file game.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+game.\+h\item 
+game.\+cpp\end{DoxyCompactItemize}

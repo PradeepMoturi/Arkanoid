@@ -1,0 +1,170 @@
+\hypertarget{class_background_music}{}\doxysection{Background\+Music Class Reference}
+\label{class_background_music}\index{BackgroundMusic@{BackgroundMusic}}
+
+
+The \mbox{\hyperlink{class_background_music}{Background\+Music}} class Inherits from Q\+Thread. Used to play Background music and sounds whenever ball hits paddle and bricks.  
+
+
+
+
+{\ttfamily \#include $<$backgroundmusic.\+h$>$}
+
+Inheritance diagram for Background\+Music\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_background_music}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_background_music_ac7565ad9ab5b6722f72c5f6b5d17abe4}\label{class_background_music_ac7565ad9ab5b6722f72c5f6b5d17abe4}} 
+void \mbox{\hyperlink{class_background_music_ac7565ad9ab5b6722f72c5f6b5d17abe4}{pausemusic}} ()
+\begin{DoxyCompactList}\small\item\em pausemusic Pauses the music player \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_background_music_a67c2591d4865585bd1cb2fa643f30746}\label{class_background_music_a67c2591d4865585bd1cb2fa643f30746}} 
+void \mbox{\hyperlink{class_background_music_a67c2591d4865585bd1cb2fa643f30746}{resumemusic}} ()
+\begin{DoxyCompactList}\small\item\em resumemusic Resumes the music player \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_background_music_a0830ddce679a7e0502c3e2a409da5f69}\label{class_background_music_a0830ddce679a7e0502c3e2a409da5f69}} 
+void \mbox{\hyperlink{class_background_music_a0830ddce679a7e0502c3e2a409da5f69}{restartmusic}} ()
+\begin{DoxyCompactList}\small\item\em restartmusic restarts music froms start \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_background_music_a20bac344617eda2e591313a2c08cc753}\label{class_background_music_a20bac344617eda2e591313a2c08cc753}} 
+void \mbox{\hyperlink{class_background_music_a20bac344617eda2e591313a2c08cc753}{Brick\+\_\+\+Sound}} ()
+\begin{DoxyCompactList}\small\item\em Brick\+\_\+\+Sound Plays a cue sound when a brick breaks. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_background_music_a10c71e286f6c3b5579bb6b8aaeddb6d9}{Background\+Music}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_background_music_a08b382ef1921c60a901d2e7bd574a386}{run}} ()
+\begin{DoxyCompactList}\small\item\em run Starting point of the thread \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_background_music_a2e968d7ebd3747de371843acde604c46}{exec}} ()
+\begin{DoxyCompactList}\small\item\em exec \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_background_music_a337e828dc0ada070b0c1d16552d8d128}{$\sim$\+Background\+Music}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_background_music_a462a3c5a5e5eb195725f353b82607ddf}\label{class_background_music_a462a3c5a5e5eb195725f353b82607ddf}} 
+Q\+Media\+Player $\ast$ \mbox{\hyperlink{class_background_music_a462a3c5a5e5eb195725f353b82607ddf}{player}}
+\begin{DoxyCompactList}\small\item\em player Q\+Media\+Player object used to play music \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_background_music_a3f63955c74fd615401e0511bb6a216fa}\label{class_background_music_a3f63955c74fd615401e0511bb6a216fa}} 
+Q\+Media\+Player $\ast$ \mbox{\hyperlink{class_background_music_a3f63955c74fd615401e0511bb6a216fa}{brick\+Noise}}
+\begin{DoxyCompactList}\small\item\em brick\+Noise Q\+Media\+Player object to play cue sounds when brick breaks \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_background_music}{Background\+Music}} class Inherits from Q\+Thread. Used to play Background music and sounds whenever ball hits paddle and bricks. 
+
+Definition at line 30 of file backgroundmusic.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_background_music_a10c71e286f6c3b5579bb6b8aaeddb6d9}\label{class_background_music_a10c71e286f6c3b5579bb6b8aaeddb6d9}} 
+\index{BackgroundMusic@{BackgroundMusic}!BackgroundMusic@{BackgroundMusic}}
+\index{BackgroundMusic@{BackgroundMusic}!BackgroundMusic@{BackgroundMusic}}
+\doxysubsubsection{\texorpdfstring{BackgroundMusic()}{BackgroundMusic()}}
+{\footnotesize\ttfamily Background\+Music\+::\+Background\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Construct a new media player 
+
+Definition at line 22 of file backgroundmusic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23 \{}
+\DoxyCodeLine{24     \mbox{\hyperlink{class_background_music_a462a3c5a5e5eb195725f353b82607ddf}{player}} = \textcolor{keyword}{new} QMediaPlayer();}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_background_music_a462a3c5a5e5eb195725f353b82607ddf}{player}}-\/>setMedia(QUrl(\textcolor{stringliteral}{"qrc:/Sound/data/Sounds/bgm.mp3"}));}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \mbox{\hyperlink{class_background_music_a3f63955c74fd615401e0511bb6a216fa}{brickNoise}} = \textcolor{keyword}{new} QMediaPlayer();}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_background_music_a3f63955c74fd615401e0511bb6a216fa}{brickNoise}}-\/>setMedia(QUrl(\textcolor{stringliteral}{"qrc:/Sound/data/Sounds/brickNoise.mp3"}));}
+\DoxyCodeLine{29     \mbox{\hyperlink{class_background_music_a3f63955c74fd615401e0511bb6a216fa}{brickNoise}}-\/>setVolume(15);}
+\DoxyCodeLine{30 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_background_music_a337e828dc0ada070b0c1d16552d8d128}\label{class_background_music_a337e828dc0ada070b0c1d16552d8d128}} 
+\index{BackgroundMusic@{BackgroundMusic}!````~BackgroundMusic@{$\sim$BackgroundMusic}}
+\index{````~BackgroundMusic@{$\sim$BackgroundMusic}!BackgroundMusic@{BackgroundMusic}}
+\doxysubsubsection{\texorpdfstring{$\sim$BackgroundMusic()}{~BackgroundMusic()}}
+{\footnotesize\ttfamily Background\+Music\+::$\sim$\+Background\+Music (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+removes the player which was started in constructor 
+
+Definition at line 63 of file backgroundmusic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65     \textcolor{keyword}{delete} \mbox{\hyperlink{class_background_music_a462a3c5a5e5eb195725f353b82607ddf}{player}};}
+\DoxyCodeLine{66 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_background_music_a2e968d7ebd3747de371843acde604c46}\label{class_background_music_a2e968d7ebd3747de371843acde604c46}} 
+\index{BackgroundMusic@{BackgroundMusic}!exec@{exec}}
+\index{exec@{exec}!BackgroundMusic@{BackgroundMusic}}
+\doxysubsubsection{\texorpdfstring{exec()}{exec()}}
+{\footnotesize\ttfamily void Background\+Music\+::exec (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+exec 
+
+Runs in a loop and restarts song if finished 
+
+Definition at line 35 of file backgroundmusic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37 }
+\DoxyCodeLine{38     \textcolor{keywordflow}{while}(!QThread::currentThread()-\/>isInterruptionRequested())}
+\DoxyCodeLine{39     \{}
+\DoxyCodeLine{40         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_background_music_a462a3c5a5e5eb195725f353b82607ddf}{player}}-\/>state()==\mbox{\hyperlink{class_background_music_a462a3c5a5e5eb195725f353b82607ddf}{player}}-\/>StoppedState)}
+\DoxyCodeLine{41         \{}
+\DoxyCodeLine{42             \mbox{\hyperlink{class_background_music_a462a3c5a5e5eb195725f353b82607ddf}{player}}-\/>play();}
+\DoxyCodeLine{43         \}}
+\DoxyCodeLine{44     \}}
+\DoxyCodeLine{45 }
+\DoxyCodeLine{46     \mbox{\hyperlink{class_background_music_a462a3c5a5e5eb195725f353b82607ddf}{player}}-\/>stop();}
+\DoxyCodeLine{47     \textcolor{keywordflow}{return};}
+\DoxyCodeLine{48 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_background_music_a08b382ef1921c60a901d2e7bd574a386}\label{class_background_music_a08b382ef1921c60a901d2e7bd574a386}} 
+\index{BackgroundMusic@{BackgroundMusic}!run@{run}}
+\index{run@{run}!BackgroundMusic@{BackgroundMusic}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void Background\+Music\+::run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+run Starting point of the thread 
+
+The starting point for the thread. After calling start(), the newly created thread calls this function. Returning from this method will end the execution of the thread. Executes the \mbox{\hyperlink{class_background_music_a2e968d7ebd3747de371843acde604c46}{exec()}} member function. 
+
+Definition at line 31 of file backgroundmusic.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32 \{}
+\DoxyCodeLine{33     \mbox{\hyperlink{class_background_music_a2e968d7ebd3747de371843acde604c46}{exec}}();}
+\DoxyCodeLine{34 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+backgroundmusic.\+h\item 
+backgroundmusic.\+cpp\end{DoxyCompactItemize}

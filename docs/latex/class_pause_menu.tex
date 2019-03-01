@@ -1,0 +1,259 @@
+\hypertarget{class_pause_menu}{}\doxysection{Pause\+Menu Class Reference}
+\label{class_pause_menu}\index{PauseMenu@{PauseMenu}}
+
+
+The \mbox{\hyperlink{class_pause_menu}{Pause\+Menu}} class.  
+
+
+
+
+{\ttfamily \#include $<$pausemenu.\+h$>$}
+
+Inheritance diagram for Pause\+Menu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pause_menu}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pause_menu_aa4bc97cc91bb643e69c7519f40a80903}{Pause\+Menu}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_pause_menu}{Pause\+Menu}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_pause_menu_ad44095445020542c8b6de3e155c61ded}{handle\+Restart}} ()
+\begin{DoxyCompactList}\small\item\em handle\+Restart \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pause_menu_a20217e84cc00fd97c29c892e3f7d3bd5}{handle\+End\+Game}} ()
+\begin{DoxyCompactList}\small\item\em handle\+End\+Game \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pause_menu_ab9ce43df5d5ce3412d0e44fc4b363d04}{handle\+Resume}} ()
+\begin{DoxyCompactList}\small\item\em handle\+Resume \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_custom_button}{Custom\+Button}} $\ast$ \mbox{\hyperlink{class_pause_menu_a7e3c884fbdd6939339eb6d3132f498ae}{m\+\_\+restart}}
+\begin{DoxyCompactList}\small\item\em m\+\_\+restart \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_custom_button}{Custom\+Button}} $\ast$ \mbox{\hyperlink{class_pause_menu_a48ece0a1aa5f4ec118a48ad7396c1f7a}{m\+\_\+exit\+Game}}
+\begin{DoxyCompactList}\small\item\em m\+\_\+exit\+Game \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_custom_button}{Custom\+Button}} $\ast$ \mbox{\hyperlink{class_pause_menu_ab31b301ab413171634f63ba7df72055a}{m\+\_\+resume}}
+\begin{DoxyCompactList}\small\item\em m\+\_\+resume \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_pause_menu}{Pause\+Menu}} class. 
+
+The Pause Menu class is used to display the pause menu whenever esc is pressed. It contains three options -\/ \char`\"{}\+Resume\char`\"{}, \char`\"{}\+Restart\char`\"{} and \char`\"{}\+Exit\char`\"{}. 
+
+Definition at line 12 of file pausemenu.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_pause_menu_aa4bc97cc91bb643e69c7519f40a80903}\label{class_pause_menu_aa4bc97cc91bb643e69c7519f40a80903}} 
+\index{PauseMenu@{PauseMenu}!PauseMenu@{PauseMenu}}
+\index{PauseMenu@{PauseMenu}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{PauseMenu()}{PauseMenu()}}
+{\footnotesize\ttfamily Pause\+Menu\+::\+Pause\+Menu (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_pause_menu}{Pause\+Menu}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & It is Constructor of the class \mbox{\hyperlink{class_pause_menu}{Pause\+Menu}}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 7 of file pausemenu.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{7                                    : QMainWindow(parent)}
+\DoxyCodeLine{8 \{}
+\DoxyCodeLine{9     \textcolor{comment}{// Add Score}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12     \textcolor{comment}{// Widget to add buttons}}
+\DoxyCodeLine{13     QWidget* wid = \textcolor{keyword}{new} QWidget(\textcolor{keyword}{this});}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     QPalette palette;}
+\DoxyCodeLine{16     palette.setBrush(QPalette::Button,Qt::gray);}
+\DoxyCodeLine{17     palette.setBrush(QPalette::Background, QBrush(QImage(\textcolor{stringliteral}{":/Images/data/Images/Main\_Menu\_BG.jpg"}).scaled(700,700)));}
+\DoxyCodeLine{18     this-\/>setPalette(palette);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{comment}{// Resize and show MainWindow}}
+\DoxyCodeLine{21     this-\/>resize(700, 700);}
+\DoxyCodeLine{22     this-\/>setFixedSize(700,700);}
+\DoxyCodeLine{23     this-\/>move(0, 0);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{// Set wid as the central widget of MainWindow}}
+\DoxyCodeLine{26     this-\/>setCentralWidget(wid);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// Create a vertical layout for buttons}}
+\DoxyCodeLine{29     QVBoxLayout* layout = \textcolor{keyword}{new} QVBoxLayout();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{comment}{// Add Score to layout}}
+\DoxyCodeLine{32     QLabel *label\_score = \textcolor{keyword}{new} QLabel(\textcolor{keyword}{this});}
+\DoxyCodeLine{33     label\_score-\/>setText(QString(\textcolor{stringliteral}{"Score : "}) + QString::number(game-\/>\mbox{\hyperlink{class_game_ad195acc6b5ee17a5a07fea0b7b4ff5e2}{score}}-\/>\mbox{\hyperlink{class_score_a2b3d2360a70e9cb9a297af9b67c1112b}{getscore}}()));}
+\DoxyCodeLine{34     label\_score-\/>setStyleSheet(\textcolor{stringliteral}{"font: 40px; color: yellow"});}
+\DoxyCodeLine{35     label\_score-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{36     label\_score-\/>setGeometry(QRect(QPoint(50, 80), QSize(600, 100)));}
+\DoxyCodeLine{37     label\_score-\/>show();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40     \textcolor{comment}{// Create the required buttons}}
+\DoxyCodeLine{41     \mbox{\hyperlink{class_pause_menu_ab31b301ab413171634f63ba7df72055a}{m\_resume}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_custom_button}{CustomButton}}(\textcolor{stringliteral}{"Resume"});}
+\DoxyCodeLine{42     \textcolor{comment}{//m\_restart = new CustomButton("Restart");}}
+\DoxyCodeLine{43     \mbox{\hyperlink{class_pause_menu_a48ece0a1aa5f4ec118a48ad7396c1f7a}{m\_exitGame}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_custom_button}{CustomButton}}(\textcolor{stringliteral}{"Exit"});}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{comment}{// Set the layout of the central widget}}
+\DoxyCodeLine{46     wid-\/>setLayout(layout);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{// Add buttons to layout}}
+\DoxyCodeLine{49     layout-\/>addWidget(\mbox{\hyperlink{class_pause_menu_ab31b301ab413171634f63ba7df72055a}{m\_resume}});}
+\DoxyCodeLine{50     \textcolor{comment}{//layout-\/>addWidget(m\_restart);}}
+\DoxyCodeLine{51     layout-\/>addWidget(\mbox{\hyperlink{class_pause_menu_a48ece0a1aa5f4ec118a48ad7396c1f7a}{m\_exitGame}});}
+\DoxyCodeLine{52 }
+\DoxyCodeLine{53     \textcolor{comment}{// Set alignment and spacing of layout}}
+\DoxyCodeLine{54     layout-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{55     layout-\/>setSpacing(50);}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{57     \textcolor{comment}{// Set size of buttons}}
+\DoxyCodeLine{58     \mbox{\hyperlink{class_pause_menu_ab31b301ab413171634f63ba7df72055a}{m\_resume}}-\/>setFixedSize(QSize(200,50));}
+\DoxyCodeLine{59     \textcolor{comment}{//m\_restart-\/>setFixedSize(QSize(200,50));}}
+\DoxyCodeLine{60     \mbox{\hyperlink{class_pause_menu_a48ece0a1aa5f4ec118a48ad7396c1f7a}{m\_exitGame}}-\/>setFixedSize(QSize(200,50));}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 }
+\DoxyCodeLine{63     \textcolor{comment}{// Connect the buttons to the appropriate slots}}
+\DoxyCodeLine{64     connect(\mbox{\hyperlink{class_pause_menu_ab31b301ab413171634f63ba7df72055a}{m\_resume}},SIGNAL(pressed()),\mbox{\hyperlink{class_pause_menu_ab31b301ab413171634f63ba7df72055a}{m\_resume}},SLOT(changeColor()));}
+\DoxyCodeLine{65     \textcolor{comment}{//connect(m\_restart,SIGNAL(pressed()),m\_restart,SLOT(changeColor()));}}
+\DoxyCodeLine{66     connect(\mbox{\hyperlink{class_pause_menu_a48ece0a1aa5f4ec118a48ad7396c1f7a}{m\_exitGame}},SIGNAL(pressed()),\mbox{\hyperlink{class_pause_menu_a48ece0a1aa5f4ec118a48ad7396c1f7a}{m\_exitGame}},SLOT(changeColor()));}
+\DoxyCodeLine{67     connect(\mbox{\hyperlink{class_pause_menu_ab31b301ab413171634f63ba7df72055a}{m\_resume}}, SIGNAL(released()), \textcolor{keyword}{this}, SLOT(\mbox{\hyperlink{class_pause_menu_ab9ce43df5d5ce3412d0e44fc4b363d04}{handleResume}}()));}
+\DoxyCodeLine{68     \textcolor{comment}{//connect(m\_restart, SIGNAL(released()), this, SLOT(handleRestart()));}}
+\DoxyCodeLine{69     connect(\mbox{\hyperlink{class_pause_menu_a48ece0a1aa5f4ec118a48ad7396c1f7a}{m\_exitGame}}, SIGNAL(released()), \textcolor{keyword}{this}, SLOT(\mbox{\hyperlink{class_pause_menu_a20217e84cc00fd97c29c892e3f7d3bd5}{handleEndGame}}()));}
+\DoxyCodeLine{70 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_pause_menu_a20217e84cc00fd97c29c892e3f7d3bd5}\label{class_pause_menu_a20217e84cc00fd97c29c892e3f7d3bd5}} 
+\index{PauseMenu@{PauseMenu}!handleEndGame@{handleEndGame}}
+\index{handleEndGame@{handleEndGame}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{handleEndGame}{handleEndGame}}
+{\footnotesize\ttfamily void Pause\+Menu\+::handle\+End\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+handle\+End\+Game 
+
+Exits out of the game. 
+
+Definition at line 85 of file pausemenu.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{86 \{}
+\DoxyCodeLine{87     this-\/>close();}
+\DoxyCodeLine{88     qApp-\/>exit();}
+\DoxyCodeLine{89 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_pause_menu_ad44095445020542c8b6de3e155c61ded}\label{class_pause_menu_ad44095445020542c8b6de3e155c61ded}} 
+\index{PauseMenu@{PauseMenu}!handleRestart@{handleRestart}}
+\index{handleRestart@{handleRestart}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{handleRestart}{handleRestart}}
+{\footnotesize\ttfamily void Pause\+Menu\+::handle\+Restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+handle\+Restart 
+
+Starts the game from the begining. 
+
+Definition at line 79 of file pausemenu.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{80 \{}
+\DoxyCodeLine{81     game-\/>\mbox{\hyperlink{class_game_aeb468737e1495cfcfbf512cfdc751117}{restart}}();}
+\DoxyCodeLine{82     this-\/>deleteLater();}
+\DoxyCodeLine{83 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_pause_menu_ab9ce43df5d5ce3412d0e44fc4b363d04}\label{class_pause_menu_ab9ce43df5d5ce3412d0e44fc4b363d04}} 
+\index{PauseMenu@{PauseMenu}!handleResume@{handleResume}}
+\index{handleResume@{handleResume}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{handleResume}{handleResume}}
+{\footnotesize\ttfamily void Pause\+Menu\+::handle\+Resume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+handle\+Resume 
+
+Continues game from the paused point. 
+
+Definition at line 73 of file pausemenu.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{74 \{}
+\DoxyCodeLine{75     game-\/>\mbox{\hyperlink{class_game_a3d9b98f7c4a96ecf578f75b96c9f0e90}{start}}();}
+\DoxyCodeLine{76     this-\/>deleteLater();}
+\DoxyCodeLine{77 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_pause_menu_a48ece0a1aa5f4ec118a48ad7396c1f7a}\label{class_pause_menu_a48ece0a1aa5f4ec118a48ad7396c1f7a}} 
+\index{PauseMenu@{PauseMenu}!m\_exitGame@{m\_exitGame}}
+\index{m\_exitGame@{m\_exitGame}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{m\_exitGame}{m\_exitGame}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_custom_button}{Custom\+Button}}$\ast$ Pause\+Menu\+::m\+\_\+exit\+Game\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+m\+\_\+exit\+Game 
+
+It is Exit button. 
+
+Definition at line 57 of file pausemenu.\+h.
+
+\mbox{\Hypertarget{class_pause_menu_a7e3c884fbdd6939339eb6d3132f498ae}\label{class_pause_menu_a7e3c884fbdd6939339eb6d3132f498ae}} 
+\index{PauseMenu@{PauseMenu}!m\_restart@{m\_restart}}
+\index{m\_restart@{m\_restart}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{m\_restart}{m\_restart}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_custom_button}{Custom\+Button}}$\ast$ Pause\+Menu\+::m\+\_\+restart\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+m\+\_\+restart 
+
+It is Restart button. 
+
+Definition at line 50 of file pausemenu.\+h.
+
+\mbox{\Hypertarget{class_pause_menu_ab31b301ab413171634f63ba7df72055a}\label{class_pause_menu_ab31b301ab413171634f63ba7df72055a}} 
+\index{PauseMenu@{PauseMenu}!m\_resume@{m\_resume}}
+\index{m\_resume@{m\_resume}!PauseMenu@{PauseMenu}}
+\doxysubsubsection{\texorpdfstring{m\_resume}{m\_resume}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_custom_button}{Custom\+Button}}$\ast$ Pause\+Menu\+::m\+\_\+resume\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+m\+\_\+resume 
+
+It is Resume button. 
+
+Definition at line 65 of file pausemenu.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+pausemenu.\+h\item 
+pausemenu.\+cpp\end{DoxyCompactItemize}

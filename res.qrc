@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/Sound">
+        <file>data/Sounds/brickNoise.mp3</file>
+        <file>data/Sounds/bgm.mp3</file>
+    </qresource>
+    <qresource prefix="/Images">
+        <file>data/Images/Main_Menu_BG.jpg</file>
+        <file>data/Images/background_space.jpg</file>
+    </qresource>
+    <qresource prefix="/levels">
+        <file>data/level0.txt</file>
+        <file>data/level2.txt</file>
+        <file>data/level3.txt</file>
+        <file>data/level4.txt</file>
+        <file>data/level1.txt</file>
+    </qresource>
+</RCC>

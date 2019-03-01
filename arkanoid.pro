@@ -4,7 +4,8 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui \
+            multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -29,18 +30,38 @@ SOURCES += \
     ball.cpp \
     game.cpp \
     paddle.cpp \
-    ballworker.cpp
+    backgroundmusic.cpp \
+    brick.cpp \
+    score.cpp \
+    gridlayout.cpp \
+    ballworker.cpp \
+    powerup.cpp \
+    button.cpp \
+    startpage.cpp \
+    endmenu.cpp \
+    pausemenu.cpp
 
 HEADERS += \
     ball.h \
     game.h \
     paddle.h \
-    ballworker.h
+    backgroundmusic.h \
+    brick.h \
+    score.h \
+    gridlayout.h \
+    ballworker.h \
+    powerup.h \
+    button.h \
+    startpage.h \
+    endmenu.h \
+    pausemenu.h
 
-FORMS += \
-        mainwindow.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res.qrc

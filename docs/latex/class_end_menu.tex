@@ -1,0 +1,211 @@
+\hypertarget{class_end_menu}{}\doxysection{End\+Menu Class Reference}
+\label{class_end_menu}\index{EndMenu@{EndMenu}}
+
+
+The End Menu class.  
+
+
+
+
+{\ttfamily \#include $<$endmenu.\+h$>$}
+
+Inheritance diagram for End\+Menu\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_end_menu}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_end_menu_a2fe255ad0fc1cc6bd7fff8026bba4bee}{End\+Menu}} (Q\+Widget $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em Constructor for the End Menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_end_menu_aeb2bde1eaee93d0c6be514aa8c35751c}{handle\+Restart}} ()
+\begin{DoxyCompactList}\small\item\em Fucntion run when Restart is clicked. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_end_menu_adac2351a5e30c2b64f9ab8bbe9cbfdf4}{handle\+End\+Game}} ()
+\begin{DoxyCompactList}\small\item\em Function to run when End \mbox{\hyperlink{class_game}{Game}} is clicked. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_custom_button}{Custom\+Button}} $\ast$ \mbox{\hyperlink{class_end_menu_a486d68f49c8966a125b072dbb712f209}{m\+\_\+restart}}
+\begin{DoxyCompactList}\small\item\em Restart Button. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_custom_button}{Custom\+Button}} $\ast$ \mbox{\hyperlink{class_end_menu_ad370e57773829e4b35293e8f292c6f19}{m\+\_\+exit\+Game}}
+\begin{DoxyCompactList}\small\item\em Exit \mbox{\hyperlink{class_game}{Game}} Button. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The End Menu class. 
+
+This is displayed when you loose. 
+
+Definition at line 11 of file endmenu.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_end_menu_a2fe255ad0fc1cc6bd7fff8026bba4bee}\label{class_end_menu_a2fe255ad0fc1cc6bd7fff8026bba4bee}} 
+\index{EndMenu@{EndMenu}!EndMenu@{EndMenu}}
+\index{EndMenu@{EndMenu}!EndMenu@{EndMenu}}
+\doxysubsubsection{\texorpdfstring{EndMenu()}{EndMenu()}}
+{\footnotesize\ttfamily End\+Menu\+::\+End\+Menu (\begin{DoxyParamCaption}\item[{Q\+Widget $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+Constructor for the End Menu. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & This adds background, buttons and connections. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 10 of file endmenu.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{10                                : QMainWindow(parent)}
+\DoxyCodeLine{11 \{}
+\DoxyCodeLine{12     \textcolor{comment}{// Widget to add buttons}}
+\DoxyCodeLine{13     QWidget* wid = \textcolor{keyword}{new} QWidget(\textcolor{keyword}{this});}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15     QPalette palette;}
+\DoxyCodeLine{16     palette.setBrush(QPalette::Button,Qt::gray);}
+\DoxyCodeLine{17     palette.setBrush(QPalette::Background, QBrush(QImage(\textcolor{stringliteral}{":/Images/data/Images/Main\_Menu\_BG.jpg"}).scaled(700,700)));}
+\DoxyCodeLine{18     this-\/>setPalette(palette);}
+\DoxyCodeLine{19 }
+\DoxyCodeLine{20     \textcolor{comment}{// Resize and show MainWindow}}
+\DoxyCodeLine{21     this-\/>resize(700, 700);}
+\DoxyCodeLine{22     this-\/>setFixedSize(700,700);}
+\DoxyCodeLine{23     this-\/>move(0, 0);}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25     \textcolor{comment}{// Set wid as the central widget of MainWindow}}
+\DoxyCodeLine{26     this-\/>setCentralWidget(wid);}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// Create a vertical layout for buttons}}
+\DoxyCodeLine{29     QVBoxLayout* layout = \textcolor{keyword}{new} QVBoxLayout();}
+\DoxyCodeLine{30 }
+\DoxyCodeLine{31     \textcolor{comment}{// Add Score}}
+\DoxyCodeLine{32     QLabel *label\_score = \textcolor{keyword}{new} QLabel(\textcolor{keyword}{this});}
+\DoxyCodeLine{33     label\_score-\/>setText(QString(\textcolor{stringliteral}{"Score : "}) + QString::number(game-\/>\mbox{\hyperlink{class_game_ad195acc6b5ee17a5a07fea0b7b4ff5e2}{score}}-\/>\mbox{\hyperlink{class_score_a2b3d2360a70e9cb9a297af9b67c1112b}{getscore}}()));}
+\DoxyCodeLine{34     label\_score-\/>setStyleSheet(\textcolor{stringliteral}{"font: 40px; color: yellow"});}
+\DoxyCodeLine{35     label\_score-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{36     label\_score-\/>setGeometry(QRect(QPoint(50, 80), QSize(600, 100)));}
+\DoxyCodeLine{37     label\_score-\/>show();}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{39     \textcolor{comment}{// Create the required buttons}}
+\DoxyCodeLine{40     \textcolor{comment}{//m\_instructions = new CustomButton("Instructions");}}
+\DoxyCodeLine{41     \textcolor{comment}{//m\_restart = new CustomButton("Restart");}}
+\DoxyCodeLine{42     \mbox{\hyperlink{class_end_menu_ad370e57773829e4b35293e8f292c6f19}{m\_exitGame}} = \textcolor{keyword}{new} \mbox{\hyperlink{class_custom_button}{CustomButton}}(\textcolor{stringliteral}{"Exit"});}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     \textcolor{comment}{// Set the layout of the central widget}}
+\DoxyCodeLine{46     wid-\/>setLayout(layout);}
+\DoxyCodeLine{47 }
+\DoxyCodeLine{48     \textcolor{comment}{// Add buttons to layout}}
+\DoxyCodeLine{49     \textcolor{comment}{//layout-\/>addWidget(m\_restart);}}
+\DoxyCodeLine{50     layout-\/>addWidget(\mbox{\hyperlink{class_end_menu_ad370e57773829e4b35293e8f292c6f19}{m\_exitGame}});}
+\DoxyCodeLine{51 }
+\DoxyCodeLine{52     \textcolor{comment}{// Set alignment and spacing of layout}}
+\DoxyCodeLine{53     layout-\/>setAlignment(Qt::AlignCenter);}
+\DoxyCodeLine{54     layout-\/>setSpacing(50);}
+\DoxyCodeLine{55 }
+\DoxyCodeLine{56     \textcolor{comment}{// Set size of buttons}}
+\DoxyCodeLine{57     \textcolor{comment}{//m\_restart-\/>setFixedSize(QSize(200,50));}}
+\DoxyCodeLine{58     \mbox{\hyperlink{class_end_menu_ad370e57773829e4b35293e8f292c6f19}{m\_exitGame}}-\/>setFixedSize(QSize(200,50));}
+\DoxyCodeLine{59 }
+\DoxyCodeLine{60 }
+\DoxyCodeLine{61     \textcolor{comment}{// Connect the buttons to the appropriate slots}}
+\DoxyCodeLine{62     \textcolor{comment}{//connect(m\_restart,SIGNAL(pressed()),m\_restart,SLOT(changeColor()));}}
+\DoxyCodeLine{63     connect(\mbox{\hyperlink{class_end_menu_ad370e57773829e4b35293e8f292c6f19}{m\_exitGame}},SIGNAL(pressed()),\mbox{\hyperlink{class_end_menu_ad370e57773829e4b35293e8f292c6f19}{m\_exitGame}},SLOT(changeColor()));}
+\DoxyCodeLine{64     \textcolor{comment}{//connect(m\_restart, SIGNAL(released()), this, SLOT(handleRestart()));}}
+\DoxyCodeLine{65     connect(\mbox{\hyperlink{class_end_menu_ad370e57773829e4b35293e8f292c6f19}{m\_exitGame}}, SIGNAL(released()), \textcolor{keyword}{this}, SLOT(\mbox{\hyperlink{class_end_menu_adac2351a5e30c2b64f9ab8bbe9cbfdf4}{handleEndGame}}()));}
+\DoxyCodeLine{66 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_end_menu_adac2351a5e30c2b64f9ab8bbe9cbfdf4}\label{class_end_menu_adac2351a5e30c2b64f9ab8bbe9cbfdf4}} 
+\index{EndMenu@{EndMenu}!handleEndGame@{handleEndGame}}
+\index{handleEndGame@{handleEndGame}!EndMenu@{EndMenu}}
+\doxysubsubsection{\texorpdfstring{handleEndGame}{handleEndGame}}
+{\footnotesize\ttfamily void End\+Menu\+::handle\+End\+Game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Function to run when End \mbox{\hyperlink{class_game}{Game}} is clicked. 
+
+This exits the \mbox{\hyperlink{class_game}{Game}} safely. 
+
+Definition at line 74 of file endmenu.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{75 \{}
+\DoxyCodeLine{76     this-\/>close();}
+\DoxyCodeLine{77 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_end_menu_aeb2bde1eaee93d0c6be514aa8c35751c}\label{class_end_menu_aeb2bde1eaee93d0c6be514aa8c35751c}} 
+\index{EndMenu@{EndMenu}!handleRestart@{handleRestart}}
+\index{handleRestart@{handleRestart}!EndMenu@{EndMenu}}
+\doxysubsubsection{\texorpdfstring{handleRestart}{handleRestart}}
+{\footnotesize\ttfamily void End\+Menu\+::handle\+Restart (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [private]}, {\ttfamily [slot]}}
+
+
+
+Fucntion run when Restart is clicked. 
+
+This sends restart signal to \mbox{\hyperlink{class_game}{Game}}. 
+
+Definition at line 68 of file endmenu.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{69 \{}
+\DoxyCodeLine{70     game-\/>\mbox{\hyperlink{class_game_aeb468737e1495cfcfbf512cfdc751117}{restart}}();}
+\DoxyCodeLine{71     this-\/>deleteLater();}
+\DoxyCodeLine{72 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_end_menu_ad370e57773829e4b35293e8f292c6f19}\label{class_end_menu_ad370e57773829e4b35293e8f292c6f19}} 
+\index{EndMenu@{EndMenu}!m\_exitGame@{m\_exitGame}}
+\index{m\_exitGame@{m\_exitGame}!EndMenu@{EndMenu}}
+\doxysubsubsection{\texorpdfstring{m\_exitGame}{m\_exitGame}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_custom_button}{Custom\+Button}}$\ast$ End\+Menu\+::m\+\_\+exit\+Game\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Exit \mbox{\hyperlink{class_game}{Game}} Button. 
+
+This is a Q\+Push\+Button item for Exit game. 
+
+Definition at line 50 of file endmenu.\+h.
+
+\mbox{\Hypertarget{class_end_menu_a486d68f49c8966a125b072dbb712f209}\label{class_end_menu_a486d68f49c8966a125b072dbb712f209}} 
+\index{EndMenu@{EndMenu}!m\_restart@{m\_restart}}
+\index{m\_restart@{m\_restart}!EndMenu@{EndMenu}}
+\doxysubsubsection{\texorpdfstring{m\_restart}{m\_restart}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_custom_button}{Custom\+Button}}$\ast$ End\+Menu\+::m\+\_\+restart\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+Restart Button. 
+
+This is a Q\+Push\+Button item for restart option. 
+
+Definition at line 44 of file endmenu.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+endmenu.\+h\item 
+endmenu.\+cpp\end{DoxyCompactItemize}

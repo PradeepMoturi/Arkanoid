@@ -1,0 +1,573 @@
+\hypertarget{class_paddle}{}\doxysection{Paddle Class Reference}
+\label{class_paddle}\index{Paddle@{Paddle}}
+
+
+The \mbox{\hyperlink{class_paddle}{Paddle}} class.  
+
+
+
+
+{\ttfamily \#include $<$paddle.\+h$>$}
+
+Inheritance diagram for Paddle\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_paddle}
+\end{center}
+\end{figure}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_paddle_a2e6b4780361b562364de3a1091caafcd}{multiballadd}} ()
+\begin{DoxyCompactList}\small\item\em multiballadd \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_paddle_a7f0134de08cc163937ff0f5a27200267}{send\+Status}} ()
+\begin{DoxyCompactList}\small\item\em send\+Status \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_paddle_a89977be7ade2566f6099e857fe66a7fa}{destroy\+\_\+powerup}} (\mbox{\hyperlink{class_powerup}{Powerup}} $\ast$)
+\begin{DoxyCompactList}\small\item\em destroy\+\_\+powerup \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_paddle_a6276af92b9faaf2829bcfad68ffca3cc}{stop}} ()
+\begin{DoxyCompactList}\small\item\em stop \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_paddle_a08d7e63da280328ac795829069fa4bbd}{ball\+Collision}} (\mbox{\hyperlink{class_ball}{Ball}} $\ast$ball, bool left\+\_\+corner, bool right\+\_\+corner, double factor)
+\begin{DoxyCompactList}\small\item\em ball \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_paddle_a0ce2cae862559457b63e0d074d64539a}{Paddle}} (Q\+Graphics\+Item $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_paddle}{Paddle}} constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_paddle_a0e29a160570d2993af309ba2e9406300}{key\+Press\+Event}} (Q\+Key\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em key\+Press\+Event \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_paddle_ade768889718502be6d0a63e01449530d}{key\+Release\+Event}} (Q\+Key\+Event $\ast$event)
+\begin{DoxyCompactList}\small\item\em key\+Release\+Event \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_paddle_a06ab555b6caed76137fae7b07b47ac9e}{move\+\_\+paddle}} (double x)
+\begin{DoxyCompactList}\small\item\em move\+\_\+paddle \end{DoxyCompactList}\item 
+qreal \mbox{\hyperlink{class_paddle_aa3bc2a6c1b8f09da35b9b281b7cd4018}{height}} ()
+\begin{DoxyCompactList}\small\item\em height \end{DoxyCompactList}\item 
+qreal \mbox{\hyperlink{class_paddle_ac448c4ac274f7331496affd4509c8cf4}{width}} ()
+\begin{DoxyCompactList}\small\item\em width \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_paddle_ad6f95463e709f2d915403813071a3a17}{get\+CenterX}} ()
+\begin{DoxyCompactList}\small\item\em get\+CenterX \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_paddle_abf440442042ea0c637d004c56e5fee29}{right\+CornerX}} ()
+\begin{DoxyCompactList}\small\item\em right\+CornerX \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_paddle_a030d6e14e13a1425cc7599d360f23d52}{left\+CornerX}} ()
+\begin{DoxyCompactList}\small\item\em left\+CornerX \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_paddle_a6861ebbcafa36ec0673a3d4011daffd3}{timer\+Event}} (Q\+Timer\+Event $\ast$)
+\begin{DoxyCompactList}\small\item\em timer\+Event \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_paddle_a6ad89cde195eaf1d97181c31917e30a0}{Collision\+Checker}} ()
+\begin{DoxyCompactList}\small\item\em Collision\+Checker. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_paddle_a7de74ac2e55ba5d99c54a8c3104c26b0}{cnt}}
+\item 
+double \mbox{\hyperlink{class_paddle_a47d107d92fec45fbffe70a75e579a497}{paddle\+\_\+height}}
+\item 
+double \mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\+\_\+width}}
+\item 
+Q\+Graphics\+Scene $\ast$ \mbox{\hyperlink{class_paddle_a44cf5ae29ce60e6da5d8dba49ec65265}{scene}}
+\item 
+Q\+Map$<$ int, bool $>$ \mbox{\hyperlink{class_paddle_ad780d140b6acb0452ec7e258176e8a08}{keys}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_paddle}{Paddle}} class. 
+
+This class is used to create a paddle object in the game. 
+
+Definition at line 32 of file paddle.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_paddle_a0ce2cae862559457b63e0d074d64539a}\label{class_paddle_a0ce2cae862559457b63e0d074d64539a}} 
+\index{Paddle@{Paddle}!Paddle@{Paddle}}
+\index{Paddle@{Paddle}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{Paddle()}{Paddle()}}
+{\footnotesize\ttfamily Paddle\+::\+Paddle (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_paddle}{Paddle}} constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & The parent pointer to the paddle object is set to null.\\
+\hline
+\end{DoxyParams}
+This constructor is used to create a paddle of type Q\+Graphics\+Rect\+Item with a default paddle width and height and sets the paddle position position to the bottom center of the window with the colour filled as blue. It also starts the timer to note the keypress events. 
+
+Definition at line 32 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{32                                    :QGraphicsRectItem (parent)}
+\DoxyCodeLine{33 \{}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}}=100;}
+\DoxyCodeLine{35     \mbox{\hyperlink{class_paddle_a47d107d92fec45fbffe70a75e579a497}{paddle\_height}}=20;}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_paddle_a7de74ac2e55ba5d99c54a8c3104c26b0}{cnt}} = 0;}
+\DoxyCodeLine{37     setRect(0,0,\mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}},\mbox{\hyperlink{class_paddle_a47d107d92fec45fbffe70a75e579a497}{paddle\_height}});}
+\DoxyCodeLine{38     QBrush brush;}
+\DoxyCodeLine{39     brush.setStyle(Qt::SolidPattern);}
+\DoxyCodeLine{40     brush.setColor(Qt::blue);}
+\DoxyCodeLine{41     setBrush(brush);}
+\DoxyCodeLine{42     setPos(game-\/>width()/2-\/this-\/>\mbox{\hyperlink{class_paddle_ac448c4ac274f7331496affd4509c8cf4}{width}}()/2,game-\/>height()-\/30);}
+\DoxyCodeLine{43     setFlag(QGraphicsItem::ItemIsFocusable);}
+\DoxyCodeLine{44     setFocus();}
+\DoxyCodeLine{45     startTimer(1000/60);}
+\DoxyCodeLine{46 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_paddle_a08d7e63da280328ac795829069fa4bbd}\label{class_paddle_a08d7e63da280328ac795829069fa4bbd}} 
+\index{Paddle@{Paddle}!ballCollision@{ballCollision}}
+\index{ballCollision@{ballCollision}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{ballCollision}{ballCollision}}
+{\footnotesize\ttfamily void Paddle\+::ball\+Collision (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_ball}{Ball}} $\ast$}]{ball,  }\item[{bool}]{left\+\_\+corner,  }\item[{bool}]{right\+\_\+corner,  }\item[{double}]{factor }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+ball 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ball} & \\
+\hline
+{\em left\+\_\+corner} & \\
+\hline
+{\em right\+\_\+corner} & \\
+\hline
+\end{DoxyParams}
+Collision Signal raised that a ball collision with the paddle occured. \mbox{\Hypertarget{class_paddle_a6ad89cde195eaf1d97181c31917e30a0}\label{class_paddle_a6ad89cde195eaf1d97181c31917e30a0}} 
+\index{Paddle@{Paddle}!CollisionChecker@{CollisionChecker}}
+\index{CollisionChecker@{CollisionChecker}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{CollisionChecker()}{CollisionChecker()}}
+{\footnotesize\ttfamily void Paddle\+::\+Collision\+Checker (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Collision\+Checker. 
+
+This function checks for the list of colliding items be it an ball type or powerup type. It emits the ball\+Collision signal if the object to be collided is \mbox{\hyperlink{class_ball}{Ball}} type and it also handles the powerup of four types accordingly emitting respective signals and destroys the powerup object collided. 
+
+Definition at line 111 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{112 \{}
+\DoxyCodeLine{113     QList<QGraphicsItem*> cItems = collidingItems();}
+\DoxyCodeLine{114     \textcolor{keywordflow}{for} (\textcolor{keywordtype}{int} i = 0, n = cItems.size(); i < n; ++i)}
+\DoxyCodeLine{115     \{}
+\DoxyCodeLine{116          \mbox{\hyperlink{class_ball}{Ball}}* \textcolor{keywordtype}{object} = dynamic\_cast<Ball*>(cItems[i]);}
+\DoxyCodeLine{117          \textcolor{keywordflow}{if} (\textcolor{keywordtype}{object})}
+\DoxyCodeLine{118          \{}
+\DoxyCodeLine{119              \textcolor{keywordflow}{if}(object-\/>\mbox{\hyperlink{class_ball_ae4cbca5159194fd4f91036c34d217868}{getCenterX}}()>=this-\/>\mbox{\hyperlink{class_paddle_a030d6e14e13a1425cc7599d360f23d52}{leftCornerX}}()\&\&\textcolor{keywordtype}{object}-\/>getCenterX()<=this-\/>\mbox{\hyperlink{class_paddle_abf440442042ea0c637d004c56e5fee29}{rightCornerX}}()\&\&\textcolor{keywordtype}{object}-\/>y()+(\textcolor{keywordtype}{object}-\/>rect().width()/2)<y())}
+\DoxyCodeLine{120              \{}
+\DoxyCodeLine{121                 \textcolor{keywordtype}{double} factor = fabs(this-\/>\mbox{\hyperlink{class_paddle_ad6f95463e709f2d915403813071a3a17}{getCenterX}}() -\/ object-\/>\mbox{\hyperlink{class_ball_ae4cbca5159194fd4f91036c34d217868}{getCenterX}}())/\mbox{\hyperlink{class_paddle_ac448c4ac274f7331496affd4509c8cf4}{width}}();}
+\DoxyCodeLine{122                 factor = factor*2*0.3;}
+\DoxyCodeLine{123                 emit \mbox{\hyperlink{class_paddle_a08d7e63da280328ac795829069fa4bbd}{ballCollision}}(dynamic\_cast<Ball*>(cItems[i]),\textcolor{keyword}{false},\textcolor{keyword}{false},factor);}
+\DoxyCodeLine{124              \}}
+\DoxyCodeLine{125              \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(object-\/>\mbox{\hyperlink{class_ball_ae4cbca5159194fd4f91036c34d217868}{getCenterX}}()>=this-\/>\mbox{\hyperlink{class_paddle_a030d6e14e13a1425cc7599d360f23d52}{leftCornerX}}())}
+\DoxyCodeLine{126              \{}
+\DoxyCodeLine{127                  emit \mbox{\hyperlink{class_paddle_a08d7e63da280328ac795829069fa4bbd}{ballCollision}}(dynamic\_cast<Ball*>(cItems[i]),\textcolor{keyword}{false},\textcolor{keyword}{true},0);}
+\DoxyCodeLine{128              \}}
+\DoxyCodeLine{129              \textcolor{keywordflow}{else}}
+\DoxyCodeLine{130              \{}
+\DoxyCodeLine{131                  emit \mbox{\hyperlink{class_paddle_a08d7e63da280328ac795829069fa4bbd}{ballCollision}}(dynamic\_cast<Ball*>(cItems[i]),\textcolor{keyword}{true},\textcolor{keyword}{false},0);}
+\DoxyCodeLine{132              \}}
+\DoxyCodeLine{133          \}}
+\DoxyCodeLine{134 }
+\DoxyCodeLine{135         \mbox{\hyperlink{class_powerup}{Powerup}}* power = dynamic\_cast<Powerup*>(cItems[i]);}
+\DoxyCodeLine{136         \textcolor{keywordflow}{if}(power)}
+\DoxyCodeLine{137         \{}
+\DoxyCodeLine{138             \textcolor{keywordflow}{if}(power-\/>\mbox{\hyperlink{class_powerup_a59e48adc7145787afb8e46004ad09490}{powerup\_id}}==1)}
+\DoxyCodeLine{139             \{}
+\DoxyCodeLine{140                 emit \mbox{\hyperlink{class_paddle_a2e6b4780361b562364de3a1091caafcd}{multiballadd}}();}
+\DoxyCodeLine{141             \}}
+\DoxyCodeLine{142             \textcolor{keywordflow}{if}(power-\/>\mbox{\hyperlink{class_powerup_a59e48adc7145787afb8e46004ad09490}{powerup\_id}} == 2)}
+\DoxyCodeLine{143             \{}
+\DoxyCodeLine{144                 \mbox{\hyperlink{class_paddle_a7de74ac2e55ba5d99c54a8c3104c26b0}{cnt}} = 1;}
+\DoxyCodeLine{145                 \mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}} = 150;}
+\DoxyCodeLine{146                 this-\/>setRect(-\/25,0,\mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}},\mbox{\hyperlink{class_paddle_a47d107d92fec45fbffe70a75e579a497}{paddle\_height}});}
+\DoxyCodeLine{147             \}}
+\DoxyCodeLine{148             \textcolor{keywordflow}{if}(power-\/>\mbox{\hyperlink{class_powerup_a59e48adc7145787afb8e46004ad09490}{powerup\_id}} == 3)}
+\DoxyCodeLine{149             \{}
+\DoxyCodeLine{150                 \mbox{\hyperlink{class_paddle_a7de74ac2e55ba5d99c54a8c3104c26b0}{cnt}} = 1;}
+\DoxyCodeLine{151                 \mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}} = 50;}
+\DoxyCodeLine{152                 this-\/>setRect(25,0,\mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}},\mbox{\hyperlink{class_paddle_a47d107d92fec45fbffe70a75e579a497}{paddle\_height}});}
+\DoxyCodeLine{153             \}}
+\DoxyCodeLine{154             \textcolor{keywordflow}{if}(power-\/>\mbox{\hyperlink{class_powerup_a59e48adc7145787afb8e46004ad09490}{powerup\_id}}==4)}
+\DoxyCodeLine{155             \{}
+\DoxyCodeLine{156                 emit(\mbox{\hyperlink{class_paddle_a7f0134de08cc163937ff0f5a27200267}{sendStatus}}());}
+\DoxyCodeLine{157             \}}
+\DoxyCodeLine{158             emit \mbox{\hyperlink{class_paddle_a89977be7ade2566f6099e857fe66a7fa}{destroy\_powerup}}(power);}
+\DoxyCodeLine{159         \}}
+\DoxyCodeLine{160      \}}
+\DoxyCodeLine{161 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_paddle_a89977be7ade2566f6099e857fe66a7fa}\label{class_paddle_a89977be7ade2566f6099e857fe66a7fa}} 
+\index{Paddle@{Paddle}!destroy\_powerup@{destroy\_powerup}}
+\index{destroy\_powerup@{destroy\_powerup}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{destroy\_powerup}{destroy\_powerup}}
+{\footnotesize\ttfamily void Paddle\+::destroy\+\_\+powerup (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_powerup}{Powerup}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+destroy\+\_\+powerup 
+
+Signal raised to destroy the powerup after it collides with the paddle. \mbox{\Hypertarget{class_paddle_ad6f95463e709f2d915403813071a3a17}\label{class_paddle_ad6f95463e709f2d915403813071a3a17}} 
+\index{Paddle@{Paddle}!getCenterX@{getCenterX}}
+\index{getCenterX@{getCenterX}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{getCenterX()}{getCenterX()}}
+{\footnotesize\ttfamily double Paddle\+::get\+CenterX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+get\+CenterX 
+
+\begin{DoxyReturn}{Returns}
+returns the center x co-\/ordinate of the paddle. 
+\end{DoxyReturn}
+
+
+Definition at line 172 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{172                          \{}
+\DoxyCodeLine{173     \textcolor{keywordflow}{return} x()+(rect().width()/2);}
+\DoxyCodeLine{174 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_paddle_aa3bc2a6c1b8f09da35b9b281b7cd4018}\label{class_paddle_aa3bc2a6c1b8f09da35b9b281b7cd4018}} 
+\index{Paddle@{Paddle}!height@{height}}
+\index{height@{height}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{height()}{height()}}
+{\footnotesize\ttfamily qreal Paddle\+::height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+height 
+
+\begin{DoxyReturn}{Returns}
+returns the height of the paddle. 
+\end{DoxyReturn}
+
+
+Definition at line 168 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{169 \{}
+\DoxyCodeLine{170     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_paddle_a47d107d92fec45fbffe70a75e579a497}{paddle\_height}};}
+\DoxyCodeLine{171 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_paddle_a0e29a160570d2993af309ba2e9406300}\label{class_paddle_a0e29a160570d2993af309ba2e9406300}} 
+\index{Paddle@{Paddle}!keyPressEvent@{keyPressEvent}}
+\index{keyPressEvent@{keyPressEvent}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{keyPressEvent()}{keyPressEvent()}}
+{\footnotesize\ttfamily void Paddle\+::key\+Press\+Event (\begin{DoxyParamCaption}\item[{Q\+Key\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+key\+Press\+Event 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The event is default parameter sent for the builtin member function\\
+\hline
+\end{DoxyParams}
+This event handler, for event event receives key press events for the widget. 
+
+Definition at line 48 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{49 \{}
+\DoxyCodeLine{50     \textcolor{keywordflow}{if}(event-\/>key()==Qt::Key\_Escape)}
+\DoxyCodeLine{51     \{}
+\DoxyCodeLine{52         emit \mbox{\hyperlink{class_paddle_a6276af92b9faaf2829bcfad68ffca3cc}{stop}}();}
+\DoxyCodeLine{53     \}}
+\DoxyCodeLine{54     \textcolor{keywordflow}{else}}
+\DoxyCodeLine{55     \{}
+\DoxyCodeLine{56         \mbox{\hyperlink{class_paddle_ad780d140b6acb0452ec7e258176e8a08}{keys}}[\textcolor{keyword}{event}-\/>key()] = \textcolor{keyword}{true};}
+\DoxyCodeLine{57     \}}
+\DoxyCodeLine{58 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_paddle_ade768889718502be6d0a63e01449530d}\label{class_paddle_ade768889718502be6d0a63e01449530d}} 
+\index{Paddle@{Paddle}!keyReleaseEvent@{keyReleaseEvent}}
+\index{keyReleaseEvent@{keyReleaseEvent}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{keyReleaseEvent()}{keyReleaseEvent()}}
+{\footnotesize\ttfamily void Paddle\+::key\+Release\+Event (\begin{DoxyParamCaption}\item[{Q\+Key\+Event $\ast$}]{event }\end{DoxyParamCaption})}
+
+
+
+key\+Release\+Event 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & The event is default parameter sent for the builtin member function\\
+\hline
+\end{DoxyParams}
+This event handler, for event event releases/deactivates the key press events for the widget. 
+
+Definition at line 59 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{60 \{}
+\DoxyCodeLine{61     \mbox{\hyperlink{class_paddle_ad780d140b6acb0452ec7e258176e8a08}{keys}}[\textcolor{keyword}{event}-\/>key()] =\textcolor{keyword}{false};}
+\DoxyCodeLine{62 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_paddle_a030d6e14e13a1425cc7599d360f23d52}\label{class_paddle_a030d6e14e13a1425cc7599d360f23d52}} 
+\index{Paddle@{Paddle}!leftCornerX@{leftCornerX}}
+\index{leftCornerX@{leftCornerX}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{leftCornerX()}{leftCornerX()}}
+{\footnotesize\ttfamily double Paddle\+::left\+CornerX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+left\+CornerX 
+
+\begin{DoxyReturn}{Returns}
+returns the left corner x co-\/ordinate of the paddle. 
+\end{DoxyReturn}
+
+
+Definition at line 179 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{180 \{}
+\DoxyCodeLine{181     \textcolor{keywordflow}{return} x();}
+\DoxyCodeLine{182 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_paddle_a06ab555b6caed76137fae7b07b47ac9e}\label{class_paddle_a06ab555b6caed76137fae7b07b47ac9e}} 
+\index{Paddle@{Paddle}!move\_paddle@{move\_paddle}}
+\index{move\_paddle@{move\_paddle}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{move\_paddle()}{move\_paddle()}}
+{\footnotesize\ttfamily void Paddle\+::move\+\_\+paddle (\begin{DoxyParamCaption}\item[{double}]{x }\end{DoxyParamCaption})}
+
+
+
+move\+\_\+paddle 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & stores the distance to be displaced by.\\
+\hline
+\end{DoxyParams}
+This function sets the position by displacing it by a distance x. 
+
+Definition at line 94 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{95 \{}
+\DoxyCodeLine{96     \textcolor{keywordtype}{double} slide=x()+dis;}
+\DoxyCodeLine{97 }
+\DoxyCodeLine{98     \textcolor{keywordflow}{if}(slide>=game-\/>width()-\/this-\/>\mbox{\hyperlink{class_paddle_ac448c4ac274f7331496affd4509c8cf4}{width}}())}
+\DoxyCodeLine{99     \{}
+\DoxyCodeLine{100         slide=game-\/>width()-\/this-\/>\mbox{\hyperlink{class_paddle_ac448c4ac274f7331496affd4509c8cf4}{width}}();}
+\DoxyCodeLine{101     \}}
+\DoxyCodeLine{102 }
+\DoxyCodeLine{103     \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(slide<=0)}
+\DoxyCodeLine{104     \{}
+\DoxyCodeLine{105         slide=0;}
+\DoxyCodeLine{106     \}}
+\DoxyCodeLine{107 }
+\DoxyCodeLine{108     this-\/>setPos(slide,y());}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{110 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_paddle_a2e6b4780361b562364de3a1091caafcd}\label{class_paddle_a2e6b4780361b562364de3a1091caafcd}} 
+\index{Paddle@{Paddle}!multiballadd@{multiballadd}}
+\index{multiballadd@{multiballadd}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{multiballadd}{multiballadd}}
+{\footnotesize\ttfamily void Paddle\+::multiballadd (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+multiballadd 
+
+Signal raised to add multiballs to the scene. \mbox{\Hypertarget{class_paddle_abf440442042ea0c637d004c56e5fee29}\label{class_paddle_abf440442042ea0c637d004c56e5fee29}} 
+\index{Paddle@{Paddle}!rightCornerX@{rightCornerX}}
+\index{rightCornerX@{rightCornerX}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{rightCornerX()}{rightCornerX()}}
+{\footnotesize\ttfamily double Paddle\+::right\+CornerX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+right\+CornerX 
+
+\begin{DoxyReturn}{Returns}
+returns the right corner x co-\/ordinate of the paddle. 
+\end{DoxyReturn}
+
+
+Definition at line 175 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{176 \{}
+\DoxyCodeLine{177     \textcolor{keywordflow}{return} x()+rect().width();}
+\DoxyCodeLine{178 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_paddle_a7f0134de08cc163937ff0f5a27200267}\label{class_paddle_a7f0134de08cc163937ff0f5a27200267}} 
+\index{Paddle@{Paddle}!sendStatus@{sendStatus}}
+\index{sendStatus@{sendStatus}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{sendStatus}{sendStatus}}
+{\footnotesize\ttfamily void Paddle\+::send\+Status (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+send\+Status 
+
+Signal raised to set the fireball status to true. \mbox{\Hypertarget{class_paddle_a6276af92b9faaf2829bcfad68ffca3cc}\label{class_paddle_a6276af92b9faaf2829bcfad68ffca3cc}} 
+\index{Paddle@{Paddle}!stop@{stop}}
+\index{stop@{stop}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{stop}{stop}}
+{\footnotesize\ttfamily void Paddle\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+stop 
+
+Signal raised to pause the game and display another window. \mbox{\Hypertarget{class_paddle_a6861ebbcafa36ec0673a3d4011daffd3}\label{class_paddle_a6861ebbcafa36ec0673a3d4011daffd3}} 
+\index{Paddle@{Paddle}!timerEvent@{timerEvent}}
+\index{timerEvent@{timerEvent}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{timerEvent()}{timerEvent()}}
+{\footnotesize\ttfamily void Paddle\+::timer\+Event (\begin{DoxyParamCaption}\item[{Q\+Timer\+Event $\ast$}]{ }\end{DoxyParamCaption})}
+
+
+
+timer\+Event 
+
+The timer\+Event built-\/in function activates the position of the paddle at every timeout of the timer. It also activates the Collision\+Checker function everytime and it also resets the paddle width of the powered up expanded paddle to normal after cnt reaches a certain value. The same holds to reset the paddle width from the compressed paddle to normal width after cnt reaches a certain value. 
+
+Definition at line 63 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{64 \{}
+\DoxyCodeLine{65     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_paddle_ad780d140b6acb0452ec7e258176e8a08}{keys}}[Qt::Key\_Left]==\textcolor{keyword}{true})}
+\DoxyCodeLine{66     \{}
+\DoxyCodeLine{67           \mbox{\hyperlink{class_paddle_a06ab555b6caed76137fae7b07b47ac9e}{move\_paddle}}(-\/10);}
+\DoxyCodeLine{68     \}}
+\DoxyCodeLine{69 }
+\DoxyCodeLine{70     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_paddle_ad780d140b6acb0452ec7e258176e8a08}{keys}}[Qt::Key\_Right]==\textcolor{keyword}{true})}
+\DoxyCodeLine{71     \{}
+\DoxyCodeLine{72           \mbox{\hyperlink{class_paddle_a06ab555b6caed76137fae7b07b47ac9e}{move\_paddle}}(10);}
+\DoxyCodeLine{73     \}}
+\DoxyCodeLine{74     \mbox{\hyperlink{class_paddle_a6ad89cde195eaf1d97181c31917e30a0}{CollisionChecker}}();}
+\DoxyCodeLine{75     \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_paddle_a7de74ac2e55ba5d99c54a8c3104c26b0}{cnt}}>0)}
+\DoxyCodeLine{76     \{}
+\DoxyCodeLine{77         \mbox{\hyperlink{class_paddle_a7de74ac2e55ba5d99c54a8c3104c26b0}{cnt}}++;}
+\DoxyCodeLine{78         \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_paddle_a7de74ac2e55ba5d99c54a8c3104c26b0}{cnt}}>600)}
+\DoxyCodeLine{79         \{}
+\DoxyCodeLine{80             \mbox{\hyperlink{class_paddle_a7de74ac2e55ba5d99c54a8c3104c26b0}{cnt}} = 0;}
+\DoxyCodeLine{81             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}}>101)}
+\DoxyCodeLine{82             \{}
+\DoxyCodeLine{83                 \mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}} = 100;}
+\DoxyCodeLine{84                 this-\/>setRect(25,0,\mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}},\mbox{\hyperlink{class_paddle_a47d107d92fec45fbffe70a75e579a497}{paddle\_height}});}
+\DoxyCodeLine{85             \}}
+\DoxyCodeLine{86             \textcolor{keywordflow}{if}(\mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}}<99)}
+\DoxyCodeLine{87             \{}
+\DoxyCodeLine{88                 \mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}} = 100;}
+\DoxyCodeLine{89                 this-\/>setRect(-\/25,0,\mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}},\mbox{\hyperlink{class_paddle_a47d107d92fec45fbffe70a75e579a497}{paddle\_height}});}
+\DoxyCodeLine{90             \}}
+\DoxyCodeLine{91         \}}
+\DoxyCodeLine{92     \}}
+\DoxyCodeLine{93 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_paddle_ac448c4ac274f7331496affd4509c8cf4}\label{class_paddle_ac448c4ac274f7331496affd4509c8cf4}} 
+\index{Paddle@{Paddle}!width@{width}}
+\index{width@{width}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{width()}{width()}}
+{\footnotesize\ttfamily qreal Paddle\+::width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+width 
+
+\begin{DoxyReturn}{Returns}
+returns the width of the paddle. 
+\end{DoxyReturn}
+
+
+Definition at line 163 of file paddle.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{164 \{}
+\DoxyCodeLine{165     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}{paddle\_width}};}
+\DoxyCodeLine{166 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_paddle_a7de74ac2e55ba5d99c54a8c3104c26b0}\label{class_paddle_a7de74ac2e55ba5d99c54a8c3104c26b0}} 
+\index{Paddle@{Paddle}!cnt@{cnt}}
+\index{cnt@{cnt}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{cnt}{cnt}}
+{\footnotesize\ttfamily int Paddle\+::cnt\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the number of times a timeout signal triggered after taking the paddle size powerup. 
+
+Definition at line 159 of file paddle.\+h.
+
+\mbox{\Hypertarget{class_paddle_ad780d140b6acb0452ec7e258176e8a08}\label{class_paddle_ad780d140b6acb0452ec7e258176e8a08}} 
+\index{Paddle@{Paddle}!keys@{keys}}
+\index{keys@{keys}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{keys}{keys}}
+{\footnotesize\ttfamily Q\+Map$<$int,bool$>$ Paddle\+::keys\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the information of key\+Press event. 
+
+Definition at line 163 of file paddle.\+h.
+
+\mbox{\Hypertarget{class_paddle_a47d107d92fec45fbffe70a75e579a497}\label{class_paddle_a47d107d92fec45fbffe70a75e579a497}} 
+\index{Paddle@{Paddle}!paddle\_height@{paddle\_height}}
+\index{paddle\_height@{paddle\_height}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{paddle\_height}{paddle\_height}}
+{\footnotesize\ttfamily double Paddle\+::paddle\+\_\+height\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the height of the paddle. 
+
+Definition at line 160 of file paddle.\+h.
+
+\mbox{\Hypertarget{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}\label{class_paddle_a6f90d8b2cfddd8d6fed65eee5ecd48d9}} 
+\index{Paddle@{Paddle}!paddle\_width@{paddle\_width}}
+\index{paddle\_width@{paddle\_width}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{paddle\_width}{paddle\_width}}
+{\footnotesize\ttfamily double Paddle\+::paddle\+\_\+width\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the width of the paddle. 
+
+Definition at line 161 of file paddle.\+h.
+
+\mbox{\Hypertarget{class_paddle_a44cf5ae29ce60e6da5d8dba49ec65265}\label{class_paddle_a44cf5ae29ce60e6da5d8dba49ec65265}} 
+\index{Paddle@{Paddle}!scene@{scene}}
+\index{scene@{scene}!Paddle@{Paddle}}
+\doxysubsubsection{\texorpdfstring{scene}{scene}}
+{\footnotesize\ttfamily Q\+Graphics\+Scene$\ast$ Paddle\+::scene\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the scene of the paddle. 
+
+Definition at line 162 of file paddle.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+paddle.\+h\item 
+paddle.\+cpp\end{DoxyCompactItemize}
