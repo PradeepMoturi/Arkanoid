@@ -86,7 +86,7 @@ public slots:
      *  It is connected to timeout() signal of the timer in Game i.e main thread
      *  If both left_corner and right_corner are false we reverse the y velocity of the ball else we change the x or y velocity respectively
      */
-    void PaddleCollisionDetected(Ball* nball,bool left_corner,bool right_corner);
+    void PaddleCollisionDetected(Ball* nball,bool left_corner,bool right_corner, double factor);
 
 signals:
 

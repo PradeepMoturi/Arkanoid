@@ -95,6 +95,8 @@ public:
      * Since this a critical section mutex lock is used to make it strictly serial
      */
     void set_yvelocity(bool pos);
+
+    void set_xnewvelocity(double newvelx);
 private:
     /*!
      * \brief mutex QMutex Object Used to lock the velocity of ball.

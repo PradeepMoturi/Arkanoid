@@ -38,11 +38,16 @@ void ballworker::ball_move()
     emit(ballposupdater(ball,ball->x()+ball->get_xvelocity(),ball->y()+ball->get_yvelocity()));
 }
 
-void ballworker::PaddleCollisionDetected(Ball* nball,bool left_corner,bool right_corner)
+void ballworker::PaddleCollisionDetected(Ball* nball,bool left_corner,bool right_corner, double factor)
 {
        if(left_corner == false&&right_corner==false)
        {
            nball->set_yvelocity(false);
+           double velx = nball->get_xvelocity();
+           if(velx<3.5)
+           {
+               nball->set_xnewvelocity(velx + factor);
+           }
        }
        else if(left_corner==true)
        {

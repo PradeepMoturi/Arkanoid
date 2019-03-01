@@ -119,16 +119,17 @@ void Paddle::CollisionChecker()
          {
              if(object->getCenterX()>=this->leftCornerX()&&object->getCenterX()<=this->rightCornerX()&&object->y()+(object->rect().width()/2)<y())
              {
-                emit ballCollision(dynamic_cast<Ball*>(cItems[i]),false,false);
-                return;
+                double factor = fabs(this->getCenterX() - object->getCenterX())/width();
+                factor = factor*2*0.3;
+                emit ballCollision(dynamic_cast<Ball*>(cItems[i]),false,false,factor);
              }
              else if(object->getCenterX()>=this->leftCornerX())
              {
-                 emit ballCollision(dynamic_cast<Ball*>(cItems[i]),false,true);
+                 emit ballCollision(dynamic_cast<Ball*>(cItems[i]),false,true,0);
              }
              else
              {
-                 emit ballCollision(dynamic_cast<Ball*>(cItems[i]),true,false);
+                 emit ballCollision(dynamic_cast<Ball*>(cItems[i]),true,false,0);
              }
          }
 

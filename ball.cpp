@@ -73,11 +73,11 @@ void Ball::set_xvelocity(bool pos)
 
     if(pos)
     {
-        x_velocity=abs(x_velocity);
+        x_velocity=fabs(x_velocity);
     }
     else
     {
-        x_velocity=-1*abs(x_velocity);
+        x_velocity=-1*fabs(x_velocity);
     }
 
     mutex.unlock();
@@ -88,12 +88,19 @@ void Ball::set_yvelocity(bool pos)
 
     if(pos)
     {
-        y_velocity=abs(y_velocity);
+        y_velocity=fabs(y_velocity);
     }
 
     else
     {
-        y_velocity=-1*abs(y_velocity);
+        y_velocity=-1*fabs(y_velocity);
     }
+    mutex.unlock();
+}
+void Ball::set_xnewvelocity(double newvelx)
+{
+    mutex.lock();
+
+    x_velocity = newvelx;
     mutex.unlock();
 }

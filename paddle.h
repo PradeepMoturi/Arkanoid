@@ -154,7 +154,7 @@ signals:
      *
      * Collision Signal raised that a ball collision with the paddle occured.
      */
-    void ballCollision(Ball* ball,bool left_corner,bool right_corner);
+    void ballCollision(Ball* ball,bool left_corner,bool right_corner, double factor);
 private:
     int cnt; /*!<stores the number of times a timeout signal triggered after taking the paddle size powerup.*/
     double paddle_height; /*!<stores the height of the paddle.*/

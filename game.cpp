@@ -124,7 +124,7 @@ void Game::mainConnections(ballworker *worker)
     connect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     connect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
 
-    connect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
+    connect(paddle,SIGNAL(ballCollision(Ball*,bool,bool, double)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool,double)));
     connect(paddle,SIGNAL(multiballadd()),this,SLOT(Multiply_ball()));
     connect(paddle,SIGNAL(destroy_powerup(Powerup*)),this,SLOT(removepowerup(Powerup*)));
     connect(paddle,SIGNAL(stop()),this,SLOT(pause()));
@@ -145,7 +145,7 @@ void Game::sideConnections(ballworker *worker)
     connect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     connect(worker,SIGNAL(ballposupdater(Ball*, double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
 
-    connect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
+    connect(paddle,SIGNAL(ballCollision(Ball*,bool,bool,double)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool,double)));
 }
 
 void Game::removeConnections(ballworker *worker)
@@ -153,7 +153,7 @@ void Game::removeConnections(ballworker *worker)
     //disconnect(worker,SIGNAL(destroy(Brick*)),this,SLOT(remove_brick(Brick*)));
     disconnect(worker,SIGNAL(endgame(ballworker*,Ball*)),this,SLOT(end(ballworker*,Ball*)));
     disconnect(worker,SIGNAL(ballposupdater(Ball*,double, double)),this,SLOT(ballpositionupdater(Ball*,double, double)));
-    disconnect(paddle,SIGNAL(ballCollision(Ball*,bool,bool)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool)));
+    disconnect(paddle,SIGNAL(ballCollision(Ball*,bool,bool,double)),worker,SLOT(PaddleCollisionDetected(Ball*,bool,bool,double)));
     disconnect(paddle,SIGNAL(sendStatus()),this,SLOT(updateStatus()));
     disconnect(timer,SIGNAL(timeout()),worker,SLOT(ball_move()));
 }
