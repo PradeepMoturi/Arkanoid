@@ -39,7 +39,8 @@ SOURCES += \
     powerup.cpp \
     button.cpp \
     startpage.cpp \
-    endmenu.cpp
+    endmenu.cpp \
+    pausemenu.cpp
 
 HEADERS += \
     ball.h \
@@ -54,7 +55,8 @@ HEADERS += \
     powerup.h \
     button.h \
     startpage.h \
-    endmenu.h
+    endmenu.h \
+    pausemenu.h
 
 FORMS += \
     pause_menu.ui

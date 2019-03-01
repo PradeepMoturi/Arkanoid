@@ -45,7 +45,7 @@ void pause_menu::on_exit_clicked()
 void pause_menu::on_resume_clicked()
 {
     game->start();
-    this->deleteLater();
+    delete this;
 }
 
 void pause_menu::on_replay_clicked()

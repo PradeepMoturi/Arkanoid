@@ -32,7 +32,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "ball.h"
 #include "paddle.h"
 #include "startpage.h"
-#include "pause_menu.h"
+#include "pausemenu.h"
 #include "endmenu.h"
 #include "brick.h"
 #include "ballworker.h"
@@ -301,9 +301,9 @@ void Game::start()
 
 void Game::pause()
 {
-    pause_menu *pmenu=new pause_menu();
+    PauseMenu *pmenu=new PauseMenu();
     emit(pausemusic());
-    music->start();
+    //music->start();
     timer->stop();
     pmenu->show();
 }
@@ -313,7 +313,6 @@ void Game::restart()
     scene->clear();
     emit(restartmusic());
     this->build();
-
 }
 
 Game::~Game()
