@@ -46,7 +46,6 @@ public:
      * Returning from this method will end the execution of the thread.
      * Executes the exec() member function.
      */
-
     void run();
 
 
@@ -74,7 +73,13 @@ public slots:
      * \brief resumemusic Resumes the music player
      */
     void resumemusic();
+    /*!
+     * \brief restartmusic restarts music froms start
+     */
     void restartmusic();
+    /*!
+     * \brief Brick_Sound Plays a cue sound when a brick breaks
+     */
     void Brick_Sound();
 
 private:
@@ -83,6 +88,9 @@ private:
      * \brief player QMediaPlayer object used to play music
      */
     QMediaPlayer* player;
+    /*!
+     * \brief brickNoise QMediaPlayer object to play cue sounds when brick breaks
+     */
     QMediaPlayer* brickNoise;
 };
 

@@ -41,6 +41,11 @@ public:
      */
     gridlayout(QGraphicsScene* curr,int level);
 
+    /*!
+     * \brief bricks_remaining
+     *
+     * Counter for No. of bricks remaining
+     */
     int bricks_remaining = 0;
 private:
 

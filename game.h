@@ -100,17 +100,27 @@ signals:
     /*!
      * \brief pausemusic
      *
-     * This member function pauses the background music.
+     * This member signal pauses the background music.
      */
     void pausemusic();
 
     /*!
      * \brief resumemusic
      *
-     * This member function resumes the backgroud music.
+     * This member signal resumes the backgroud music.
      */
     void resumemusic();
+    /*!
+     * \brief restartmusic
+     *
+     * This signal asks to restart music from the start.
+     */
     void restartmusic();
+    /*!
+     * \brief brick_sound
+     *
+     * This signal asks to play cue sound when brick breaks
+     */
     void brick_sound();
 
 public slots:
@@ -134,8 +144,23 @@ public slots:
      */
     void build();
 
+    /*!
+     * \brief start
+     *
+     * starts the game by starting the timer.
+     */
     void start();
+    /*!
+     * \brief restart
+     *
+     * This clears the scene and rebuilds the game.
+     */
     void restart();
+    /*!
+     * \brief pause
+     *
+     * this stops the timer to pause the game.
+     */
     void pause();
 
     /*!
@@ -215,7 +240,18 @@ private:
 
     BackgroundMusic* music; /*!<object of custom class BackgroundMusic.*/
 
+    /*!
+     * \brief thread_map
+     *
+     * Map to store No. of balls assigned to a thread.
+     */
     std::map<QThread*,int> thread_map;
+
+    /*!
+     * \brief balltothread
+     *
+     * Map to store thread assigned to a ball.
+     */
     std::map<ballworker*, QThread*> balltothread;
 };
 

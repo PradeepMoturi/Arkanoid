@@ -55,7 +55,6 @@ public:
      * \brief radius
      * \return Radius of the Ball
      */
-
     double radius();
 
     /*!
@@ -96,6 +95,11 @@ public:
      */
     void set_yvelocity(bool pos);
 
+    /*!
+     * \brief set_xnewvelocity Sets new given x velocity
+     * \param newvelx input xvelocity to be set
+     *
+     */
     void set_xnewvelocity(double newvelx);
 private:
     /*!

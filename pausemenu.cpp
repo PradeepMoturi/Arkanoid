@@ -39,7 +39,7 @@ PauseMenu::PauseMenu(QWidget *parent): QMainWindow(parent)
 
     // Create the required buttons
     m_resume = new CustomButton("Resume");
-    m_restart = new CustomButton("Restart");
+    //m_restart = new CustomButton("Restart");
     m_exitGame = new CustomButton("Exit");
 
     // Set the layout of the central widget
@@ -47,7 +47,7 @@ PauseMenu::PauseMenu(QWidget *parent): QMainWindow(parent)
 
     // Add buttons to layout
     layout->addWidget(m_resume);
-    layout->addWidget(m_restart);
+    //layout->addWidget(m_restart);
     layout->addWidget(m_exitGame);
 
     // Set alignment and spacing of layout
@@ -56,16 +56,16 @@ PauseMenu::PauseMenu(QWidget *parent): QMainWindow(parent)
 
     // Set size of buttons
     m_resume->setFixedSize(QSize(200,50));
-    m_restart->setFixedSize(QSize(200,50));
+    //m_restart->setFixedSize(QSize(200,50));
     m_exitGame->setFixedSize(QSize(200,50));
 
 
     // Connect the buttons to the appropriate slots
     connect(m_resume,SIGNAL(pressed()),m_resume,SLOT(changeColor()));
-    connect(m_restart,SIGNAL(pressed()),m_restart,SLOT(changeColor()));
+    //connect(m_restart,SIGNAL(pressed()),m_restart,SLOT(changeColor()));
     connect(m_exitGame,SIGNAL(pressed()),m_exitGame,SLOT(changeColor()));
     connect(m_resume, SIGNAL(released()), this, SLOT(handleResume()));
-    connect(m_restart, SIGNAL(released()), this, SLOT(handleRestart()));
+    //connect(m_restart, SIGNAL(released()), this, SLOT(handleRestart()));
     connect(m_exitGame, SIGNAL(released()), this, SLOT(handleEndGame()));
 }
 
