@@ -81,6 +81,9 @@ void Game::build()
     worker->moveToThread(thread);
     thread->start();
 
+    balltothread[worker] = thread;
+    thread_map[thread]++;
+
     ball_list.resize(0);
     worker_list.resize(0);
     ball_list.push_back(ball);
@@ -206,6 +209,12 @@ void Game::end(ballworker* nworker,Ball *nball)
         removeConnections(nworker);
         scene->removeItem(nball);
         worker_list.erase(std::remove(worker_list.begin(),worker_list.end(),nworker),worker_list.end());
+        thread_map[balltothread[nworker]]--;
+        if(thread_map[balltothread[nworker]]==0)
+            balltothread[nworker]->quit();
+
+
+
         delete nworker;
         //delete nball;
     }
@@ -274,6 +283,9 @@ void Game::Multiply_ball()
         ballworker* worker = new ballworker(scene,new_ball);
 
         worker->moveToThread(thread);
+
+        balltothread[worker] = thread;
+        thread_map[thread]++;
 
         ball_list.push_back(new_ball);
         worker_list.push_back(worker);

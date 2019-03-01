@@ -214,6 +214,9 @@ private:
     void createGrid(int rows,int columns);
 
     BackgroundMusic* music; /*!<object of custom class BackgroundMusic.*/
+
+    std::map<QThread*,int> thread_map;
+    std::map<ballworker*, QThread*> balltothread;
 };
 
 #endif // GAME_H
