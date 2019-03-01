@@ -1,0 +1,148 @@
+\hypertarget{class_score}{}\doxysection{Score Class Reference}
+\label{class_score}\index{Score@{Score}}
+
+
+The \mbox{\hyperlink{class_score}{Score}} class.  
+
+
+
+
+{\ttfamily \#include $<$score.\+h$>$}
+
+Inheritance diagram for Score\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_score}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_score_a997b501525bfafd60ac248a8c96f341f}{Score}} (Q\+Graphics\+Item $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_score}{Score}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_score_ab5dbfab6935903c075509546878cfbda}{increase}} ()
+\begin{DoxyCompactList}\small\item\em increase \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_score_a2b3d2360a70e9cb9a297af9b67c1112b}{getscore}} ()
+\begin{DoxyCompactList}\small\item\em getscore \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_score_a331b0927105c83ba760954eff6cf9fe9}{score}}
+\begin{DoxyCompactList}\small\item\em score \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_score}{Score}} class. 
+
+It is used to computing the \mbox{\hyperlink{class_score}{Score}} in the game. 
+
+Definition at line 30 of file score.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_score_a997b501525bfafd60ac248a8c96f341f}\label{class_score_a997b501525bfafd60ac248a8c96f341f}} 
+\index{Score@{Score}!Score@{Score}}
+\index{Score@{Score}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{Score()}{Score()}}
+{\footnotesize\ttfamily Score\+::\+Score (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_score}{Score}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & It is the constructor of the \mbox{\hyperlink{class_score}{Score}} class. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 23 of file score.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                                   : QGraphicsTextItem (parent)}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \textcolor{comment}{// Initialise Score to Zero}}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_score_a331b0927105c83ba760954eff6cf9fe9}{score}} = 0;}
+\DoxyCodeLine{27 }
+\DoxyCodeLine{28     \textcolor{comment}{// Displaying Score text on the Screen}}
+\DoxyCodeLine{29     setPlainText(QString(\textcolor{stringliteral}{"Score : "}) + QString::number(\mbox{\hyperlink{class_score_a331b0927105c83ba760954eff6cf9fe9}{score}}));}
+\DoxyCodeLine{30     setDefaultTextColor(Qt::yellow);}
+\DoxyCodeLine{31     setFont(QFont(\textcolor{stringliteral}{"times"}, 30));}
+\DoxyCodeLine{32 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_score_a2b3d2360a70e9cb9a297af9b67c1112b}\label{class_score_a2b3d2360a70e9cb9a297af9b67c1112b}} 
+\index{Score@{Score}!getscore@{getscore}}
+\index{getscore@{getscore}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{getscore()}{getscore()}}
+{\footnotesize\ttfamily int Score\+::getscore (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getscore 
+
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+It returns the \mbox{\hyperlink{class_score}{Score}} in the integer format. 
+
+Definition at line 40 of file score.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{41 \{}
+\DoxyCodeLine{42     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_score_a331b0927105c83ba760954eff6cf9fe9}{score}};}
+\DoxyCodeLine{43 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_score_ab5dbfab6935903c075509546878cfbda}\label{class_score_ab5dbfab6935903c075509546878cfbda}} 
+\index{Score@{Score}!increase@{increase}}
+\index{increase@{increase}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{increase()}{increase()}}
+{\footnotesize\ttfamily void Score\+::increase (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+increase 
+
+It increases the score by 1 when ball hits a brick. 
+
+Definition at line 34 of file score.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{35 \{}
+\DoxyCodeLine{36     \mbox{\hyperlink{class_score_a331b0927105c83ba760954eff6cf9fe9}{score}}++;}
+\DoxyCodeLine{37     setPlainText(QString(\textcolor{stringliteral}{"Score : "}) + QString::number(\mbox{\hyperlink{class_score_a331b0927105c83ba760954eff6cf9fe9}{score}}));}
+\DoxyCodeLine{38 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_score_a331b0927105c83ba760954eff6cf9fe9}\label{class_score_a331b0927105c83ba760954eff6cf9fe9}} 
+\index{Score@{Score}!score@{score}}
+\index{score@{score}!Score@{Score}}
+\doxysubsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily int Score\+::score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+score 
+
+This variable stores the \mbox{\hyperlink{class_score}{Score}}. 
+
+Definition at line 61 of file score.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+score.\+h\item 
+score.\+cpp\end{DoxyCompactItemize}

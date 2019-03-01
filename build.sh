@@ -1,2 +1,2 @@
-qmake -arkanoid.pro
+qmake
 make

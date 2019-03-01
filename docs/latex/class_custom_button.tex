@@ -1,0 +1,98 @@
+\hypertarget{class_custom_button}{}\doxysection{Custom\+Button Class Reference}
+\label{class_custom_button}\index{CustomButton@{CustomButton}}
+
+
+The \mbox{\hyperlink{class_custom_button}{Custom\+Button}} class.  
+
+
+
+
+{\ttfamily \#include $<$button.\+h$>$}
+
+Inheritance diagram for Custom\+Button\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_custom_button}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_custom_button_a93c182fdda0998c60fac60439cb2b6e4}{change\+Color}} ()
+\begin{DoxyCompactList}\small\item\em change\+Color \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_custom_button_afe76a5046b9842be25ce8e1e3fbec279}{Custom\+Button}} (const Q\+String text\+Value)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_custom_button}{Custom\+Button}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_custom_button}{Custom\+Button}} class. 
+
+This class is used to create Pushbutton. 
+
+Definition at line 11 of file button.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_custom_button_afe76a5046b9842be25ce8e1e3fbec279}\label{class_custom_button_afe76a5046b9842be25ce8e1e3fbec279}} 
+\index{CustomButton@{CustomButton}!CustomButton@{CustomButton}}
+\index{CustomButton@{CustomButton}!CustomButton@{CustomButton}}
+\doxysubsubsection{\texorpdfstring{CustomButton()}{CustomButton()}}
+{\footnotesize\ttfamily Custom\+Button\+::\+Custom\+Button (\begin{DoxyParamCaption}\item[{const Q\+String}]{text\+Value }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_custom_button}{Custom\+Button}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em text\+Value} & It is the constructor of the \mbox{\hyperlink{class_custom_button}{Custom\+Button}} class. It takes String as an argument and create a Push\+Button for the argument. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 3 of file button.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{4 \{}
+\DoxyCodeLine{5     this-\/>setText(textValue);}
+\DoxyCodeLine{6 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_custom_button_a93c182fdda0998c60fac60439cb2b6e4}\label{class_custom_button_a93c182fdda0998c60fac60439cb2b6e4}} 
+\index{CustomButton@{CustomButton}!changeColor@{changeColor}}
+\index{changeColor@{changeColor}!CustomButton@{CustomButton}}
+\doxysubsubsection{\texorpdfstring{changeColor}{changeColor}}
+{\footnotesize\ttfamily void Custom\+Button\+::change\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+change\+Color 
+
+It changes the colour of the button to yellow when pressed. 
+
+Definition at line 8 of file button.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{9 \{}
+\DoxyCodeLine{10     QPushButton* pButton = qobject\_cast<QPushButton*>(sender());}
+\DoxyCodeLine{11     QPalette p = pButton-\/>palette();}
+\DoxyCodeLine{12     p.setColor(QPalette::Button, Qt::yellow);}
+\DoxyCodeLine{13     pButton-\/>setPalette(p);}
+\DoxyCodeLine{14 \}}
+
+\end{DoxyCode}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+button.\+h\item 
+button.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,279 @@
+\hypertarget{class_powerup}{}\doxysection{Powerup Class Reference}
+\label{class_powerup}\index{Powerup@{Powerup}}
+
+
+The \mbox{\hyperlink{class_powerup}{Powerup}} class.  
+
+
+
+
+{\ttfamily \#include $<$powerup.\+h$>$}
+
+Inheritance diagram for Powerup\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_powerup}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Slots}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_powerup_a57f6b991915de2ad60da750ea882df2a}{powerup\+\_\+move}} ()
+\begin{DoxyCompactList}\small\item\em powerup\+\_\+move \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Signals}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_powerup_a95ef94c4950a5fce9ab3f789f7f68b6a}{remove\+\_\+connection}} (\mbox{\hyperlink{class_powerup}{Powerup}} $\ast$)
+\begin{DoxyCompactList}\small\item\em remove\+\_\+connection \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_powerup_a8147ee953d3920b915fda039ecefb4b5}{Powerup}} (Q\+Graphics\+Item $\ast$parent=nullptr)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_powerup}{Powerup}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_powerup_a9b454d8f74f9bbb155c1514c4cd7c263}{set}} (int id, double x, double y)
+\begin{DoxyCompactList}\small\item\em set \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_powerup_a3cf5234a528272aa4430e55823bc82b8}{getwidth}} ()
+\begin{DoxyCompactList}\small\item\em getwidth \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_powerup_a522f2048b73c1660d75e4d4a72eabb46}{getheight}} ()
+\begin{DoxyCompactList}\small\item\em getheight \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_powerup_a59e48adc7145787afb8e46004ad09490}{powerup\+\_\+id}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{class_powerup_a7a33b2e953f77366894712f9229eee3e}{x\+\_\+velocity}}
+\item 
+double \mbox{\hyperlink{class_powerup_a77ca7bf396b53fcdfdc7c31f67fe182a}{y\+\_\+velocity}}
+\item 
+double \mbox{\hyperlink{class_powerup_a066e8a4e786fe027941f540aae8aea5e}{powerup\+\_\+width}}
+\item 
+double \mbox{\hyperlink{class_powerup_a3ae36769883fb9cd26f0d74454a7d6e9}{powerup\+\_\+height}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The \mbox{\hyperlink{class_powerup}{Powerup}} class. 
+
+This class creates a new \mbox{\hyperlink{class_powerup}{Powerup}} class, sets the position and movement of the object to the scene. 
+
+Definition at line 33 of file powerup.\+h.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_powerup_a8147ee953d3920b915fda039ecefb4b5}\label{class_powerup_a8147ee953d3920b915fda039ecefb4b5}} 
+\index{Powerup@{Powerup}!Powerup@{Powerup}}
+\index{Powerup@{Powerup}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{Powerup()}{Powerup()}}
+{\footnotesize\ttfamily Powerup\+::\+Powerup (\begin{DoxyParamCaption}\item[{Q\+Graphics\+Item $\ast$}]{parent = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{class_powerup}{Powerup}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em parent} & parent pointer is set to nullptr\\
+\hline
+\end{DoxyParams}
+This constructor sets the velocity of the powerup, sets the dimensions of the powerup object brushes it in green. 
+
+Definition at line 23 of file powerup.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{23                                      :QGraphicsRectItem (parent)}
+\DoxyCodeLine{24 \{}
+\DoxyCodeLine{25     \mbox{\hyperlink{class_powerup_a7a33b2e953f77366894712f9229eee3e}{x\_velocity}} = 0;}
+\DoxyCodeLine{26     \mbox{\hyperlink{class_powerup_a77ca7bf396b53fcdfdc7c31f67fe182a}{y\_velocity}} = 1;}
+\DoxyCodeLine{27     \mbox{\hyperlink{class_powerup_a066e8a4e786fe027941f540aae8aea5e}{powerup\_width}}=50;}
+\DoxyCodeLine{28     \mbox{\hyperlink{class_powerup_a3ae36769883fb9cd26f0d74454a7d6e9}{powerup\_height}}=8;}
+\DoxyCodeLine{29     setRect(0,0,\mbox{\hyperlink{class_powerup_a066e8a4e786fe027941f540aae8aea5e}{powerup\_width}},\mbox{\hyperlink{class_powerup_a3ae36769883fb9cd26f0d74454a7d6e9}{powerup\_height}});}
+\DoxyCodeLine{30     QBrush brush;}
+\DoxyCodeLine{31     brush.setStyle(Qt::SolidPattern);}
+\DoxyCodeLine{32     brush.setColor(Qt::green);}
+\DoxyCodeLine{33     setBrush(brush);}
+\DoxyCodeLine{34 \};}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_powerup_a522f2048b73c1660d75e4d4a72eabb46}\label{class_powerup_a522f2048b73c1660d75e4d4a72eabb46}} 
+\index{Powerup@{Powerup}!getheight@{getheight}}
+\index{getheight@{getheight}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{getheight()}{getheight()}}
+{\footnotesize\ttfamily double Powerup\+::getheight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getheight 
+
+\begin{DoxyReturn}{Returns}
+returns the height of the paddle. 
+\end{DoxyReturn}
+
+
+Definition at line 56 of file powerup.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{57 \{}
+\DoxyCodeLine{58     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_powerup_a3ae36769883fb9cd26f0d74454a7d6e9}{powerup\_height}};}
+\DoxyCodeLine{59 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_powerup_a3cf5234a528272aa4430e55823bc82b8}\label{class_powerup_a3cf5234a528272aa4430e55823bc82b8}} 
+\index{Powerup@{Powerup}!getwidth@{getwidth}}
+\index{getwidth@{getwidth}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{getwidth()}{getwidth()}}
+{\footnotesize\ttfamily double Powerup\+::getwidth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+getwidth 
+
+\begin{DoxyReturn}{Returns}
+returns the width of the paddle. 
+\end{DoxyReturn}
+
+
+Definition at line 51 of file powerup.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{52 \{}
+\DoxyCodeLine{53     \textcolor{keywordflow}{return} \mbox{\hyperlink{class_powerup_a066e8a4e786fe027941f540aae8aea5e}{powerup\_width}};}
+\DoxyCodeLine{54 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_powerup_a57f6b991915de2ad60da750ea882df2a}\label{class_powerup_a57f6b991915de2ad60da750ea882df2a}} 
+\index{Powerup@{Powerup}!powerup\_move@{powerup\_move}}
+\index{powerup\_move@{powerup\_move}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{powerup\_move}{powerup\_move}}
+{\footnotesize\ttfamily void Powerup\+::powerup\+\_\+move (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [slot]}}
+
+
+
+powerup\+\_\+move 
+
+This slot is triggered when it takes the timer timerout signal and it moves down the powerup. 
+
+Definition at line 41 of file powerup.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{42 \{}
+\DoxyCodeLine{43     qreal temp = 700;}
+\DoxyCodeLine{44 }
+\DoxyCodeLine{45     setPos(x(),y()+\mbox{\hyperlink{class_powerup_a77ca7bf396b53fcdfdc7c31f67fe182a}{y\_velocity}});}
+\DoxyCodeLine{46     \textcolor{keywordflow}{if} (y()> temp)}
+\DoxyCodeLine{47     \{}
+\DoxyCodeLine{48         emit \mbox{\hyperlink{class_powerup_a95ef94c4950a5fce9ab3f789f7f68b6a}{remove\_connection}}(\textcolor{keyword}{this});}
+\DoxyCodeLine{49     \}}
+\DoxyCodeLine{50 \}}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{class_powerup_a95ef94c4950a5fce9ab3f789f7f68b6a}\label{class_powerup_a95ef94c4950a5fce9ab3f789f7f68b6a}} 
+\index{Powerup@{Powerup}!remove\_connection@{remove\_connection}}
+\index{remove\_connection@{remove\_connection}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{remove\_connection}{remove\_connection}}
+{\footnotesize\ttfamily void Powerup\+::remove\+\_\+connection (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_powerup}{Powerup}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [signal]}}
+
+
+
+remove\+\_\+connection 
+
+This signal sends a signal remove\+\_\+connection to trigger the removal of powerup. \mbox{\Hypertarget{class_powerup_a9b454d8f74f9bbb155c1514c4cd7c263}\label{class_powerup_a9b454d8f74f9bbb155c1514c4cd7c263}} 
+\index{Powerup@{Powerup}!set@{set}}
+\index{set@{set}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}}
+{\footnotesize\ttfamily void Powerup\+::set (\begin{DoxyParamCaption}\item[{int}]{id,  }\item[{double}]{x,  }\item[{double}]{y }\end{DoxyParamCaption})}
+
+
+
+set 
+
+
+\begin{DoxyParams}{Parameters}
+{\em id} & \\
+\hline
+{\em x} & \\
+\hline
+{\em y} & This member function sets up the id, x and y as co-\/ordinates for the powerup. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 35 of file powerup.\+cpp.
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{36 \{}
+\DoxyCodeLine{37     \mbox{\hyperlink{class_powerup_a59e48adc7145787afb8e46004ad09490}{powerup\_id}} = id;}
+\DoxyCodeLine{38     setPos(x,y);}
+\DoxyCodeLine{39 \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_powerup_a3ae36769883fb9cd26f0d74454a7d6e9}\label{class_powerup_a3ae36769883fb9cd26f0d74454a7d6e9}} 
+\index{Powerup@{Powerup}!powerup\_height@{powerup\_height}}
+\index{powerup\_height@{powerup\_height}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{powerup\_height}{powerup\_height}}
+{\footnotesize\ttfamily double Powerup\+::powerup\+\_\+height\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the powerup height 
+
+Definition at line 73 of file powerup.\+h.
+
+\mbox{\Hypertarget{class_powerup_a59e48adc7145787afb8e46004ad09490}\label{class_powerup_a59e48adc7145787afb8e46004ad09490}} 
+\index{Powerup@{Powerup}!powerup\_id@{powerup\_id}}
+\index{powerup\_id@{powerup\_id}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{powerup\_id}{powerup\_id}}
+{\footnotesize\ttfamily int Powerup\+::powerup\+\_\+id}
+
+stores the powerup id 
+
+Definition at line 56 of file powerup.\+h.
+
+\mbox{\Hypertarget{class_powerup_a066e8a4e786fe027941f540aae8aea5e}\label{class_powerup_a066e8a4e786fe027941f540aae8aea5e}} 
+\index{Powerup@{Powerup}!powerup\_width@{powerup\_width}}
+\index{powerup\_width@{powerup\_width}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{powerup\_width}{powerup\_width}}
+{\footnotesize\ttfamily double Powerup\+::powerup\+\_\+width\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the powerup width 
+
+Definition at line 72 of file powerup.\+h.
+
+\mbox{\Hypertarget{class_powerup_a7a33b2e953f77366894712f9229eee3e}\label{class_powerup_a7a33b2e953f77366894712f9229eee3e}} 
+\index{Powerup@{Powerup}!x\_velocity@{x\_velocity}}
+\index{x\_velocity@{x\_velocity}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{x\_velocity}{x\_velocity}}
+{\footnotesize\ttfamily double Powerup\+::x\+\_\+velocity\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the x direction velocity 
+
+Definition at line 70 of file powerup.\+h.
+
+\mbox{\Hypertarget{class_powerup_a77ca7bf396b53fcdfdc7c31f67fe182a}\label{class_powerup_a77ca7bf396b53fcdfdc7c31f67fe182a}} 
+\index{Powerup@{Powerup}!y\_velocity@{y\_velocity}}
+\index{y\_velocity@{y\_velocity}!Powerup@{Powerup}}
+\doxysubsubsection{\texorpdfstring{y\_velocity}{y\_velocity}}
+{\footnotesize\ttfamily double Powerup\+::y\+\_\+velocity\hspace{0.3cm}{\ttfamily [private]}}
+
+stores the y direction velocity 
+
+Definition at line 71 of file powerup.\+h.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+powerup.\+h\item 
+powerup.\+cpp\end{DoxyCompactItemize}
