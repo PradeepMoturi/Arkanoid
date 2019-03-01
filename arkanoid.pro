@@ -30,7 +30,6 @@ SOURCES += \
     ball.cpp \
     game.cpp \
     paddle.cpp \
-    pause_menu.cpp \
     backgroundmusic.cpp \
     brick.cpp \
     score.cpp \
@@ -46,7 +45,6 @@ HEADERS += \
     ball.h \
     game.h \
     paddle.h \
-    pause_menu.h \
     backgroundmusic.h \
     brick.h \
     score.h \
@@ -58,8 +56,7 @@ HEADERS += \
     endmenu.h \
     pausemenu.h
 
-FORMS += \
-    pause_menu.ui
+FORMS +=
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
