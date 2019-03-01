@@ -27,7 +27,7 @@ Score::Score(QGraphicsItem *parent) : QGraphicsTextItem (parent)
 
     // Displaying Score text on the Screen
     setPlainText(QString("Score : ") + QString::number(score));
-    setDefaultTextColor(Qt::blue);
+    setDefaultTextColor(Qt::yellow);
     setFont(QFont("times", 30));
 }
 

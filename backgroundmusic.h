@@ -74,7 +74,8 @@ public slots:
      * \brief resumemusic Resumes the music player
      */
     void resumemusic();
-
+    void restartmusic();
+    void Brick_Sound();
 
 private:
 
@@ -82,6 +83,7 @@ private:
      * \brief player QMediaPlayer object used to play music
      */
     QMediaPlayer* player;
+    QMediaPlayer* brickNoise;
 };
 
 

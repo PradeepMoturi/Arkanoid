@@ -110,6 +110,8 @@ signals:
      * This member function resumes the backgroud music.
      */
     void resumemusic();
+    void restartmusic();
+    void brick_sound();
 
 public slots:
     /*!

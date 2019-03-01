@@ -1,4 +1,4 @@
-/*
+*
 Copyright (c) 2019 Revanth Babu, Pradeep Moturi, Jeevan Chandra, Udit Maniyar
 
 This file is part of Arkanoid 
