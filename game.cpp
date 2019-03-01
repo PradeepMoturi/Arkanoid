@@ -54,7 +54,7 @@ void Game::setup_scene()
     scene=new QGraphicsScene(0,0,700,700,this);
     setScene(scene);
     /* https://www.pexels.com/photo/blue-universe-956981/ -> url of image -> Felix Mittermeier */
-    setBackgroundBrush(QBrush(QImage(":/Images/background_space.jpg")));
+    setBackgroundBrush(QBrush(QImage(":/Images/data/Images/background_space.jpg")));
     setFixedSize(700, 700);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

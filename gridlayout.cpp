@@ -19,6 +19,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 #include "gridlayout.h"
 #include <QtMath>
+#include <stdlib.h>
+#include <time.h>
+#include <string>
 #include <QFile>
 #include <QTextStream>
 #include <QDebug>
@@ -34,14 +37,36 @@ void gridlayout::Build_Grid(int level)
 {
 
     QString file;
+
+    std::srand(time(NULL));
+
+    level=rand()%5;
+
+    if(level == 0)
+    {
+        file = ":/levels/data/level0.txt";
+    }
+
     if(level == 1)
     {
-        file = ":/Sound/data/level1.txt";
+        file = ":/levels/data/level1.txt";
     }
+
     if(level == 2)
     {
-        file = ":/Sound/data/level2.txt";
+        file = ":/levels/data/level2.txt";
     }
+
+    if(level == 3)
+    {
+        file = ":/levels/data/level3.txt";
+    }
+
+    if(level == 4)
+    {
+        file = ":/levels/data/level4.txt";
+    }
+
     QFile myFile(file);
     if (myFile.open(QIODevice::ReadOnly))
     {
@@ -56,7 +81,6 @@ void gridlayout::Build_Grid(int level)
             bricks_remaining++;
         }
         myFile.close();
-        qDebug()<<bricks_remaining;
     }
 }
 
