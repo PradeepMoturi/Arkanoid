@@ -41,6 +41,7 @@ public:
      */
     gridlayout(QGraphicsScene* curr,int level);
 
+    int bricks_remaining = 0;
 private:
 
     /*!

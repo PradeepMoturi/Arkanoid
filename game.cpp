@@ -39,7 +39,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "powerup.h"
 #include <algorithm>
 #include <math.h>
-
+#include <unistd.h>
 extern Paddle* paddle;
 
 Game::Game(QWidget *parent):QGraphicsView (parent)
@@ -91,7 +91,6 @@ void Game::build()
 
     //create a grid of blocks of size m*n
     grid = new gridlayout(scene,1);
-
     timer = new QTimer(this);
     timer->start(5);
 
@@ -185,9 +184,27 @@ void Game::remove_brick(Brick *brick)
                powerConnections(power);
         }
 
+        grid->bricks_remaining--;
         scene->removeItem(brick);
         delete brick;
+    };
+    if(grid->bricks_remaining==0)
+    {
+
+        usleep(1000);
+        for(unsigned long i = 0;i<worker_list.size();i++)
+        {
+            removeConnections(worker_list[i]);
+        }
+        balltothread.clear();
+        thread_map.clear();
+        emit(pausemusic());
+        EndMenu *emenu = new EndMenu();
+        this->hide();
+        emenu->show();
+
     }
+   // qDebug()<<grid->bricks_remaining<<"a''";
 }
 
 void Game::removepowerup(Powerup* power)
@@ -261,8 +278,10 @@ void Game::brick_collision(Ball* nball)
                         nball->set_xvelocity(false);
                     }
                 }
-
-                score->increase();
+                if(brick->getHits()==1)
+                {
+                    score->increase();
+                }
                 emit(brick_sound());
 
                 remove_brick(brick);

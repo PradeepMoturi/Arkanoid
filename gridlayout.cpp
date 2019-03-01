@@ -21,10 +21,12 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <QtMath>
 #include <QFile>
 #include <QTextStream>
-
+#include <QDebug>
 gridlayout::gridlayout(QGraphicsScene* curr,int level)
 {
     scene = curr;
+    bricks_remaining = 0;
+
     Build_Grid(level);
 }
 
@@ -51,8 +53,10 @@ void gridlayout::Build_Grid(int level)
             Brick *brick=new Brick(point[0].toInt(),point[1].toInt());
             brick->setPos(point[2].toDouble(),point[3].toDouble());
             scene->addItem(brick);
+            bricks_remaining++;
         }
         myFile.close();
+        qDebug()<<bricks_remaining;
     }
 }
 
