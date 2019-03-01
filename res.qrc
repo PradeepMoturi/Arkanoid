@@ -1,7 +1,7 @@
 <RCC>
     <qresource prefix="/Sound">
-        <file>data/bgm.mp3</file>
-        <file>data/Sounds/brickNoise.wav</file>
+        <file>data/Sounds/brickNoise.mp3</file>
+        <file>data/Sounds/bgm.mp3</file>
     </qresource>
     <qresource prefix="/Images">
         <file>data/Images/Main_Menu_BG.jpg</file>

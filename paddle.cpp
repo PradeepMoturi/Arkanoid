@@ -27,7 +27,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <QtGlobal>
 #include "powerup.h"
 #include <math.h>
-
 extern Game* game;
 
 Paddle::Paddle(QGraphicsItem *parent):QGraphicsRectItem (parent)
@@ -83,13 +82,11 @@ void Paddle::timerEvent(QTimerEvent *)
             {
                 paddle_width = 100;
                 this->setRect(25,0,paddle_width,paddle_height);
-//              this->move_paddle(25);
             }
             if(paddle_width<99)
             {
                 paddle_width = 100;
                 this->setRect(-25,0,paddle_width,paddle_height);
-//              this->move_paddle(-25);
             }
         }
     }
@@ -147,14 +144,12 @@ void Paddle::CollisionChecker()
                 cnt = 1;
                 paddle_width = 150;
                 this->setRect(-25,0,paddle_width,paddle_height);
-//                this->move_paddle(-25);
             }
             if(power->powerup_id == 3)
             {
                 cnt = 1;
                 paddle_width = 50;
                 this->setRect(25,0,paddle_width,paddle_height);
-//                this->move_paddle(25);
             }
             if(power->powerup_id==4)
             {

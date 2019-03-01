@@ -22,10 +22,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 BackgroundMusic::BackgroundMusic()
 {
     player = new QMediaPlayer();
-    player->setMedia(QUrl("qrc:/Sound/data/bgm.mp3"));
+    player->setMedia(QUrl("qrc:/Sound/data/Sounds/bgm.mp3"));
 
     brickNoise = new QMediaPlayer();
-    brickNoise->setMedia(QUrl("qrc:/Sound/data/Sounds/brickNoise.wav"));
+    brickNoise->setMedia(QUrl("qrc:/Sound/data/Sounds/brickNoise.mp3"));
+    brickNoise->setVolume(15);
 }
 void BackgroundMusic::run()
 {
