@@ -22,13 +22,39 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 #include "brick.h"
 #include <QGraphicsScene>
+
+/*!
+ * \brief The gridlayout class
+ *
+ * This class creates a grid of bricks in the scene
+ */
+
 class gridlayout
 {
 public:
+    /*!
+     * \brief gridlayout
+     *
+     * This constructor takes in the scene and level of the game as input.
+     * \param curr stores the current scene where this grid needs to be placed.
+     * \param level refers to the level id that needs to be mapped from the text file.
+     */
     gridlayout(QGraphicsScene* curr,int level);
 
 private:
+
+    /*!
+     * \brief scene
+     *
+     * scene holds the variable
+     */
     QGraphicsScene* scene;
+    /*!
+     * \brief Build_Grid
+     *
+     * This function takes in the level as the input and displays the grid in the scene.
+     * \param level
+     */
     void Build_Grid(int level);
 };
 #endif // GRIDLAYOUT_H

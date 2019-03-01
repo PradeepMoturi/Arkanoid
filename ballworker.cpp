@@ -23,16 +23,14 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include "ballworker.h"
 #include "brick.h"
 
-ballworker::ballworker(QGraphicsScene* curr,Ball* b)
+ballworker::ballworker(QGraphicsScene* curr,Ball* new_ball)
 {
     screen_width = curr->width();
     screen_height = curr->height();
-    ball = b;
-    screen_width = 700;
-    screen_height = 700;
+    ball = new_ball;
+
 }
 
-ballworker ::~ballworker(){}
 
 void ballworker::ball_move()
 {

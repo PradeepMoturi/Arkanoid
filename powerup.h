@@ -23,23 +23,68 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 #include <QGraphicsItem>
 #include <QGraphicsRectItem>
 
+/*!
+ * \brief The Powerup class
+ *
+ * This class creates a new Powerup class, sets the position and movement of
+ * the object to the scene.
+ */
+
 class Powerup:public QObject,public QGraphicsRectItem
 {
     Q_OBJECT
 public:
+
+    /*!
+     * \brief Powerup
+     * \param parent parent pointer is set to nullptr
+     *
+     * This constructor sets the velocity of the powerup, sets the dimensions of the powerup object
+     * brushes it in green.
+     */
     Powerup(QGraphicsItem* parent = nullptr);
+
+    /*!
+     * \brief set
+     * \param id
+     * \param x
+     * \param y
+     *
+     * This member function sets up the id, x and y as co-ordinates for the powerup.
+     */
     void set(int id, double x, double y);
-    int powerup_id;
+    int powerup_id; /*!<stores the powerup id*/
+
+    /*!
+     * \brief getwidth
+     * \return returns the width of the paddle.
+     */
     double getwidth();
+
+    /*!
+     * \brief getheight
+     * \return returns the height of the paddle.
+     */
     double getheight();
 private:
-    double x_velocity;
-    double y_velocity;
-    double powerup_width;
-    double powerup_height;
+    double x_velocity; /*!<stores the x direction velocity */
+    double y_velocity; /*!<stores the y direction velocity*/
+    double powerup_width;/*!<stores the powerup width*/
+    double powerup_height; /*!<stores the powerup height*/
 signals:
+    /*!
+     * \brief remove_connection
+     *
+     * This signal sends a signal remove_connection to trigger the removal of powerup.
+     */
     void remove_connection(Powerup*);
 public slots:
+    /*!
+     * \brief powerup_move
+     *
+     * This slot is triggered when it takes the timer timerout signal and it moves down
+     * the powerup.
+     */
     void powerup_move();
 };
 
