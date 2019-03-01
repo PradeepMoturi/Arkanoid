@@ -3,17 +3,31 @@
 
 #include <QPushButton>
 
+/*!
+ * \brief The CustomButton class
+ *
+ * This class is used to create Pushbutton.
+ */
 class CustomButton: public QPushButton
 {
 Q_OBJECT
 
 public:
-    CustomButton();
+    /*!
+     * \brief CustomButton
+     * \param textValue
+     *
+     * It is the constructor of the CustomButton class.
+     * It takes String as an argument and create a PushButton for the argument.
+     */
     CustomButton(const QString textValue);
-    CustomButton(const QString textValue, QWidget* paren);
-    CustomButton(QWidget* paren);
 
 public slots:
+    /*!
+     * \brief changeColor
+     *
+     * It changes the colour of the button to yellow when pressed.
+     */
     void changeColor();
 };
 

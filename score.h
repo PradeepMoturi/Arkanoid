@@ -22,13 +22,42 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 #include <QGraphicsTextItem>
 
+/*!
+ * \brief The Score class
+ *
+ *It is used to computing the Score in the game.
+ */
 class Score: public QGraphicsTextItem
 {
 public:
+    /*!
+     * \brief Score
+     * \param parent
+     *
+     * It is the constructor of the Score class.
+     */
     Score(QGraphicsItem * parent = nullptr);
+
+    /*!
+     * \brief increase
+     *
+     * It increases the score by 1 when ball hits a brick.
+     */
     void increase();
+
+    /*!
+     * \brief getscore
+     * \return
+     *
+     * It returns the Score in the integer format.
+     */
     int getscore();
 private:
+    /*!
+     * \brief score
+     *
+     * This variable stores the Score.
+     */
     int score;
 };
 
