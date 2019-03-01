@@ -1,8 +1,8 @@
 <RCC>
     <qresource prefix="/Sound">
-        <file>data/bgm.mp3</file>
         <file>data/level1.txt</file>
-        <file>data/Sounds/brickNoise.wav</file>
+        <file>data/Sounds/brickNoise.mp3</file>
+        <file>data/Sounds/bgm.mp3</file>
     </qresource>
     <qresource prefix="/Images">
         <file>background_space.jpg</file>
