@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/IITH-SBJoshi/concurrency-1.svg?token=JK5sno96fVU153e4EcdP&branch=dev)](https://travis-ci.com/IITH-SBJoshi/concurrency-1)
+[![Build Status](https://travis-ci.com/UditManiyar/Arkanoid.svg?branch=master)](https://travis-ci.com/UditManiyar/Arkanoid)
 [![License: LGPL v3](https://img.shields.io/badge/License-LGPL%20v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)
 # Arkanoid
 ---------
@@ -29,7 +29,7 @@ Current maintainers:
 
 Contributing
 -----------
-If you would like to contribute to this project, we have a helpful [Documentation for Developers](https://iith-sbjoshi.github.io/concurrency-1/).
+If you would like to contribute to this project, we have a helpful [Documentation for Developers](https://uditmaniyar.github.io/Arkanoid/).
 
 
 License
